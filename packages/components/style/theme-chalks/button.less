@@ -1,7 +1,6 @@
 @import '../mixn/index.less';
 @plugin "../plugin/index";
 
-@ns: 'vc-button';
 @typeList: primary, warning, danger;
 
 @sizeSet: {
@@ -98,9 +97,17 @@
 			}
 		});
 		.bIs(@type, loading, {
+			&{
+				opacity: 1;
+			}
 			&,&:hover,
 			&:focus, &:active{
+				--vc-button-font-color: getClrVar(white);
 				--vc-button-bg-color: getClrVar(@type, light);
+			}
+			&:hover,
+			&:focus, &:active{
+				opacity: 0.65;
 			}
 		});
 	});
@@ -162,7 +169,7 @@
 
 	// 主题色+幽灵按钮样式
 	each(@typeList, .(@type) {
-		.bWith (ghost, setBlockBlock(@ns, @type), {
+		.bWith(ghost, setBlockBlock("vc-button", @type), {
 			--vc-button-br-color: getClrVar(@type);
 			--vc-button-bg-color: transparent;
 			--vc-button-font-color: getClrVar(@type);
@@ -177,7 +184,7 @@
 	});
 
 	// 危险按钮--虚线框样式
-	.bWith(danger, setBlockBlock(@ns, dashed), {
+	.bWith(danger, setBlockBlock("vc-button", dashed), {
 		--vc-button-br-color: getClrVar(danger);
 		--vc-button-bg-color: transparent;
 		--vc-button-font-color: getClrVar(danger);
@@ -190,7 +197,7 @@
 		}
 	});
 	// 危险按钮--link样式
-	.bWith(danger, setBlockBlock(@ns, link), {
+	.bWith(danger, setBlockBlock("vc-button", link), {
 		--vc-button-font-color: getClrVar(danger);
 
 		&:hover,
@@ -199,8 +206,11 @@
 		}
 	});
 	// 危险按钮--text样式
-	.bWith(danger, setBlockBlock(@ns, text), {
+	.bWith(danger, setBlockBlock("vc-button", text), {
 		--vc-button-font-color: getClrVar(danger);
+		&:hover,&:focus,&:active{
+			--vc-button-bg-color:lighten(rgba(252,44,72,0.2),12%);
+		}
 	});
 	// disabled样式
 	each(@notAllowed, .(@status) {

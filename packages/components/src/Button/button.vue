@@ -60,4 +60,4 @@ const handleClick = (event: MouseEvent) => {
     emits("click", event)
 }
 
-</script>
+</script>./vc-button./vcButton./button./button

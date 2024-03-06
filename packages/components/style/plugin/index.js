@@ -28,7 +28,7 @@ const is = function (s) {
 
 // eslint-disable-line
 registerPlugin({
-	install: function (less, pluginManager, functions) {
+	install: (less, pluginManager, functions) => {
 		functions.add('getVar', getVar);
 		functions.add('getClrVar', getClrVar);
 		functions.add('setBlock', setBlock);

@@ -34,7 +34,7 @@ export const routes: Array<RouteRecordRaw> = [
 				path: 'button',
 				name: 'button',
 				meta: { title: '按钮' },
-				component: () => import('../view/button/index.vue'),
+				component: () => import('../view/buttons/index.vue'),
 			},
 			{
 				path: 'calendar',

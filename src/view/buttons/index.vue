@@ -51,9 +51,10 @@
                 <vc-button size="large" type="text">text</vc-button>
             </div>
             <div class="vc-demo">
-                <vc-button type="dashed" danger>danger-dashed</vc-button>
-                <vc-button type="link" danger>danger-link</vc-button>
-                <vc-button type="text" danger>danger-text</vc-button>
+                <vc-button type="dashed" danger>dashed</vc-button>
+                <vc-button type="dashed" danger loading>loading</vc-button>
+                <vc-button type="link" danger>link</vc-button>
+                <vc-button type="text" danger>text</vc-button>
             </div>
             <div class="vc-demo">
                 <vc-button disabled>default</vc-button>
@@ -65,11 +66,13 @@
             </div>
             <div class="vc-demo" style="width:100%;background-color: rgb(190, 200, 200)">
                 <vc-button ghost>ghost</vc-button>
-                <vc-button type="ghost">type="ghost"</vc-button>
-                <vc-button type="primary" ghost>type="primary"</vc-button>
-                <vc-button type="danger" ghost>type="danger"</vc-button>
-                <vc-button type="dashed" ghost>type="dashed"</vc-button>
-                <vc-button type="ghost" disabled>ghost-disabled</vc-button>
+                <vc-button type="ghost">type</vc-button>
+                <vc-button type="primary" ghost>primary</vc-button>
+                <vc-button type="primary" ghost loading>primary-loading</vc-button>
+                <vc-button type="danger" ghost>danger</vc-button>
+                <vc-button type="danger" ghost loading>danger-loading</vc-button>
+                <vc-button type="dashed" ghost>dashed</vc-button>
+                <vc-button type="ghost" disabled>disabled</vc-button>
                 <vc-button ghost loading></vc-button>
             </div>
         </div>
@@ -77,9 +80,8 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
 defineOptions({
-    name: "button"
+    name: "buttons"
 })
 </script>
 
