@@ -1,10 +1,3 @@
-/*
- * @Date: 2023-10-20 13:44:36
- * @Auth: 2659946805@qq.com
- * @LastEditors: 2659946805@qq.com
- * @LastEditTime: 2023-10-20 14:06:14
- * @FilePath: \various-curious-ui\commitlint.config.cjs
- */
 // eslint-disable-next-line no-undef
 module.exports = {
   extends: ['@commitlint/config-conventional'],

@@ -1,10 +1,3 @@
-/*
- * @Date: 2023-10-31 16:46:45
- * @Auth: 2659946805@qq.com
- * @LastEditors: 873768511@qq.com
- * @LastEditTime: 2023-11-09 09:12:39
- * @FilePath: \various-curious-ui\src\router\index.ts
- */
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router';
 
 // 2. 定义一些路由：每个路由都需要映射到一个组件。

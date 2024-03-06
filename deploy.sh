@@ -1,11 +1,4 @@
 #!/usr/bin/env sh
-###
- # @Date: 2023-10-18 15:58:56
- # @Auth: 2659946805@qq.com
- # @LastEditors: 2659946805@qq.com
- # @LastEditTime: 2023-10-18 16:06:54
- # @FilePath: \various-curious-ui\deploy.sh
-### 
  
 # 忽略错误
 set -e  #有错误抛出错误
@@ -19,9 +12,9 @@ cd docs/.vitepress/dist  #进到dist目录
  
 git init  #执行这些git命令
 git add -A
-git commit -m 'deploy'
+git commit -m '[类型]: 备注'
  
-git push -f git@github.com:lan-an/various-curious-ui.git master:gh-pages  #提交到这个分支
+git push -f https://gitee.com/jueyixi/various-curious-ui.git master  #提交到这个分支
  
 cd -
  

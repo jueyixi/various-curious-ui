@@ -1,4 +1,3 @@
-import { log } from 'console';
 import { useDayjs } from './useDayjs.js';
 export const useCalendar = (type = 'week', multiple?: Boolean) => {	
 	const dayjs = useDayjs();

@@ -1,11 +1,3 @@
-<!--
- * @Date: 2023-10-18 13:01:07
- * @Auth: 2659946805@qq.com
- * @LastEditors: 2659946805@qq.com
- * @LastEditTime: 2023-11-10 17:25:27
- * @FilePath: \various-curious-ui\docs\guide\method.md
--->
-
 # 快速上手
 
 ## 安装
@@ -14,12 +6,12 @@
 ::: code-group
 
 ```shell [pnpm]
-pnpm install dc-pro-component
+pnpm install various-curious-ui
 
 ```
 
 ```shell [npm]
-npm install dc-pro-component --save
+npm install various-curious-ui --save
 ```
 
 :::

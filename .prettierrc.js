@@ -1,10 +1,3 @@
-/*
- * @Date: 2023-10-19 09:53:16
- * @Auth: 2659946805@qq.com
- * @LastEditors: 2659946805@qq.com
- * @LastEditTime: 2023-11-01 18:06:16
- * @FilePath: \various-curious-ui\.prettierrc.js
- */
 module.exports = {
 	printWidth: 120, // 换行字符串阈值
 	tabWidth: 4, // 设置工具每一个水平缩进的空格数

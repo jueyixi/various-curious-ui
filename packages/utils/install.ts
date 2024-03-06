@@ -1,10 +1,3 @@
-/*
- * @Date: 2023-10-17 11:20:49
- * @Auth: 2659946805@qq.com
- * @LastEditors: 2659946805@qq.com
- * @LastEditTime: 2023-10-24 10:14:33
- * @FilePath: \various-curious-ui\packages\utils\install.ts
- */
 import type { SFCWithInstall } from './typescript';
 
 export const withInstall = <T, E extends Record<string, any>>(

@@ -1,11 +1,3 @@
-<!--
- * @Date: 2023-10-17 15:20:53
- * @Auth: 2659946805@qq.com
- * @LastEditors: 2659946805@qq.com
- * @LastEditTime: 2023-10-23 17:58:33
- * @FilePath: \various-curious-ui\README.md
--->
-
 # various-curios-ui
 
 _该组件库采用 `Vue3`+ `Vite`实现！_<br/>
@@ -13,7 +5,7 @@ _持续探索更新中...！_<br/>
 
 ## Document & Online preview
 
-[various-curios-ui](https://lan-an.github.io/various-curious-ui/)
+[various-curios-ui](https://gitee.com/jueyixi/various-curious-ui)
 
 ## Install & Use
 
@@ -52,13 +44,13 @@ import { Button } from 'various-curios-ui'
 - Get the project code
 
 ```sh
-git clone https://github.com/lan-an/various-curious-ui.git
+git clone https://gitee.com/jueyixi/various-curious-ui.git
 ```
 
 - Install dependencies
 
 ```sh
-cd dc
+cd vc
 
 pnpm i
 ```

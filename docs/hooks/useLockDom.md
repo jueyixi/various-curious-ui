@@ -20,7 +20,7 @@
 <d-button @click="handleClick"   type="primary" >{{!flag?'关闭':'打开'}}</d-button>
 
 <script lang="ts" setup>
-  import { useLockDom } from 'dc-hooks';
+  import { useLockDom } from 'vc-hooks';
   import {ref } from 'vue';
   const flag = ref(false)
     const handleClick=()=>{
@@ -35,7 +35,7 @@
 ::: details Show Code
 ```vue
 <script>
-import { useLockDom } from 'dc-hooks';
+import { useLockDom } from 'vc-hooks';
   import {ref } from 'vue';
   const flag = ref(false)
     const handleClick=()=>{

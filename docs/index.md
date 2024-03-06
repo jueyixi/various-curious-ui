@@ -2,7 +2,7 @@
 layout: home
 
 hero:
-  name: DcqcComponent
+  name: VariousCuriousComponents
   text: Vite & Vue powered static site generator.
   tagline: Lorem ipsum...
   image:
@@ -14,13 +14,13 @@ hero:
       link: /guide/method
     - theme: alt
 
-      text: View on GitHub
-      link: https://github.com/lan-an/various-curious-ui
+      text: View on Gitee
+      link: https://gitee.com/jueyixi/various-curious-ui
 
 features:
   - icon: 🛠️
     title: 开发依赖
-    details: 采用 Vue + antd + Vite + pnpm包管理 实现
+    details: 采用 Vue3.0 + Vite + pnpm包管理 实现
   - icon: ⚡️
     title: 软依赖
     details: 所有依赖均采用软链接

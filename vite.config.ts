@@ -1,10 +1,3 @@
-/*
- * @Date: 2023-10-17 11:29:11
- * @Auth: 2659946805@qq.com
- * @LastEditors: 873768511@qq.com
- * @LastEditTime: 2023-11-13 14:13:34
- * @FilePath: \various-curious-ui\vite.config.ts
- */
 import { defineConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
 import path from 'path'
@@ -32,7 +25,7 @@ export default defineConfig({
 		},
 	},
 	server: {
-		host: true,
+		host: "192.168.1.30",
 		open: true,
 		port:8081
 	},

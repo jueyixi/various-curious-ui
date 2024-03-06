@@ -1,10 +1,3 @@
-/*
- * @Date: 2023-10-20 13:47:35
- * @Auth: 2659946805@qq.com
- * @LastEditors: 2659946805@qq.com
- * @LastEditTime: 2023-10-20 13:47:40
- * @FilePath: \various-curious-ui\scripts\preinstall.js
- */
 // eslint-disable-next-line no-undef
 if (!/pnpm/.test(process.env.npm_execpath || '')) {
   console.warn(

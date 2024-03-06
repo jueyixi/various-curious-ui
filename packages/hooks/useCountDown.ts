@@ -1,10 +1,3 @@
-/*
- * @Date: 2023-11-13 09:26:26
- * @Author: liu-hongrui
- * @LastEditors: liu-hongrui
- * @LastEditTime: 2023-11-13 09:32:56
- * @FilePath: \various-curious-ui\packages\hooks\useCountDown\index.ts
- */
 
 /**
  *  倒计时

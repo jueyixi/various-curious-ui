@@ -1,10 +1,3 @@
-/*
- * @Date: 2023-10-20 11:36:54
- * @Auth: 2659946805@qq.com
- * @LastEditors: 2659946805@qq.com
- * @LastEditTime: 2023-10-20 13:34:14
- * @FilePath: \various-curious-ui\.eslintrc.js
- */
 /* eslint-env node */
 /* eslint-disable no-new */
 require('@rushstack/eslint-patch/modern-module-resolution');

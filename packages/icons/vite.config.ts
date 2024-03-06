@@ -1,10 +1,3 @@
-/*
- * @Date: 2023-10-17 14:04:27
- * @Auth: 2659946805@qq.com
- * @LastEditors: 2659946805@qq.com
- * @LastEditTime: 2023-11-10 17:12:43
- * @FilePath: \various-curious-ui\packages\components\vite.config.ts
- */
 import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
 import dts from 'vite-plugin-dts';

@@ -1,5 +1,5 @@
 import DefaultTheme from 'vitepress/theme';
-import * as dc from 'dc-pro-component';
+import * as vc from 'various-curious-ui';
 import * as examples from '../example';
 import { createRouter, createWebHistory } from 'vue-router';
 
@@ -7,7 +7,7 @@ import { createRouter, createWebHistory } from 'vue-router';
 export default {
   ...DefaultTheme,
   enhanceApp: async ({ app }) => {
-    app.use(dc);
+    app.use(vc);
     examples.default.map((item) => {
       item.forEach((each) => {
         app.component(`${each.__name}`, each);
