@@ -1,0 +1,25 @@
+@import '../mixn/index.less';
+@plugin "../plugin/index";
+
+@ns: 'vc-progress';
+
+.@{componentPrefix}-progress {
+	//base
+	& {
+		width: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		&-bg {
+			background:var(--vc-color-background-default);
+			flex: 1;
+		}
+		&-bar {
+			background: var(--vc-color-primary);
+		}
+		&-text {
+			margin-left: 10px;
+			font-size: 12px;
+		}
+	}
+}

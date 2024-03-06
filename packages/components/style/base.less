@@ -1,0 +1,153 @@
+@val: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 18, 20, 24, 28, 30, 32, 40, 50, 60;
+
+each(@val, {
+  //margin
+  .vc-mt-@{value} {
+    margin-top:@value * 1px;
+  }
+  .vc-mr-@{value} {
+    margin-right:@value * 1px;
+  }
+  .vc-mb-@{value} {
+    margin-bottom:@value * 1px;
+  }
+  .vc-ml-@{value} {
+    margin-left:@value * 1px;
+  }
+  .vc-mtb-@{value} {
+    margin:@value * 1px 0;
+  }
+  .vc-mlr-@{value} {
+    margin:0 @value * 1px;
+  }
+  .vc-m-@{value} {
+    margin:@value * 1px;
+  }
+
+  //padding
+  .vc-pt-@{value} {
+    padding-top:@value * 1px;
+  }
+  .vc-pr-@{value} {
+    padding-right:@value * 1px;
+  }
+  .vc-pb-@{value} {
+    padding-bottom:@value * 1px;
+  }
+  .vc-pl-@{value} {
+    padding-left:@value * 1px;
+  }
+  .vc-ptb-@{value} {
+    padding: @value * 1px 0;
+  }
+  .vc-plr-@{value} {
+    padding: 0 @value * 1px;
+  }
+  .vc-p-@{value} {
+    padding: @value * 1px;
+  }
+  
+  .vc-fs-@{value}{
+    font-size:@value * 1px;
+  }
+});
+
+.vc-text-right {
+	text-align: right;
+}
+
+.vc-flex {
+	display: flex;
+}
+.vc-flex-wrap {
+	flex-wrap: wrap;
+}
+
+.vc-flex-column {
+	display: flex;
+	flex-direction: column;
+}
+
+.vc-flex-center {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.vc-align-start {
+	align-items: start;
+}
+
+.vc-align-center {
+	align-items: center;
+}
+
+.vc-align-end {
+	align-items: end;
+}
+
+.vc-justify-start {
+	justify-content: start;
+}
+
+.vc-justify-center {
+	justify-content: center;
+}
+
+.vc-justify-end {
+	justify-content: end;
+}
+
+.vc-justify-between {
+	justify-content: space-between;
+}
+
+.vc-justify-around {
+	justify-content: space-around;
+}
+
+.vc-justify-evenly {
+	justify-content: space-evenly;
+}
+
+.vc-flex-auto {
+	flex: auto;
+}
+
+.vc-pointer {
+	cursor: pointer;
+}
+
+.vc-primary {
+	color: var(--vc-color-primary);
+}
+
+.vc-success {
+	color: var(--vc-color-success);
+}
+
+.vc-warning {
+	color: var(--vc-color-warning);
+}
+
+.vc-danger {
+	color: var(--vc-color-danger);
+}
+
+.vc-icon{
+	&,
+	&:hover,
+	&:focus,
+	&:hover,
+	&:active {
+		color: inherit;
+		vertical-align: -0.125em;
+		width: 1em;
+		height: 1em;
+		font-size: 1em;
+	}
+}
+
+.is-rotating{
+  .is-rotating
+}

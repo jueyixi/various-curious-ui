@@ -1,37 +1,83 @@
-# various-curious-ui
+<!--
+ * @Date: 2023-10-17 15:20:53
+ * @Auth: 2659946805@qq.com
+ * @LastEditors: 2659946805@qq.com
+ * @LastEditTime: 2023-10-23 17:58:33
+ * @FilePath: \various-curious-ui\README.md
+-->
 
-#### 介绍
-一个vue3+vite组件库，源码地址：https://gitee.com/jueyixi/various-curious-ui
+# various-curios-ui
 
-#### 软件架构
-软件架构说明
+_该组件库采用 `Vue3`+ `Vite`实现！_<br/>
+_持续探索更新中...！_<br/>
 
+## Document & Online preview
 
-#### 安装教程
+[various-curios-ui](https://lan-an.github.io/various-curious-ui/)
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+## Install & Use
 
-#### 使用说明
+```bash
+pnpm i various-curios-ui
+# or
+npm install various-curios-ui
+# or
+yarn add various-curios-ui
+```
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+Import and register component
 
-#### 参与贡献
+**Global**
 
-1.  Fork 本仓库
-2.  新建 Feat_xxx 分支
-3.  提交代码
-4.  新建 Pull Request
+```ts
+import { createApp } from 'vue'
+import App from './App.vue'
 
+import VC from 'various-curios-ui'
 
-#### 特技
+const app = createApp(App)
+app.use(VC)
+```
 
-1.  使用 Readme\_XXX.md 来支持不同的语言，例如 Readme\_en.md, Readme\_zh.md
-2.  Gitee 官方博客 [blog.gitee.com](https://blog.gitee.com)
-3.  你可以 [https://gitee.com/explore](https://gitee.com/explore) 这个地址来了解 Gitee 上的优秀开源项目
-4.  [GVP](https://gitee.com/gvp) 全称是 Gitee 最有价值开源项目，是综合评定出的优秀开源项目
-5.  Gitee 官方提供的使用手册 [https://gitee.com/help](https://gitee.com/help)
-6.  Gitee 封面人物是一档用来展示 Gitee 会员风采的栏目 [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)
+**Local**
+
+```vue
+<script setup>
+import { Button } from 'various-curios-ui'
+</script>
+```
+
+## Project
+
+- Get the project code
+
+```sh
+git clone https://github.com/lan-an/various-curious-ui.git
+```
+
+- Install dependencies
+
+```sh
+cd dc
+
+pnpm i
+```
+
+- Run project
+
+```sh
+pnpm dev
+```
+
+<div>
+
+```vue
+<script setup>
+//上线修改package.json
+//"main": "lib/index.js",
+//"module": "es/index.js",
+//复盘任务
+</script>
+```
+
+</div>

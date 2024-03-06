@@ -1,0 +1,76 @@
+.flex-row-center-center() {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+.flex-row-start-center() {
+    .flex-row-center-center();
+    justify-content: flex-start;
+}
+
+.filter-overflow() {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+//使用flex布局，center center
+.useFlexRCC(@gap:0, @unit:px) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    gap: ~"@{gap}@{unit}";
+
+}
+
+.useModal(){
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+}
+
+
+//使用flex布局，center center
+.useIFlexRCC(@gap:0, @unit:px) {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    gap: ~"@{gap}@{unit}";
+}
+
+
+.useSizeLarge(@a:12, @b:20, @u:px) {
+    min-height: var(--vc-component-height-large);
+    font-size: var(--vc-font-size-large);
+    padding: ~"@{a}@{u} @{b}@{u}";
+}
+
+.useSizeDft(@a:8, @b:12, @u:px) {
+    min-height: var(--vc-component-height);
+    font-size: var(--vc-font-size-default);
+    padding: ~"@{a}@{u} @{b}@{u}";
+}
+
+.useSizeSmall(@a:6, @b:10, @u:px) {
+    min-height: var(--vc-component-height-small);
+    font-size: var(--vc-font-size-small);
+    padding: ~"@{a}@{u} @{b}@{u}";
+}
+
+.useSizeMini(@a:4, @b:8, @u:px) {
+    min-height: var(--vc-component-height-mini);
+    font-size: var(--vc-font-size-small);
+    padding: ~"@{a}@{u} @{b}@{u}";
+}
+
+.useSizePadding(@a:5,@b:10,@u:px){
+    padding: ~"@{a}@{u} @{b}@{u}";
+}

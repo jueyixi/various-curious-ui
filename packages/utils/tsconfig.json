@@ -1,0 +1,10 @@
+{
+  "include": ["env.d.ts","./*.ts"],
+  "compilerOptions": {
+    "ignoreDeprecations": "5.0",
+    "isolatedModules": true,
+    "baseUrl": "./",
+    "forceConsistentCasingInFileNames": false,
+    "noUnusedLocals": false,
+  }
+}

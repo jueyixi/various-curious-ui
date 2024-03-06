@@ -1,0 +1,118 @@
+.with(@v, @r:{}) {
+    &.@{v} {
+        @r();
+    }
+}
+
+
+
+.is(@s, @r:{}) {
+    &.is-@{s} {
+        @r();
+    }
+
+}
+
+
+.d(@d, @r:{}, @ns:never) {
+    & when (@ns = never) {
+        .@{d} {
+            @r();
+
+        }
+    }
+    & when not (@ns = never) {
+        .@{ns}-@{d} {
+            @r();
+        }
+    }
+
+}
+
+
+.b(@b, @r:{}, @ns:never) {
+    & when not (@ns = never) {
+        .@{ns}-@{b} {
+            @r();
+        }
+    }
+    & when (@ns = never) {
+        &-@{b} {
+            @r();
+        }
+    }
+
+}
+
+.e(@e, @r:{}, @ns:never) {
+    & when not (@ns = never) {
+        .@{ns}__@{e} {
+            @r();
+        }
+    }
+    & when (@ns = never) {
+        &__@{e} {
+            @r();
+        }
+    }
+
+}
+
+
+.m(@m, @r:{}, @ns:never) {
+    & when not (@ns = never) {
+        .@{ns}--@{m} {
+            @r();
+        }
+    }
+    & when (@ns = never) {
+        &--@{m} {
+            @r();
+        }
+    }
+
+}
+
+
+.bm(@b, @m, @r:{}) {
+    &-@{b}--@{m} {
+        @r();
+    }
+}
+
+.be(@b, @e, @r:{}) {
+    &-@{b}__@{e} {
+        @r();
+    }
+}
+
+.em(@e, @m, @r:{}) {
+    &__@{e}--@{m} {
+        @r();
+    }
+}
+
+.bIs(@block, @status, @rules: {}) {
+    &-@{block}.is-@{status} {
+        @rules();
+    }
+}
+
+
+.mIs(@modifier, @status, @rules:{}) {
+    &--@{modifier}.is-@{status} {
+        @rules();
+    }
+}
+
+.bWith(@block, @a, @rules:{}) {
+    &-@{block}.@{a} {
+        @rules();
+    }
+}
+
+.mWith (@modifier, @a, @rules: {}) {
+    &--@{modifier}.@{a} {
+        @rules();
+    }
+}

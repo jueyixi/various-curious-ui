@@ -1,0 +1,26 @@
+{
+  "name": "various-curious-ui",
+  "version": "1.0.0-beta",
+  "description": "一个适用于vue3项目的组件库。",
+  "main": "src/index.ts",
+  "files": [
+    "es",
+    "lib"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "vite build"
+  },
+  "keywords": [
+    "vue",
+    "vue3",
+    "vite",
+    "ui",
+    "vc-ui"
+  ],
+  "author": "jueyixi",
+  "license": "MIT",
+  "dependencies": {
+    "vite-plugin-vue-setup-extend": "^0.4.0"
+  }
+}

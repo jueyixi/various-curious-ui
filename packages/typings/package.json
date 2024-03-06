@@ -1,0 +1,7 @@
+{
+  "name": "@various-curious-ui/typings",
+  "private": true,
+  "license": "MIT",
+  "main": "index.ts",
+  "sideEffects": false
+}

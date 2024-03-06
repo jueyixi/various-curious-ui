@@ -1,0 +1,33 @@
+@import '../mixn/index.less';
+@plugin "../plugin/index";
+
+.@{componentPrefix}-button-group {
+
+	//base
+	& {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		.vc-button:not(:first-child,:last-child){
+			border-radius: 0;
+		}
+		.vc-button:first-child{
+			border-right-color: transparent;
+			border-top-right-radius: 0;
+			border-bottom-right-radius: 0;
+			&:focus,&:hover,&:active{
+				border-right-color:var(--vc-button-br-color);
+			}
+		}
+		.vc-button:last-child {
+			border-left-color: transparent;
+			border-top-left-radius: 0;
+			border-bottom-left-radius: 0;
+			&:focus,&:hover,&:active{
+				border-left-color:var(--vc-button-br-color);
+			}
+
+		}
+	}
+	
+}

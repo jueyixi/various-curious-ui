@@ -1,0 +1,95 @@
+@gray-26: #262a30;
+@gray-31: #313233;
+@gray-5c: #5c626b;
+@gray-62: #626366;
+@gray-93: #939599;
+@gray-95: #959ba3;
+@gray-a3: #a3b1cc;
+@gray-c6: #c6c8cc;
+@gray-df: #dfdfdf;
+@gray-eb: #ebeef5;
+@gray-ee: #eeeeee;
+@gray-f6: #f6f6f6;
+@gray-f0: #f0f0f0;
+
+:root {
+	--body-background: #ffffff;
+	--font-size-base: 14px;
+	--font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans',
+		sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+	--text-color: rgba(0, 0, 0, 0.88);
+	--line-height-base: 1.5714285714285714;
+	--box-shadow-base: 0 1px 2px 0 rgba(0, 0, 0, 0.03), 0 1px 6px -1px rgba(0, 0, 0, 0.02),
+		W 0 2px 4px 0 rgba(0, 0, 0, 0.02);
+
+	// --animation-duration-base: 0.3s;
+	// --ease-in-out-circ: cubic-bezier(0.78, 0.14, 0.15, 0.86);
+	// --ease-in-out: cubic-bezier(0.645, 0.045, 0.355, 1);
+
+	--vc-color-default-dark-deep: darken(#eeeff1, 5%);
+	--vc-color-default-dark: darken(#eeeff1, 1%);
+	--vc-color-default: #eeeff1;
+	--vc-color-default-light: lighten(#eeeff1, 1%);
+
+	--vc-color-primary-dark: darken(#1890ff, 5%);
+	--vc-color-primary: lighten(#1890ff, 5%);
+	--vc-color-primary-light: lighten(#1890ff, 12%);
+	--vc-color-primary-lighter: lighten(#1890ff, 20%);
+	--vc-color-primary-fade: lighten(#1890ff, 36%);
+
+	--vc-color-success-dark: darken(#3cc251, 20%);
+	--vc-color-success: darken(#3cc251, 15%);
+	--vc-color-success-light: darken(#3cc251, 10%);
+	--vc-color-success-lighter: darken(#3cc251, 0%);
+	--vc-color-success-fade: lighten(#3cc251, 35%);
+
+	--vc-color-warning-dark: darken(#ff8948, 8%);
+	--vc-color-warning: lighten(#ff8948, 5%);
+	--vc-color-warning-light: lighten(#ff8948, 15%);
+	--vc-color-warning-lighter: lighten(#ff8948, 25%);
+	--vc-color-warning-fade: lighten(#ff8948, 40%);
+
+	--vc-color-danger-dark: darken(#fc2c48, 5%);
+	--vc-color-danger: #fc2c48;
+	--vc-color-danger-light: lighten(#fc2c48, 12%);
+	--vc-color-danger-lighter: lighten(#fc2c48, 20%);
+	--vc-color-danger-fade: lighten(#fc2c48, 36%);
+
+	--vc-color-black-dark: darken(#000, 5%);
+	--vc-color-black: #000;
+	--vc-color-black-light: lighten(#000, 12%);
+	--vc-color-black-lighter: lighten(#000, 20%);
+	--vc-color-black-fade: lighten(#000, 36%);
+
+	--vc-color-gray-dark: darken(#dddee0, 5%);
+	--vc-color-gray-deep-dark: rgb(139, 139, 139);
+	--vc-color-gray: #dddee0;
+	--vc-color-gray-light: lighten(#dddee0, 12%);
+	--vc-color-gray-fade: rgb(235, 235, 235);
+	--vc-color-gray-deep-fade: rgb(240, 242, 245);
+
+	--vc-color-background-default:#f0f0f0;
+
+	--vc-color-white: #fff;
+
+	--vc-font-size-small: 12px;
+	--vc-font-size-default: 16px;
+	--vc-font-size-large: 20px;
+
+	--vc-component-background: #ffffff;
+
+	--vc-component-height-large: 40px;
+	--vc-component-height: 32px;
+	--vc-component-height-small: 24px;
+	--vc-component-height-mini: 20px;
+}
+
+html,
+body {
+	width: 100%;
+	height: 100%;
+	background-color: var(--body-background);
+	color: var(--text-color);
+	font-size: var(--font-size-base);
+	font-family: var(--font-family);
+}

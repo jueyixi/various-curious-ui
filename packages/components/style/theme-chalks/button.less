@@ -1,0 +1,241 @@
+@import '../mixn/index.less';
+@plugin "../plugin/index";
+
+@ns: 'vc-button';
+@typeList: primary, warning, danger;
+
+@sizeSet: {
+	mini: .useSizeMini();
+	small: .useSizeSmall();
+	middle: .useSizeDft();
+	large: .useSizeLarge();
+};
+
+@notAllowed: disabled;
+@noBrBgType:link,text;
+
+.@{componentPrefix}-button {
+	//mixin of notAllowed
+	.notAllowedMixin(@color, @bg, @br) {
+		&,
+		&:hover,
+		&:focus,
+		&:active {
+			--vc-button-font-color: @color;
+			--vc-button-bg-color: @bg;
+			--vc-button-br-color: @br;
+			cursor: not-allowed;
+		}
+	}
+
+	//var
+	& {
+		--vc-button-font-color: inherit;
+		--vc-button-bg-color: var(--vc-color-white);
+		--vc-button-br-color: var(--vc-color-gray);
+
+		--vc-button-padding-mini: 4px;
+		--vc-button-radius-mini: 8px;
+		--vc-button-padding-small: 6px;
+		--vc-button-radius-small: 12px;
+		--vc-button-padding-middle: 8px;
+		--vc-button-radius-middle: 16px;
+		--vc-button-padding-large: 12px;
+		--vc-button-radius-large: 24px;
+	}
+
+	//base
+	& {
+		.useIFlexRCC(4);
+		.useBorderBox();
+		.useBorderRadius(8);
+		width: max-content;
+
+		transition: all 0.15s;
+		user-select: none;
+		border: solid 1px;
+		outline: none;
+
+		color: var(--vc-button-font-color);
+		background-color: var(--vc-button-bg-color);
+		border-color: var(--vc-button-br-color);
+
+		cursor: pointer;
+
+		&:hover,
+		&:focus,
+		&:active {
+			--vc-button-font-color: var(--vc-color-primary-light);
+			--vc-button-br-color: var(--vc-color-primary-light);
+		}
+	}
+	// 默认loading样式
+	.is(loading,{
+		&,&:hover,
+		&:focus, &:active{
+			cursor: default;
+			--vc-button-font-color: inherit;
+			--vc-button-bg-color: var(--vc-color-white);
+			--vc-button-br-color: var(--vc-color-gray);
+		}
+	});
+
+	// 主题色样式--loading样式
+	each(@typeList, .(@type) {
+		.b(@type, {
+			--vc-button-font-color: getClrVar(white);
+			--vc-button-bg-color: getClrVar(@type);
+			--vc-button-br-color: getClrVar(@type);
+
+			&:hover,
+			&:focus {
+				--vc-button-font-color: getClrVar(white);
+				--vc-button-bg-color: getClrVar(@type, light); --vc-button-br-color: getClrVar(@type, light);
+			}
+
+			&:active {
+				--vc-button-bg-color: getClrVar(@type, dark); --vc-button-br-color: getClrVar(@type, dark);
+			}
+		});
+		.bIs(@type, loading, {
+			&,&:hover,
+			&:focus, &:active{
+				--vc-button-bg-color: getClrVar(@type, light);
+			}
+		});
+	});
+	// 幽灵主题样式
+
+	.b(ghost, {
+		--vc-button-br-color: getClrVar(white);
+		--vc-button-bg-color: transparent;
+		--vc-button-font-color: getClrVar(white);
+
+		&:hover,
+		&:focus, &:active {
+			--vc-button-font-color: var(--vc-color-primary-light);
+			--vc-button-br-color: var(--vc-color-primary-light);
+		}
+	});
+
+	// 幽灵主题样式 --- loading
+	.bIs(ghost, loading, {
+			&,&:hover,
+			&:focus, &:active{
+				--vc-button-bg-color: transparent;
+				--vc-button-font-color: getClrVar(white);
+			}
+		});
+
+	// 虚线框样式
+	.b(dashed, {
+		border-style: dashed;
+	});
+
+	// link类型样式
+	.b(link, {
+		--vc-button-font-color: var(--vc-color-primary);
+		--vc-button-br-color: transparent;
+		--vc-button-bg-color: transparent;
+
+		&:hover,
+		&:focus, &:active {
+			--vc-button-font-color: var(--vc-color-primary-lighter);
+			--vc-button-br-color: transparent;
+			--vc-button-bg-color: transparent;
+		}
+	});
+
+	// text类型样式
+	.b(text, {
+		--vc-button-br-color: transparent;
+		--vc-button-bg-color: transparent;
+		--vc-button-font-color:var(--vc-button-font-color);
+
+		&:hover,
+		&:focus, &:active {
+			--vc-button-br-color: transparent;
+			--vc-button-bg-color:getClrVar(gray, deep-fade);
+			--vc-button-font-color:var(--vc-button-font-color);
+		}
+	});
+
+	// 主题色+幽灵按钮样式
+	each(@typeList, .(@type) {
+		.bWith (ghost, setBlockBlock(@ns, @type), {
+			--vc-button-br-color: getClrVar(@type);
+			--vc-button-bg-color: transparent;
+			--vc-button-font-color: getClrVar(@type);
+
+			&:hover,
+			&:focus, &:active {
+				--vc-button-br-color: getClrVar(@type, light);
+				--vc-button-bg-color: transparent;
+				--vc-button-font-color: getClrVar(@type, light);
+			}
+		});
+	});
+
+	// 危险按钮--虚线框样式
+	.bWith(danger, setBlockBlock(@ns, dashed), {
+		--vc-button-br-color: getClrVar(danger);
+		--vc-button-bg-color: transparent;
+		--vc-button-font-color: getClrVar(danger);
+
+		&:hover,
+		&:focus, &:active {
+			--vc-button-br-color: getClrVar(danger, light);
+			--vc-button-bg-color: transparent;
+			--vc-button-font-color: getClrVar(danger, light);
+		}
+	});
+	// 危险按钮--link样式
+	.bWith(danger, setBlockBlock(@ns, link), {
+		--vc-button-font-color: getClrVar(danger);
+
+		&:hover,
+		&:focus, &:active {
+			--vc-button-font-color: getClrVar(danger, light);
+		}
+	});
+	// 危险按钮--text样式
+	.bWith(danger, setBlockBlock(@ns, text), {
+		--vc-button-font-color: getClrVar(danger);
+	});
+	// disabled样式
+	each(@notAllowed, .(@status) {
+		.is(@status, {
+			.notAllowedMixin(getClrVar(black,light), getClrVar(default), getClrVar(gray,dark));
+		});
+		each(@noBrBgType,.(@type){
+			.bIs(@type, @status, {
+				&,&:hover,
+				&:focus, &:active{
+					--vc-button-br-color:transparent;
+					--vc-button-bg-color:transparent;
+				}
+			});
+		})
+		.bIs(ghost, @status, {
+				&,&:hover,
+				&:focus, &:active{
+					.notAllowedMixin(getClrVar(black,light), transparent ,getClrVar(gray,fade));
+				}
+			});
+	}); 
+	//size样式--shape分类
+	each(@sizeSet, .(@rule, @key) {
+		.b(@key, {
+			@rule();
+
+			.is(round, {
+				border-radius: getVar("button", "radius", @key);
+			});
+
+			.is(circle, {
+				border-radius: 50%;
+				padding: getVar("button", "padding", @key);
+			});
+		});
+	});
+}
