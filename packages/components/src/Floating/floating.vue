@@ -32,7 +32,6 @@ import { computed, onMounted, watch, ref, useSlots, nextTick, onBeforeUnmount, R
 import { unrefElement, useEventListener, useMutationObserver } from "@vueuse/core";
 import { useFlag, useNS } from "vc-hooks";
 import { IndexManager, getType } from "vc-utils";
-import { log } from "console";
 
 defineOptions({
 	name: 'VcFloating',
