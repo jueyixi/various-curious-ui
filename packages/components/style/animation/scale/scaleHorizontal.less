@@ -1,0 +1,64 @@
+/*水平缩放 不指定中心*/
+.vc-transition-scaleHorizontal-enter-active,
+.vc-transition-scaleHorizontal-leave-active {
+    transform: scaleX(1);
+    opacity: 1;
+    transition: transform 300ms cubic-bezier(0.23, 1, 0.72, 1),
+    opacity 300ms cubic-bezier(0.23, 1, 0.72, 1);
+}
+
+.vc-transition-scaleHorizontal-leave-to,
+.vc-transition-scaleHorizontal-enter-from {
+    transform: scaleX(0);
+    opacity: 0;
+}
+
+
+/*水平缩放 center*/
+.vc-transition-scaleHorizontal--center-enter-active,
+.vc-transition-scaleHorizontal--center-leave-active {
+    transform: scaleX(1);
+    opacity: 1;
+    transform-origin: center center !important;
+    transition: transform 300ms cubic-bezier(0.23, 1, 0.72, 1),
+    opacity 300ms cubic-bezier(0.23, 1, 0.72, 1);
+}
+
+.vc-transition-scaleHorizontal--center-leave-to,
+.vc-transition-scaleHorizontal--center-enter-from {
+    transform: scaleX(0);
+    opacity: 0;
+}
+
+/*水平缩放 start*/
+.vc-transition-scaleHorizontal--start-enter-active,
+.vc-transition-scaleHorizontal--start-leave-active {
+    transform: scaleX(1);
+    opacity: 1;
+    transform-origin: left center !important;
+    transition: transform 300ms cubic-bezier(0.23, 1, 0.72, 1),
+    opacity 300ms cubic-bezier(0.23, 1, 0.72, 1);
+}
+
+.vc-transition-scaleHorizontal--start-leave-to,
+.vc-transition-scaleHorizontal--start-enter-from {
+    transform: scaleX(0);
+    opacity: 0;
+}
+
+
+/*水平缩放 end*/
+.vc-transition-scaleHorizontal--end-enter-active,
+.vc-transition-scaleHorizontal--end-leave-active {
+    transform: scaleX(1);
+    opacity: 1;
+    transform-origin: right center!important;
+    transition: transform 300ms cubic-bezier(0.23, 1, 0.72, 1),
+    opacity 300ms cubic-bezier(0.23, 1, 0.72, 1);
+}
+
+.vc-transition-scaleHorizontal--end-leave-to,
+.vc-transition-scaleHorizontal--end-enter-from {
+    transform: scaleX(0);
+    opacity: 0;
+}

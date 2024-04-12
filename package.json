@@ -27,6 +27,10 @@
 	],
 	"author": "jueyixi",
 	"license": "ISC",
+	"workspaces": [
+		"packages/*",
+		"docs"
+	],
 	"devDependencies": {
 		"@commitlint/cli": "^17.8.0",
 		"@commitlint/config-conventional": "^17.8.0",
@@ -51,11 +55,14 @@
 		"vue-tsc": "^1.8.22"
 	},
 	"dependencies": {
-		"@various-curious-ui/icons": "workspace:1.0.0-beta",
+		"@floating-ui/vue": "^1.0.6",
+		"@various-curious-ui/icons": "workspace:^",
+		"@various-curious-ui/typings": "workspace:^",
+		"@vueuse/core": "^10.9.0",
 		"dayjs": "^1.11.10",
-		"various-curious-ui": "workspace:1.0.0-beta",
-		"vc-hooks": "workspace:1.0.0-beat",
-		"vc-utils": "workspace:1.0.0-beat",
+		"various-curious-ui": "workspace:^",
+		"vc-hooks": "workspace:^",
+		"vc-utils": "workspace:^",
 		"vue": "^3.3.4"
 	},
 	"lint-staged": {

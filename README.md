@@ -39,7 +39,7 @@ import { Button } from 'various-curios-ui'
 </script>
 ```
 
-## Project
+## Project（workspace）
 
 - Get the project code
 
@@ -59,6 +59,32 @@ pnpm i
 
 ```sh
 pnpm dev
+```
+
+- Install Root dependencies
+
+```sh
+pnpm install -wD xxx
+pnpm uninstall -w xxx
+```
+
+- Install Child dependencies
+
+```sh
+# -S 安装到正式依赖(dependencies)
+# -D 安装到开发依赖(devDependencies)
+
+## 1.为指定模块安装外部依赖
+pnpm --filter a install -S lodash 
+pnpm --filter a install -D lodash
+
+pnpm add axios --filter app2
+
+## 2.指定内部模块之间的互相依赖
+# 指定 a 模块依赖于 b 模块
+pnpm --filter a install -S b
+
+pnpm install dayjs --filter app2
 ```
 
 <div>

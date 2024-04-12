@@ -1,6 +1,6 @@
 {
 	"name": "vc-hooks",
-	"version": "1.0.0-beat",
+	"version": "0.0.0",
 	"description": "",
 	"main": "index.ts",
 	"scripts": {

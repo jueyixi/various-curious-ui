@@ -13,3 +13,5 @@ export { default as VcDashboard } from './Dashboard';
 export { default as VcHorGridBar } from './HorGridBar';
 export { default as VcVerGridBar } from './VerGridBar';
 export { default as VcGridBar } from './GridBar';
+export { default as VcPartial } from './Partial';
+export { default as VcFloating } from './Floating';

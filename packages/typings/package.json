@@ -1,7 +1,8 @@
 {
-  "name": "@various-curious-ui/typings",
-  "private": true,
-  "license": "MIT",
-  "main": "index.ts",
-  "sideEffects": false
+	"name": "@various-curious-ui/typings",
+	"version": "0.0.0",
+	"private": true,
+	"license": "MIT",
+	"main": "index.ts",
+	"sideEffects": false
 }

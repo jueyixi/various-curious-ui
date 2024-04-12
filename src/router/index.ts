@@ -104,6 +104,12 @@ export const routes: Array<RouteRecordRaw> = [
 					},
 				],
 			},
+			{
+				path: 'popover',
+				name: 'popover',
+				meta: { title: '气泡' },
+				component: () => import('../view/popover/index.vue'),
+			},
 		],
 	},
 ];

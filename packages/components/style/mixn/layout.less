@@ -47,25 +47,25 @@
 }
 
 
-.useSizeLarge(@a:12, @b:20, @u:px) {
-    min-height: var(--vc-component-height-large);
-    font-size: var(--vc-font-size-large);
-    padding: ~"@{a}@{u} @{b}@{u}";
-}
-
-.useSizeDft(@a:8, @b:12, @u:px) {
-    min-height: var(--vc-component-height);
+.useSizeLarge(@a:12, @b:19, @u:px) {
+    height: var(--vc-component-height-large);
     font-size: var(--vc-font-size-default);
     padding: ~"@{a}@{u} @{b}@{u}";
 }
 
-.useSizeSmall(@a:6, @b:10, @u:px) {
+.useSizeDft(@a:8, @b:12, @u:px) {
+    height: var(--vc-component-height);
+    font-size: var(--vc-font-size-default);
+    padding: ~"@{a}@{u} @{b}@{u}";
+}
+
+.useSizeSmall(@a:5, @b:10, @u:px) {
     min-height: var(--vc-component-height-small);
     font-size: var(--vc-font-size-small);
     padding: ~"@{a}@{u} @{b}@{u}";
 }
 
-.useSizeMini(@a:4, @b:8, @u:px) {
+.useSizeMini(@a:3, @b:8, @u:px) {
     min-height: var(--vc-component-height-mini);
     font-size: var(--vc-font-size-small);
     padding: ~"@{a}@{u} @{b}@{u}";
