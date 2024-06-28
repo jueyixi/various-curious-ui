@@ -86,12 +86,12 @@ const calendarValue = computed({
     set(val) {
         emits("update:value", val)
     }
-})
+}) as any
 
 provide(calendarContextKey,
     reactive<CalendarContext>({
         headerContent: headerContent,
-        value: calendarValue.value,
+        value: calendarValue,
     })
 )
 
