@@ -2,19 +2,19 @@
 layout: home
 
 hero:
-  name: VariousCuriousComponents
-  text: Vite & Vue powered static site generator.
-  tagline: Lorem ipsum...
+  name: Various Curious Ui
+  text: 轻量 简约
+  tagline: 一个适用于基础功能和组件库开发的底层组件库 
   image:
     src: /logo.svg
     alt: VitePress
   actions:
     - theme: brand
-      text: Get Started
+      text: 开始
       link: /guide/method
     - theme: alt
 
-      text: View on Gitee
+      text: 访问仓库
       link: https://gitee.com/jueyixi/various-curious-ui
 
 features:

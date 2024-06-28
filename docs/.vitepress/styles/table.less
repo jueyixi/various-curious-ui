@@ -1,0 +1,45 @@
+/* spacing */
+
+/* 设置表格的宽度为父元素的100% */
+.vp-doc table:not(:where(.vp-raw, .vp-raw *)){
+    display: table !important;
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: auto;
+    line-height: 1.5rem;
+    thead {
+        display: table-header-group;
+        text-align: left;
+    
+    }
+    
+    tbody {
+        display: table-row-group;
+        text-align: left;
+    
+        tr {
+            & > *:first-child {
+                font-weight: 500;
+            }
+            & > *:last-child{
+                color: var(--vp-c-text-1);
+            }
+        }
+    }
+    
+    tr {
+        border-top: none !important;
+        border-bottom: var(--demoblock-border) 1px solid;
+        background-color: unset !important;
+    
+    }
+    
+    td, th {
+        min-width: 80px;
+        max-width: 250px;
+        padding: 10px 30px 10px 0 !important;
+        border: none !important;
+        // background-color: unset !important;
+    }
+}
+

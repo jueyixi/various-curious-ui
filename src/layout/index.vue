@@ -1,7 +1,8 @@
 <template>
     <div class="vc-layout">
         <div class="vc-layout-header">
-            <span class="vc-logo">Various Curious Ui</span>
+            <img class="vc-logo" src="/docs/public/logo.svg" alt="">
+            <span class="vc-title">Various Curious Ui</span>
         </div>
         <div class="vc-layout-body">
             <div class="vc-layout-sider">
@@ -31,14 +32,20 @@ defineOptions({
     flex-direction: column;
     background-color: #eeeeee;
     &-header {
+        display: flex;
+        align-items: center;
         height: 64px;
         background: radial-gradient(circle at 10% 20%, rgb(239, 246, 249) 0%, rgb(206, 239, 253) 90%);
         line-height: 64px;
-        .vc-logo {
+        padding: 0 20px;
+        .vc-logo{
+            width: 24px;
+            font-size: 20px;
+        }
+        .vc-title {
             font-size: 20px;
             font-weight: 700;
             font-style: italic;
-            padding: 0 20px;
             background: -webkit-linear-gradient(left, rgba(223,0,0,0.5), #1890ff);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;

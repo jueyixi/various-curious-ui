@@ -10,6 +10,7 @@
       "@/*": ["./src/*"],
       "@components/*": ["./src/*"],
       "@hooks/*": ["./hooks/*"],
-    }
+    },
+    "esModuleInterop":true
   }
 }

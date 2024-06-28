@@ -1,20 +1,20 @@
 <template>
     <div :class="calendarClass" ref="_ref">
         <div :class="calendarHeaderClass">
-            <slot name="header" :data="headerData">
+            <slot name="header" :data="headerContent">
                 <span class="vc-calendar-header--title">
-                    <slot name="title" :title="headerData.title">{{ headerData.title }}</slot>
+                    <slot name="title" :title="headerContent.title">{{ headerContent.title }}</slot>
                 </span>
                 <vc-button-group>
                     <vc-button prefixIcon="ArrowLeft" @click="prev">
-                        <template v-if="headerData.prevTitle" #default>
-                            {{ headerData.prevTitle }}
+                        <template v-if="headerContent.prevText" #default>
+                            {{ headerContent.prevText }}
                         </template>
                     </vc-button>
-                    <vc-button @click="toCurrent">{{ headerData.currentTitle }}</vc-button>
+                    <vc-button @click="setToday">{{ headerContent.currentText }}</vc-button>
                     <vc-button suffixIcon="ArrowRight" @click="next">
-                        <template v-if="headerData.nextTitle" #default>
-                            {{ headerData.nextTitle }}
+                        <template v-if="headerContent.nextText" #default>
+                            {{ headerContent.nextText }}
                         </template>
                     </vc-button>
                 </vc-button-group>
@@ -24,8 +24,8 @@
             <component :is="componentName" v-bind="$attrs" ref="componentRef">
                 <template #date="{ data }">
                     <slot name="day" :data="data">{{
-                        props.type !== 'year' ? data.day : data.month + '月'
-                    }}</slot>
+        props.mode !== 'year' ? data.day : data.month + '月'
+                        }}</slot>
                 </template>
                 <template #schedule="{ data }">
                     <slot name="schedule" :data="data"></slot>
@@ -36,17 +36,23 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, watchEffect, markRaw, reactive,provide } from 'vue';
-import { calendarProps, CurrentTitle } from "./calendar"
+import { ref, computed, watchEffect, markRaw, reactive, provide, toRef } from 'vue';
+import { calendarProps, CurrentText, calendarEmits } from "./calendar"
 import VcCalendarWeek from '../CalendarWeek/calendarWeek.vue';
 import VcCalendarMonth from '../CalendarMonth/calendarMonth.vue';
 import VcCalendarYear from '../CalendarYear/calendarYear.vue';
 import { useNS } from "vc-hooks"
-import * as dayjs from "dayjs"
+import dayjs, { Dayjs } from "dayjs"
+import { SelectedCalendarItem, HeaderContent, CalendarContext, calendarContextKey } from '@various-curious-ui/typings';
 defineOptions({
     name: "VcCalendar",
     inheritAttrs: false
 })
+
+const props = defineProps(calendarProps);
+const emits = defineEmits(calendarEmits)
+
+const calendarNS = useNS('calendar');
 
 const _ref = ref()
 
@@ -57,29 +63,37 @@ const components = {
     year: VcCalendarYear,
 }
 
-const headerData = reactive({
+const headerContent = reactive<HeaderContent>({
     title: dayjs().format("YYYY年MM月"),
-    currentTitle: "",
-    prevTitle: "",
-    nextTitle: ""
+    currentText: "",
+    prevText: "",
+    nextText: ""
 })
 
 watchEffect(() => {
-    if (props.type) {
-        componentName.value = markRaw(components[props.type]);
-        headerData.currentTitle = props.currentTitle || CurrentTitle[props.type]
-        headerData.prevTitle = props.prevTitle
-        headerData.nextTitle = props.nextTitle
+    if (props.mode) {
+        componentName.value = markRaw(components[props.mode]);
+        headerContent.currentText = props.currentText || CurrentText[props.mode]
+        headerContent.prevText = props.prevText
+        headerContent.nextText = props.nextText
     }
 });
 
-provide("headerData", headerData)
+const calendarValue = computed({
+    get() {
+        return props.value
+    },
+    set(val) {
+        emits("update:value", val)
+    }
+})
 
-const props = defineProps({
-    ...calendarProps
-});
-
-const calendarNS = useNS('calendar');
+provide(calendarContextKey,
+    reactive<CalendarContext>({
+        headerContent: headerContent,
+        value: calendarValue.value,
+    })
+)
 
 const calendarClass = computed(() => {
     return [
@@ -96,18 +110,34 @@ const calendarHeaderClass = computed(() => {
 const componentRef = ref()
 
 const prev = () => {
-    componentRef.value.prev();
+    componentRef.value?.prev();
 };
-const toCurrent = () => {
-    componentRef.value.toCurrent();
+const setToday = () => {
+    componentRef.value?.setToday();
 };
 const next = () => {
-    componentRef.value.next();
+    componentRef.value?.next();
 }
+const change = (appointDate: SelectedCalendarItem) => {
+    return componentRef.value?.change(appointDate)
+}
+
+const setDate = (appointDate?: Dayjs) => {
+    return componentRef.value?.setDate(appointDate)
+}
+
+const getSelectedData = (): SelectedCalendarItem[] => {
+    return componentRef.value?.getSelectedData()
+}
+
+
 defineExpose({
     prev,
-    toCurrent,
+    setToday,
+    setDate,
     next,
+    change,
+    getSelectedData
 });
 
 </script>

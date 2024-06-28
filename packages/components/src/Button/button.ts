@@ -5,7 +5,7 @@ const ElementSize = ['small', 'middle', 'large', 'mini'] as const;
 
 const nativeType = ['button', 'submit', 'reset'] as const;
 
-const buttonType = ['default', 'primary', 'danger', 'ghost', 'dashed', 'link', 'text'] as const;
+const buttonType = ['default', 'primary','success','warinng', 'dashed'] as const;
 
 const targetType = ['_blank', '_parent', '_self', '_top'] as const;
 
@@ -22,11 +22,6 @@ export const buttonProps = {
 		type: String,
 		default: '',
 	},
-	// 不可选
-	disabled: {
-		type: Boolean,
-		default: false,
-	},
 	// 大小
 	size: {
 		type: String as PropType<(typeof ElementSize)[number]>,
@@ -36,11 +31,6 @@ export const buttonProps = {
 	nativeType: {
 		type: String as PropType<(typeof nativeType)[number]>,
 		default: nativeType[0],
-	},
-	// 加载中
-	loading: {
-		type: Boolean,
-		default: false,
 	},
 	// 形状
 	shape: String as PropType<(typeof shapeType)[number]>,
@@ -55,7 +45,11 @@ export const buttonProps = {
 	},
 	href: String,
 	danger: Boolean,
+	disabled: Boolean,
 	ghost: Boolean,
+	loading: Boolean,
+	link: Boolean,
+	text: Boolean,
 } as const;
 
 export const buttonEmits = {

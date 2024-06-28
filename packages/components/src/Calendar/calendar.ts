@@ -1,25 +1,28 @@
 import { PropType } from 'vue';
 import type { ExtractPropTypes } from 'vue';
+import {Dayjs} from 'dayjs';
 
-const type = ['week', 'month', 'year'] as const;
+const mode = ['week', 'month', 'year'] as const;
 
-export enum CurrentTitle {
+export enum CurrentText {
     week = "本周",
     month = "本月",
     year = "本年"
 }
 
 export const calendarProps = {
-	// type
-	type: {
-		type: String as PropType<(typeof type)[number]>,
-		default: type[0],
+	mode: {
+		type: String as PropType<(typeof mode)[number]>,
+		default: mode[1],
     },
-	currentTitle: String,
-	prevTitle: String,
-	nextTitle: String,
+	currentText: String,
+	prevText: String,
+	nextText: String,
+	value: Dayjs
 } as const;
+
+export const calendarEmits = ['update:value'];
 
 export type CalendarProps = ExtractPropTypes<typeof calendarProps>;
 
-export type CalendarType = CalendarProps['type'];
+export type CalendarType = CalendarProps['mode'];

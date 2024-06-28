@@ -13,41 +13,46 @@
 @gray-f0: #f0f0f0;
 
 :root {
-	--body-background: #ffffff;
-	--font-size-base: 14px;
-	--font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans',
+	color-scheme:light dark;
+	--vc-body-background: #ffffff;
+	--vc-body-background-dark: #000;
+	--vc-font-size-base: 14px;
+	--vc-font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans',
 		sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
-	--text-color: rgba(0, 0, 0, 0.88);
-	--line-height-base: 1.5714285714285714;
-	--box-shadow-base: 0 1px 2px 0 rgba(0, 0, 0, 0.03), 0 1px 6px -1px rgba(0, 0, 0, 0.02),
+	--vc-text-color: rgba(0, 0, 0, 0.88);
+	--vc-text-color-placeholder: #a8abb2;
+	--vc-text-color-dark: rgba(255, 255, 255, 0.88);
+	--vc-line-height-base: 1.5714285714285714;
+	--vc-box-shadow-base: 0 1px 2px 0 rgba(0, 0, 0, 0.03), 0 1px 6px -1px rgba(0, 0, 0, 0.02),
 		W 0 2px 4px 0 rgba(0, 0, 0, 0.02);
 
 	// --animation-duration-base: 0.3s;
 	// --ease-in-out-circ: cubic-bezier(0.78, 0.14, 0.15, 0.86);
 	// --ease-in-out: cubic-bezier(0.645, 0.045, 0.355, 1);
 
-	--vc-color-default-dark-deep: darken(#eeeff1, 5%);
-	--vc-color-default-dark: darken(#eeeff1, 1%);
-	--vc-color-default: #eeeff1;
-	--vc-color-default-light: lighten(#eeeff1, 1%);
+	--vc-color-default-dark-deep: darken(#fff, 5%);
+	--vc-color-default-dark: darken(#fff, 1%);
+	--vc-color-default: #fff;
+	--vc-color-default-light: lighten(#fff, 1%);
 
 	--vc-color-primary-dark: darken(#1890ff, 5%);
 	--vc-color-primary: lighten(#1890ff, 5%);
 	--vc-color-primary-light: lighten(#1890ff, 12%);
 	--vc-color-primary-lighter: lighten(#1890ff, 20%);
 	--vc-color-primary-fade: lighten(#1890ff, 36%);
+	--vc-color-primary-deep-fade: lighten(#1890ff, 42%);
 
-	--vc-color-success-dark: darken(#3cc251, 20%);
-	--vc-color-success: darken(#3cc251, 15%);
-	--vc-color-success-light: darken(#3cc251, 10%);
-	--vc-color-success-lighter: darken(#3cc251, 0%);
-	--vc-color-success-fade: lighten(#3cc251, 35%);
+	--vc-color-success-dark: darken(#3cc251, 5%);
+	--vc-color-success: darken(#3cc251, 5%);
+	--vc-color-success-light: darken(#3cc251, 12%);
+	--vc-color-success-lighter: darken(#3cc251, 20%);
+	--vc-color-success-fade: lighten(#3cc251, 36%);
 
-	--vc-color-warning-dark: darken(#ff8948, 8%);
-	--vc-color-warning: lighten(#ff8948, 5%);
-	--vc-color-warning-light: lighten(#ff8948, 15%);
-	--vc-color-warning-lighter: lighten(#ff8948, 25%);
-	--vc-color-warning-fade: lighten(#ff8948, 40%);
+	--vc-color-warning-dark: darken(#E6A23C, 8%);
+	--vc-color-warning: lighten(#E6A23C, 5%);
+	--vc-color-warning-light: lighten(#E6A23C, 15%);
+	--vc-color-warning-lighter: lighten(#E6A23C, 25%);
+	--vc-color-warning-fade: lighten(#E6A23C, 36%);
 
 	--vc-color-danger-dark: darken(#fc2c48, 5%);
 	--vc-color-danger: #fc2c48;
@@ -82,14 +87,21 @@
 	--vc-component-height: 32px;
 	--vc-component-height-small: 24px;
 	--vc-component-height-mini: 20px;
+
+	--vc-divider-color:#d9d9d9;
+	--vc-divider-color-dark:#4c4d4f;
+
+	--vc-color-primary-deep-fade-dark:#25313c;
 }
 
-html,
 body {
 	width: 100%;
 	height: 100%;
-	background-color: var(--body-background);
-	color: var(--text-color);
-	font-size: var(--font-size-base);
-	font-family: var(--font-family);
+	font-size: var(--vc-font-size-base);
+	font-family: var(--vc-font-family);
+}
+
+html.dark{
+	color-scheme:dark;
+	--vc-color-primary-deep-fade:var(--vc-color-primary-deep-fade-dark);
 }

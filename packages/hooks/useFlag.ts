@@ -4,8 +4,8 @@ import {Ref, ref} from "vue";
  * @description 纯粹是创建一个响应式布尔值
  * @param f 默认值
  */
-export const useFlag =  function (f:Boolean = false)  {
-    const flag:Ref<Boolean> = ref<Boolean>(f);
+export const useFlag =  function (f:boolean = false)  {
+    const flag:Ref<boolean> = ref<boolean>(f);
     const setFalse = function () {
         flag.value = false;
     }

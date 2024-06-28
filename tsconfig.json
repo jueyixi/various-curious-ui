@@ -12,10 +12,10 @@
 	"compilerOptions": {
 		"ignoreDeprecations": "5.0",
 		"isolatedModules": true,
+		"lib": ["es6"],
 		"module": "ESNext",
 		"moduleResolution": "Node",
-
-		"types": ["vite/client", "./packages/typings/components.d.ts"],
+		"types": ["vite/client"],
 		"baseUrl": "./",
 		"paths": {
 			"@/*": ["./src/*", "./packages/*", "./examples/*"]

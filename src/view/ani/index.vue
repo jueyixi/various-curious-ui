@@ -32,7 +32,7 @@
             </div>
             <div class="vc-demo">
                 <span class="vc-demo-title">手动开启动画：</span>
-                <vc-ani-number :value="100" :animate="isAnimate"></vc-ani-number>
+                <vc-ani-number :value="100" :animate="isAnimate" ref="aniNumberRef" @begin="begin" @finish="finish" @play="play"></vc-ani-number>
                 <vc-button @click="handleChange">开始</vc-button>
             </div>
         </div>
@@ -44,9 +44,21 @@ import { ref } from "vue"
 defineOptions({
     name: "ani"
 })
+const aniNumberRef = ref()
 const isAnimate = ref(false)
 const handleChange = () => {
     isAnimate.value = true
+}
+const begin = (aniNumRef) => {    
+    console.log("begin:" , aniNumRef)
+}
+
+const finish = (aniNumRef) => {
+    console.log("finish:", aniNumRef)
+}
+
+const play = ({ ref, value }) => {
+    console.log("play:" , ref , value)
 }
 </script>
 

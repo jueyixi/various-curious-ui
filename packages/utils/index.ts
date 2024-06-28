@@ -12,3 +12,4 @@ export * from './install';
 // other
 export * from './is';
 export * from './transformColor';
+export * from './config';

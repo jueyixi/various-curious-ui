@@ -6,6 +6,7 @@
 	--vc-floating-bg: var(--vc-color-white);
 	--vc-floating-color: var(--vc-color-black);
 	--vc-floating-border-color: var(--vc-color-gray);
+	--vc-floating-box-shadow: rgba(0,0,0,0.12);
 
 	//base
 	& {
@@ -17,6 +18,8 @@
 		padding: 5px 8px;
 		position: relative;
 		white-space: nowrap;
+
+		box-shadow: 0px 0px 6px var(--vc-floating-box-shadow);
 	}
 
     .is(light,{

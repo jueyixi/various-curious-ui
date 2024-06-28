@@ -4,59 +4,14 @@
 
 <script setup lang="ts">
 import { ref, watch, onMounted } from 'vue';
+import { aniNumberProps, aniNumberEmits } from "./aniNumber";
 defineOptions({
     name: "VcAniNumber",
     inheritAttrs: false,
 })
-const props = defineProps({
-    // 数值
-    value: {
-        type: Number,
-        default: 0,
-    },
-    // 初始数值
-    initial: {
-        type: Number,
-        default: 0,
-    },
-    // 持续时间
-    durTime: {
-        type: Number,
-        default: 3000,
-    },
-    // 循环动画
-    loopAnimate: {
-        type: Boolean,
-        default: false,
-    },
-    // 动画
-    animate: {
-        type: Boolean,
-        default: true,
-    },
-    // 精度
-    precision: {
-        type: [Number, String],
-        default: 0,
-    },
-    // 步长
-    step: {
-        type: Number,
-        default: 0,
-    },
-    //上一次动画结束和下一次动画开始之间间隔时间
-    delay: {
-        type: Number,
-        default: 1000,
-    },
-    // 文本格式化
-    format: {
-        type: Function,
-        default: undefined,
-    },
-});
+const props = defineProps(aniNumberProps);
 
-const emits = defineEmits(['begin', 'finish', 'play']);
+const emits = defineEmits(aniNumberEmits);
 
 const defaultValue = ref<string | number>(0);
 const aniNumRef = ref();

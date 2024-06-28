@@ -20,8 +20,9 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from 'vue';
+import { ref, computed,inject } from 'vue';
 import { buttonProps, buttonEmits } from "./button"
+import { buttonGroupContextKey } from "../ButtonGroup/buttonGroup"
 import { useNS } from "vc-hooks"
 defineOptions({
     name: "VcButton",
@@ -31,26 +32,29 @@ defineOptions({
 const _ref = ref()
 
 const props = defineProps({
-    ...buttonProps
+    ...buttonProps,
 });
+
+const buttonGroupContext = inject(buttonGroupContextKey, undefined)
 
 const emits = defineEmits({ ...buttonEmits })
 
 const buttonNS = useNS('button');
 
-const isDanger = props.danger || props.type === "danger"
-const isGhost = props.ghost || props.type === "ghost"
-
-const isUniqueType = props.type !== "default" && props.type !== "danger" && props.type !== "ghost"
-
 const buttonClass = computed(() => {
+    const _type = buttonGroupContext?.type || props.type
+    const _size = buttonGroupContext?.size || props.size
+    const _danger = buttonGroupContext?.danger || props.danger    
+    
     return [
         buttonNS.namespace,
-        buttonNS.setBlock(props.size),
-        isUniqueType && buttonNS.setBlock(props.type),
-        isDanger && buttonNS.setBlock("danger"),
-        isGhost && buttonNS.setBlock("ghost"),
-        props.shape !== "default" && buttonNS.is(props.shape),
+        buttonNS.setModifier(_size),
+        buttonNS.setBlock(_type),
+        buttonNS.is(props.link, 'link'),
+        buttonNS.is(props.text, 'text'),
+        buttonNS.is(props.shape),
+        buttonNS.is(_danger, 'danger'),
+        buttonNS.is(props.ghost, 'ghost'),
         buttonNS.is(props.disabled, 'disabled'),
         buttonNS.is(props.loading, 'loading'),
     ]
@@ -60,4 +64,4 @@ const handleClick = (event: MouseEvent) => {
     emits("click", event)
 }
 
-</script>./vc-button./vcButton./button./button
+</script>

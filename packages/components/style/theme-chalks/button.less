@@ -1,7 +1,7 @@
 @import '../mixn/index.less';
 @plugin "../plugin/index";
 
-@typeList: primary, warning, danger;
+@typeList: primary,success, warning;
 
 @sizeSet: {
 	mini: .useSizeMini();
@@ -10,28 +10,14 @@
 	large: .useSizeLarge();
 };
 
-@notAllowed: disabled;
 @noBrBgType:link,text;
 
 .@{componentPrefix}-button {
-	//mixin of notAllowed
-	.notAllowedMixin(@color, @bg, @br) {
-		&,
-		&:hover,
-		&:focus,
-		&:active {
-			--vc-button-font-color: @color;
-			--vc-button-bg-color: @bg;
-			--vc-button-br-color: @br;
-			cursor: not-allowed;
-		}
-	}
-
 	//var
 	& {
-		--vc-button-font-color: inherit;
-		--vc-button-bg-color: var(--vc-color-white);
-		--vc-button-br-color: var(--vc-color-gray);
+		--vc-button-font-color: var(--vc-text-color);
+		--vc-button-bg-color: transparent;
+		--vc-button-br-color: var(--vc-divider-color);
 
 		--vc-button-padding-mini: 4px;
 		--vc-button-radius-mini: 8px;
@@ -47,7 +33,7 @@
 	& {
 		.useIFlexRCC(4);
 		.useBorderBox();
-		.useBorderRadius(8);
+		.useBorderRadius(4);
 		width: max-content;
 
 		transition: all 0.15s;
@@ -58,8 +44,12 @@
 		color: var(--vc-button-font-color);
 		background-color: var(--vc-button-bg-color);
 		border-color: var(--vc-button-br-color);
-
+		
 		cursor: pointer;
+		
+		&-default,&-dashed{
+			--vc-button-br-color:var(--vc-divider-color);
+		}
 
 		&:hover,
 		&:focus,
@@ -68,23 +58,221 @@
 			--vc-button-br-color: var(--vc-color-primary-light);
 		}
 	}
+
 	// 默认loading样式
 	.is(loading,{
 		&,&:hover,
 		&:focus, &:active{
+			--vc-button-font-color: var(--vc-text-color);
+			--vc-button-br-color: var(--vc-divider-color);
 			cursor: default;
-			--vc-button-font-color: inherit;
-			--vc-button-bg-color: var(--vc-color-white);
-			--vc-button-br-color: var(--vc-color-gray);
+			opacity: 0.65;
+		}
+	});
+
+	.is(disabled,{
+		&,&:hover,&:focus,&:active{
+			--vc-button-bg-color:transparent;
+			--vc-button-font-color: var(--vc-text-color);
+			--vc-button-br-color:var(--vc-divider-color);
+			cursor: not-allowed;
+			opacity: 0.65;
+		}
+	});
+
+	// danger类型样式
+	.is(danger, {
+		&{
+			--vc-button-font-color: getClrVar(danger);
+			--vc-button-bg-color:transparent;
+			--vc-button-br-color: getClrVar(danger);
+		}
+
+		&:hover,
+		&:focus {
+			--vc-button-font-color: getClrVar(danger,light);
+			--vc-button-bg-color: transparent;
+			 --vc-button-br-color: getClrVar(danger, light);
+		}
+
+		&:active {
+			--vc-button-bg-color: transparent;
+			 --vc-button-br-color: getClrVar(danger, dark);
+			 --vc-button-font-color: getClrVar(danger, dark);
+		}
+	});
+
+	// 幽灵主题样式
+	.is(ghost, {
+		&{
+			--vc-button-bg-color: transparent;
+			--vc-button-font-color: getClrVar(white);
+		}
+
+		&:hover,
+		&:focus, &:active {
+			--vc-button-font-color: var(--vc-color-primary-light);
+			--vc-button-bg-color: transparent;
+			--vc-button-br-color: var(--vc-color-primary-light);
+		}
+
+		.is(danger,{
+			--vc-button-bg-color: transparent;
+			--vc-button-font-color: getClrVar(danger);
+			&:hover,
+			&:focus {
+				--vc-button-bg-color: transparent;
+				--vc-button-font-color: getClrVar(danger, light);
+				--vc-button-br-color: getClrVar(danger, light);
+			}
+
+			&:active {
+				--vc-button-bg-color: transparent;
+				--vc-button-font-color: getClrVar(danger, dark);
+				--vc-button-br-color: getClrVar(danger, dark);
+			}
+
+			// 幽灵主题样式 --- loading
+			.is(loading, {
+				&,&:hover,
+				&:focus, &:active{
+					--vc-button-bg-color: transparent;
+					--vc-button-font-color: getClrVar(danger);
+					--vc-button-br-color: getClrVar(danger, light);
+				}
+			});
+
+			// 幽灵主题样式 --- disabled
+			.is(disabled, {
+				&,&:hover,
+				&:focus, &:active{
+					--vc-button-bg-color: transparent;
+					--vc-button-font-color: getClrVar(danger);
+					--vc-button-br-color: getClrVar(danger, light);
+				}
+			});
+			});
+		
+		// 幽灵主题样式 --- loading
+		.is(loading, {
+			&,&:hover,
+			&:focus, &:active{
+				--vc-button-bg-color: transparent;
+				--vc-button-font-color: getClrVar(white);
+				--vc-button-br-color: var(--vc-divider-color);
+			}
+		});
+
+		// 幽灵主题样式 --- disabled
+		.is(disabled, {
+			&,&:hover,
+			&:focus, &:active{
+				--vc-button-bg-color: transparent;
+				--vc-button-font-color: getClrVar(white);
+				--vc-button-br-color: var(--vc-divider-color);
+			}
+		});
+	});
+
+	// link类型样式
+	.is(link, {
+		&{
+			--vc-button-font-color: var(--vc-text-color);
+			--vc-button-br-color: transparent;
+			--vc-button-bg-color: transparent;
+		}
+
+		&:hover,
+		&:focus, &:active {
+			--vc-button-font-color: var(--vc-text-color-fade);
+			--vc-button-br-color: transparent;
+			--vc-button-bg-color: transparent;
+		}
+
+		// 危险按钮--link样式
+		.is(danger, {
+			&{
+				--vc-button-font-color: getClrVar(danger);
+			}
+			&:hover,
+			&:focus, &:active {
+				--vc-button-font-color: getClrVar(danger, lighter);
+			}
+			.is(loading,{
+				&:hover,&:focus, &:active {
+					--vc-button-font-color: getClrVar(danger);
+				}
+			});
+			.is(disabled,{
+				&:hover,&:focus, &:active {
+					--vc-button-font-color: getClrVar(danger);
+				}
+			});
+		});
+
+		.is(loading,{
+			&:hover,&:focus, &:active {
+				--vc-button-font-color: var(--vc-text-color);
+			}
+		});
+
+		.is(disabled,{
+			&:hover,&:focus, &:active {
+				--vc-button-font-color: var(--vc-text-color-lighter);
+			}
+		});
+
+
+	});
+
+	// text类型样式
+	.is(text, {
+		&{
+			--vc-button-br-color: transparent;
+			--vc-button-bg-color: transparent;
+			--vc-button-font-color:var(--vc-button-font-color);
+		}
+
+		&:hover,
+		&:focus, &:active {
+			--vc-button-bg-color:getClrVar(gray, deep-fade);
+		}
+
+		// 危险按钮--text样式
+		.is(danger, {
+			&{
+				--vc-button-br-color: transparent;
+				--vc-button-font-color: getClrVar(danger);
+			}
+			&:hover,&:focus,&:active{
+				--vc-button-bg-color:getClrVar(danger, fade);
+			}
+			&.is-loading,&.is-disabled{
+			&:hover,&:focus, &:active {
+				--vc-button-br-color:transparent;
+				--vc-button-bg-color:transparent;
+				--vc-button-font-color: getClrVar(danger);
+			}
+		}
+		});
+
+		&.is-loading,&.is-disabled{
+			&:hover,&:focus, &:active {
+				--vc-button-br-color:transparent;
+				--vc-button-bg-color:transparent;
+				--vc-button-font-color: var(--vc-text-color);
+			}
 		}
 	});
 
 	// 主题色样式--loading样式
 	each(@typeList, .(@type) {
 		.b(@type, {
-			--vc-button-font-color: getClrVar(white);
-			--vc-button-bg-color: getClrVar(@type);
-			--vc-button-br-color: getClrVar(@type);
+			&{
+				--vc-button-font-color: getClrVar(white);
+				--vc-button-bg-color: getClrVar(@type);
+				--vc-button-br-color: getClrVar(@type);
+			}
 
 			&:hover,
 			&:focus {
@@ -95,84 +283,105 @@
 			&:active {
 				--vc-button-bg-color: getClrVar(@type, dark); --vc-button-br-color: getClrVar(@type, dark);
 			}
-		});
-		.bIs(@type, loading, {
-			&{
-				opacity: 1;
+			&.is-danger{
+				&,&.is-loading,&.is-disabled{
+					--vc-button-font-color: getClrVar(white);
+					--vc-button-bg-color: getClrVar(danger);
+					--vc-button-br-color: getClrVar(danger);
+					
+				}
+				&:hover,
+				&:focus {
+					&{
+						--vc-button-font-color: getClrVar(white);
+						--vc-button-bg-color: getClrVar(danger, light); --vc-button-br-color: getClrVar(danger, light);
+					}
+					&.is-loading,&.is-disabled{
+						--vc-button-bg-color: getClrVar(danger); --vc-button-br-color: getClrVar(danger);
+					}
+				}
+
+				&:active {
+					&{
+						--vc-button-bg-color: getClrVar(danger, dark); --vc-button-br-color: getClrVar(danger, dark);
+					}
+					&.is-loading,&.is-disabled{
+						--vc-button-bg-color: getClrVar(danger); --vc-button-br-color: getClrVar(danger);
+					}
+				}
 			}
-			&,&:hover,
-			&:focus, &:active{
+			.is(link,{
+				&{
+					--vc-button-font-color: getClrVar(@type);
+				}
+				&:hover,
+				&:focus {
+					--vc-button-font-color: getClrVar(@type,light);
+				}
+
+				&:active {
+					--vc-button-bg-color: getClrVar(@type, dark);
+				}
+
+				&.is-loading,&.is-disabled{
+					&,&:hover,&:focus,&:active{
+						--vc-button-font-color: getClrVar(@type);
+						--vc-button-bg-color:transparent;
+						--vc-button-br-color:transparent;
+					}
+				}
+			});
+			.is(text,{
+				&{
+					--vc-button-br-color: transparent;
+					--vc-button-font-color: getClrVar(@type);
+				}
+				&:hover,&:focus,&:active{
+					--vc-button-bg-color:getClrVar(@type, fade);
+				}
+				&.is-loading,&.is-disabled{
+					&,&:hover,&:focus,&:active{
+						--vc-button-font-color: getClrVar(@type);
+						--vc-button-bg-color:transparent;
+						--vc-button-br-color:transparent;
+					}
+				}
+			});
+		});
+
+
+		.bIs(@type,loading,{
+			&,&:hover,&:focus,&:active{
 				--vc-button-font-color: getClrVar(white);
 				--vc-button-bg-color: getClrVar(@type, light);
-			}
-			&:hover,
-			&:focus, &:active{
-				opacity: 0.65;
+				--vc-button-br-color:transparent;
 			}
 		});
-	});
-	// 幽灵主题样式
 
-	.b(ghost, {
-		--vc-button-br-color: getClrVar(white);
-		--vc-button-bg-color: transparent;
-		--vc-button-font-color: getClrVar(white);
-
-		&:hover,
-		&:focus, &:active {
-			--vc-button-font-color: var(--vc-color-primary-light);
-			--vc-button-br-color: var(--vc-color-primary-light);
-		}
-	});
-
-	// 幽灵主题样式 --- loading
-	.bIs(ghost, loading, {
-			&,&:hover,
-			&:focus, &:active{
-				--vc-button-bg-color: transparent;
+		.bIs(@type,disabled,{
+			&,&:hover,&:focus,&:active{
 				--vc-button-font-color: getClrVar(white);
+				--vc-button-bg-color: getClrVar(@type);
+				--vc-button-br-color: getClrVar(@type);
 			}
 		});
+	});
 
 	// 虚线框样式
 	.b(dashed, {
-		border-style: dashed;
-	});
-
-	// link类型样式
-	.b(link, {
-		--vc-button-font-color: var(--vc-color-primary);
-		--vc-button-br-color: transparent;
-		--vc-button-bg-color: transparent;
-
-		&:hover,
-		&:focus, &:active {
-			--vc-button-font-color: var(--vc-color-primary-lighter);
-			--vc-button-br-color: transparent;
-			--vc-button-bg-color: transparent;
-		}
-	});
-
-	// text类型样式
-	.b(text, {
-		--vc-button-br-color: transparent;
-		--vc-button-bg-color: transparent;
-		--vc-button-font-color:var(--vc-button-font-color);
-
-		&:hover,
-		&:focus, &:active {
-			--vc-button-br-color: transparent;
-			--vc-button-bg-color:getClrVar(gray, deep-fade);
-			--vc-button-font-color:var(--vc-button-font-color);
+		&{
+			border-style: dashed;
 		}
 	});
 
 	// 主题色+幽灵按钮样式
 	each(@typeList, .(@type) {
-		.bWith(ghost, setBlockBlock("vc-button", @type), {
-			--vc-button-br-color: getClrVar(@type);
-			--vc-button-bg-color: transparent;
-			--vc-button-font-color: getClrVar(@type);
+		.bIs(@type, ghost, {
+			&{
+				--vc-button-br-color: getClrVar(@type);
+				--vc-button-bg-color: transparent;
+				--vc-button-font-color: getClrVar(@type);
+			}
 
 			&:hover,
 			&:focus, &:active {
@@ -180,14 +389,34 @@
 				--vc-button-bg-color: transparent;
 				--vc-button-font-color: getClrVar(@type, light);
 			}
+			// 幽灵主题样式 --- loading
+			.is(loading, {
+				&,&,&:hover,
+				&:focus, &:active{
+					--vc-button-br-color: getClrVar(@type);
+					--vc-button-bg-color: transparent;
+					--vc-button-font-color: getClrVar(@type);
+				}
+			});
+			// 幽灵主题样式 --- disabled
+			.is(disabled, {
+				&,&:hover,
+				&:focus, &:active{
+					--vc-button-br-color: getClrVar(@type);
+					--vc-button-bg-color: transparent;
+					--vc-button-font-color: getClrVar(@type);
+				}
+			});
 		});
 	});
 
 	// 危险按钮--虚线框样式
-	.bWith(danger, setBlockBlock("vc-button", dashed), {
-		--vc-button-br-color: getClrVar(danger);
-		--vc-button-bg-color: transparent;
-		--vc-button-font-color: getClrVar(danger);
+	.bIs(dashed, danger, {
+		&{
+			--vc-button-br-color: getClrVar(danger);
+			--vc-button-bg-color: transparent;
+			--vc-button-font-color: getClrVar(danger);
+		}
 
 		&:hover,
 		&:focus, &:active {
@@ -195,47 +424,27 @@
 			--vc-button-bg-color: transparent;
 			--vc-button-font-color: getClrVar(danger, light);
 		}
-	});
-	// 危险按钮--link样式
-	.bWith(danger, setBlockBlock("vc-button", link), {
-		--vc-button-font-color: getClrVar(danger);
 
-		&:hover,
-		&:focus, &:active {
-			--vc-button-font-color: getClrVar(danger, light);
-		}
-	});
-	// 危险按钮--text样式
-	.bWith(danger, setBlockBlock("vc-button", text), {
-		--vc-button-font-color: getClrVar(danger);
-		&:hover,&:focus,&:active{
-			--vc-button-bg-color:lighten(rgba(252,44,72,0.2),12%);
-		}
-	});
-	// disabled样式
-	each(@notAllowed, .(@status) {
-		.is(@status, {
-			.notAllowedMixin(getClrVar(black,light), getClrVar(default), getClrVar(gray,dark));
+		.is(loading,{
+			&,&:hover,&:focus, &:active {
+				--vc-button-br-color: getClrVar(danger);
+				--vc-button-bg-color: transparent;
+				--vc-button-font-color: getClrVar(danger);
+			}
 		});
-		each(@noBrBgType,.(@type){
-			.bIs(@type, @status, {
-				&,&:hover,
-				&:focus, &:active{
-					--vc-button-br-color:transparent;
-					--vc-button-bg-color:transparent;
-				}
-			});
-		})
-		.bIs(ghost, @status, {
-				&,&:hover,
-				&:focus, &:active{
-					.notAllowedMixin(getClrVar(black,light), transparent ,getClrVar(gray,fade));
-				}
-			});
-	}); 
+
+		.is(disabled,{
+			&:hover,&:focus, &:active {
+				--vc-button-br-color: getClrVar(danger);
+				--vc-button-bg-color: transparent;
+				--vc-button-font-color: getClrVar(danger);
+			}
+		});
+	});
+
 	//size样式--shape分类
 	each(@sizeSet, .(@rule, @key) {
-		.b(@key, {
+		.m(@key, {
 			@rule();
 
 			.is(round, {
@@ -248,4 +457,65 @@
 			});
 		});
 	});
+
+	&-dashed.is-ghost{
+		&.is-danger.is-loading,&.is-danger.is-disabled{
+			&,&:hover,&:focus, &:active{
+				--vc-button-bg-color: transparent;
+				--vc-button-font-color: getClrVar(danger);
+				--vc-button-br-color: getClrVar(danger);
+			}
+		}
+	}
+
+	&+.vc-button{
+		margin-left: 12px;
+	}
+}
+
+html.dark{
+	.vc-button{
+		&:not(.is-ghost){
+			--vc-divider-color:var(--vc-divider-color-dark);
+		}
+		&-default,&-dashed{
+			&{
+				--vc-button-font-color:var(--vc-text-color-dark);
+				&:hover,&:focus,&:active{
+					--vc-button-font-color:var(--vc-color-primary-light);
+				}
+				&.is-loading,&.is-disabled{
+					&,&:hover,&:focus,&:active{
+						--vc-button-font-color:var(--vc-color-default);
+					}
+				}
+			}
+			&.is-danger{
+				&{
+					--vc-button-font-color:getClrVar(danger);
+				}
+				&:hover,&:focus,&:active{
+					--vc-button-font-color:getClrVar(danger,light);
+				}
+				&.is-loading,&.is-disabled{
+					&,&:hover,&:focus,&:active{
+						--vc-button-font-color:getClrVar(danger);
+					}
+				}
+			}
+			&.is-link.is-disabled,&.is-text.is-disabled{
+				--vc-button-font-color:var(--vc-text-color-dark);
+			}
+		}
+		.is-danger,&.is-danger.is-link,&.is-danger.is-text{
+			&:hover,&:focus,&:active{
+				--vc-button-font-color:getClrVar(danger,light);
+			}
+			&.is-loading,&.is-disabled{
+				&,&:hover,&:focus,&:active{
+					--vc-button-font-color:getClrVar(danger);
+				}
+			}
+		}
+	}
 }

@@ -6,5 +6,6 @@
     "baseUrl": "./",
     "forceConsistentCasingInFileNames": false,
     "noUnusedLocals": false,
+    "esModuleInterop":true
   }
 }

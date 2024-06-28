@@ -1,0 +1,93 @@
+/* var.css */
+:root {
+  /* 标题 */
+  --vp-home-hero-name-color: transparent;
+  --vp-home-hero-name-background: linear-gradient( 135deg, #ceeffd 10%, #1890ff 100%);
+  
+  /* 图标背景 */
+  --vp-home-hero-image-background-image: linear-gradient( 135deg, #ceeffd 10%, #1890ff 100%);
+  --vp-home-hero-image-filter: blur(200px);
+
+  /* brand按钮 */
+  --vp-button-brand-border: var(--vc-color-primary);
+  // --vp-button-brand-text: #F6CEEC;
+  --vp-button-brand-bg: var(--vc-color-primary);
+
+  --vp-button-brand-hover-border: var(--vc-color-primary-light);
+  // --vp-button-brand-hover-text: #fff;
+  --vp-button-brand-hover-bg: var(--vc-color-primary-light);
+
+  --vp-button-brand-active-border: var(--vc-color-primary-dark);
+
+  /* 代码块背景色 */
+  // --vp-code-block-bg: rgba(0,0,0,0.04);
+  --vp-code-bg: #f5f7fa;
+  --vp-code-color:var(--vc-color-primary-light);
+
+  /* 主题基色 */
+  --vp-c-brand: #1890ff;
+  --vp-c-brand-1: #1890ff;
+  --vp-c-brand-2: #1890ff;
+  --vp-c-brand-light: #1890ff;
+  --vp-c-brand-dark: #1890ff;
+
+  --vp-sidebar-bg-color:var(--vp-c-bg);
+  // --vp-sidebar-width:300px;
+}
+
+.DocSearch-Button{
+  background-color: var(--vp-c-bg);
+}
+
+// .VPSidebar{
+//   padding-left: 32px !important;
+//   width: var(--vp-sidebar-width) !important;
+//   .group{
+//     width:100%;
+//   }
+// }
+
+.VPSidebar .VPSidebarItem.level-1 .items{
+  border-left: none;
+  .VPSidebarItem .item .indicator{
+    display: none;
+  }
+}
+
+.VPNavBar.has-sidebar {
+  // .VPNavBarTitle.has-sidebar{
+  //   padding-left: 32px;
+  // }
+  .title{
+    // padding-left: 0 !important;
+    // padding-right: 0 !important;
+    border-bottom: none;
+    // width: var(--vp-sidebar-width) !important;
+  }
+  .divider{
+    padding-left: 0 !important;
+  }
+  // .content{
+  //   padding-left: var(--vp-sidebar-width) !important;
+  //   .VPNavBarSearch{
+  //     flex-grow: 0;
+  //   }
+  // }
+}
+
+.VPContent.has-sidebar{
+  // padding-left: var(--vp-sidebar-width) !important;
+  .VPDoc.has-sidebar.has-aside{
+      padding-left: 0;
+      padding-right: 0;
+  }
+  .content-container{
+    max-width: 100% !important;
+  }
+}
+
+// .VPDocFooter{
+//   .pager .VPLink{
+//     width: 50%;
+//   }
+// }

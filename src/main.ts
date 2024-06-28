@@ -5,4 +5,4 @@ import * as VC from 'various-curious-ui';
 import "various-curious-ui/style/index.less"
 const app = createApp(App);
 
-app.use(VC).use(router).mount('#app');
+app.use(VC,{zIndex:3000}).use(router).mount('#app');

@@ -6,16 +6,16 @@
             <vc-button @click="change('year')">年历</vc-button>
         </vc-button-group>
         <div class="content">
-            <vc-calendar :type="type"></vc-calendar>
+            <vc-calendar :mode="mode"></vc-calendar>
         </div>
     </div>
 </template>
 
 <script setup lang="ts">
 import { ref } from "vue"
-const type = ref("month")
+const mode = ref("month")
 const change = (typeName: string) => {
-    type.value = typeName
+    mode.value = typeName
 }
 </script>
 

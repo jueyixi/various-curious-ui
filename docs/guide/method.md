@@ -31,15 +31,15 @@ npm install various-curious-ui --save
 import { createApp } from 'vue'
 import App from './app.vue'
 
-import * as dc from 'dc-pro-component' 
-import 'dc-pro-component/lib/style.css' 
+import * as vc from 'various-curious-ui' 
+import 'various-curious-ui/style/index.less' 
 const app = createApp(App) 
-app.use(dc).mount('#app') 
+app.use(vc).mount('#app') 
 ```
 
 ```vue
 <template>
-  <d-button />
+  <vc-button />
 </template>
 
 <script setup></script>
@@ -51,11 +51,11 @@ app.use(dc).mount('#app')
 
 ```vue
 <template>
-  <Button>按钮</Button>
+  <vc-button>按钮</vc-button>
 </template>
 
 <script setup>
-import { Button } from 'dc-pro-component'
+import { VcButton } from 'various-curious-ui'
 </script>
 ```
 ## 报错及解决方式

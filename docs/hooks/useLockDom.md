@@ -16,41 +16,29 @@
 点击按钮控制页面的滚动条显示隐藏
 :::
 
-
-<d-button @click="handleClick"   type="primary" >{{!flag?'关闭':'打开'}}</d-button>
-
-<script lang="ts" setup>
-  import { useLockDom } from 'vc-hooks';
-  import {ref } from 'vue';
-  const flag = ref(false)
-    const handleClick=()=>{
-      flag.value=!flag.value;
-      useLockDom(flag.value);
-    }
-</script>
-
-
-
-
-::: details Show Code
+:::demo
 ```vue
-<script>
+<template>
+  <div>
+    <vc-button @click="handleClick"  type="primary" >{{!flag?'关闭':'打开'}}</vc-button>
+  </div>
+</template>
+<script setup lang="ts">
 import { useLockDom } from 'vc-hooks';
-  import {ref } from 'vue';
-  const flag = ref(false)
-    const handleClick=()=>{
-      flag.value=!flag.value;
-      useLockDom(flag.value);
-    }
+import {ref } from 'vue';
+const flag = ref(false)
+const handleClick = () => {
+  flag.value=!flag.value;
+  useLockDom(flag.value);
+}
 </script>
 ```
-
 :::
 
 ## Attributes
 
-| 参数          | 说明 | 类型   | 可选值                                           | 默认值  |
-| ---- | ---- | ------ | ------------------------------------------------ | ------- |
-| state | 状态 | boolean | false                           | false |
+| 参数  | 说明 | 类型   | 可选值              | 默认值  |
+| :----: | ---- | :------: | :-----------------: | :-------: |
+| state | 状态 | `boolean` | `false` \\| `true`          | `false` |
 
 

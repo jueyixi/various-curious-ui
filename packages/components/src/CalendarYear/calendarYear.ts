@@ -1,15 +1,13 @@
 import { PropType } from 'vue';
 import type { ExtractPropTypes } from 'vue';
+import { Dayjs } from 'dayjs';
 
 export const calendarYearProps = {
 	columns: {
 		type: Number,
 		default: 4,
 	},
-	hasClick: {
-		type: Boolean,
-		default: true,
-	},
+	disabled: Boolean,
 	multiple: Boolean,
 	dataSource: {
 		type: Array<any>,
@@ -21,13 +19,18 @@ export const calendarYearProps = {
 		type: [Number, String] as PropType<number | string>,
 		default: 150,
 	},
+	columnsGap: {
+		type: [Number, String] as PropType<number | string>,
+		default:8,
+	},
 	contentStyle: {
 		type: Object,
 		default: () => {},
 	},
 	contentClass: String,
+	value:Dayjs
 } as const;
 
-export const calendarYearEmits = ['prev', 'next', 'toCurrent', 'jump'];
+export const calendarYearEmits = ['prev', 'next', 'setToday', 'change','setDate','update:value'];
 
 export type CalendarYearProps = ExtractPropTypes<typeof calendarYearProps>;
