@@ -1,13 +1,14 @@
 # various-curios-ui
 
-_该组件库采用 `Vue3`+ `Vite`实现！_<br/>
-_持续探索更新中...！_<br/>
+- TypeScript 
+- Tree Shaking
+- Vue3 Composition API
 
-## Document & Online preview
+## 相关链接
 
-[various-curios-ui](https://gitee.com/jueyixi/various-curious-ui)
+- gitee：[various-curios-ui](https://gitee.com/jueyixi/various-curious-ui)
 
-## Install & Use
+## 安装
 
 ```bash
 pnpm i various-curios-ui
@@ -17,37 +18,38 @@ npm install various-curios-ui
 yarn add various-curios-ui
 ```
 
-Import and register component
+注册导入组件
 
-**Global**
+**全局注册**
 
 ```ts
 import { createApp } from 'vue'
 import App from './App.vue'
 
-import VC from 'various-curios-ui'
+import * as VC from 'various-curious-ui';
+import "various-curious-ui/style/index.less"
 
 const app = createApp(App)
 app.use(VC)
 ```
 
-**Local**
+**按需导入**
 
 ```vue
 <script setup>
-import { Button } from 'various-curios-ui'
+import { VcButton } from 'various-curios-ui'
 </script>
 ```
 
-## Project（workspace）
+## 相关命令
 
-- Get the project code
+- 获取项目代码
 
 ```sh
 git clone https://gitee.com/jueyixi/various-curious-ui.git
 ```
 
-- Install dependencies
+- 安装依赖包
 
 ```sh
 cd vc
@@ -55,20 +57,20 @@ cd vc
 pnpm i
 ```
 
-- Run project
+- 运行项目
 
 ```sh
 pnpm dev
 ```
 
-- Install Root dependencies
+- 根目录安装依赖包
 
 ```sh
 pnpm install -wD xxx
 pnpm uninstall -w xxx
 ```
 
-- Install Child dependencies
+- 子模块安装依赖包
 
 ```sh
 # -S 安装到正式依赖(dependencies)
