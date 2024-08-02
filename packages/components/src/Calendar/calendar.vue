@@ -22,13 +22,8 @@
         </div>
         <div :class="calendarNS.setBlock('wrapper')">
             <component :is="componentName" v-bind="$attrs" ref="componentRef">
-                <template #date="{ data }">
-                    <slot name="day" :data="data">{{
-        props.mode !== 'year' ? data.day : data.month + '月'
-                        }}</slot>
-                </template>
-                <template #schedule="{ data }">
-                    <slot name="schedule" :data="data"></slot>
+                <template #[item]="data" v-for="item in Object.keys($slots)" :key="item">
+                    <slot :name="item" v-bind="data"></slot>
                 </template>
             </component>
         </div>

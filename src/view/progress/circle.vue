@@ -18,19 +18,19 @@
         </div>
         <div class="circle-item">
             <p>显示文字</p>
-            <vc-circle :value="50" :show-text="true" />
+            <vc-circle :value="50" show-text />
         </div>
         <div class="circle-item">
             <p>逆时针</p>
-            <vc-circle :value="50" :show-text="true" :clockWise="false" />
+            <vc-circle :value="50" show-text :clockWise="false" />
         </div>
         <div class="circle-item">
             <p>加宽</p>
-            <vc-circle :value="50" :show-text="true" :width="10" />
+            <vc-circle :value="50" show-text :strokeWidth="10" />
         </div>
         <div class="circle-item">
             <p>扇形图</p>
-            <vc-circle :contentWidth="80" :value="50" :width="40" />
+            <vc-circle :width="80" :value="50" :strokeWidth="40" />
         </div>
         <div class="circle-item">
             <p>简单条形圆环</p>

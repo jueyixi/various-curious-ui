@@ -22,6 +22,31 @@ export const animateComponent = [
 		link: '/component/aniNumber',
 		activeMatch: '/component/aniNumber',
 	},
+	{
+		text: 'Circle 圆形进度条',
+		link: '/component/circle',
+		activeMatch: '/component/circle',
+	},
+	{
+		text: 'Dashboard 仪表盘',
+		link: '/component/dashboard',
+		activeMatch: '/component/dashboard',
+	},
+	{
+		text: 'GridBar 栅格进度条',
+		link: '/component/gridBar',
+		activeMatch: '/component/gridBar',
+	},
+	{
+		text: 'Progress 标准进度条',
+		link: '/component/progress',
+		activeMatch: '/component/progress',
+	},
+	{
+		text: 'Ring 圆环进度条',
+		link: '/component/ring',
+		activeMatch: '/component/ring',
+	},
 ];
 
 export const DataComponent = [

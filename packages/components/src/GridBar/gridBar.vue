@@ -1,7 +1,7 @@
 <template>
     <component :is="componentName" v-bind="$attrs" ref="componentRef">
-        <template #text="{ percent }">
-            <slot name="text" :percent="percent">{{ percent }}% </slot>
+        <template #[item]="data" v-for="item in Object.keys($slots)" :key="item">
+            <slot :name="item" v-bind="data"></slot>
         </template>
     </component>
 </template>

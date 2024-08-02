@@ -124,43 +124,59 @@ const change = (val:SelectedCalendarItem) => {
 ```
 :::
 
+## 自定义单元格内容
+
+:::demo
+```vue
+<template>
+    <div>
+        <vc-calendar>
+            <template #columnsItem="{data}">周{{data}}</template>
+            <template #date="{data}">{{data.day}}日</template>
+            <template #schedule="{data}">{{data.day == '08' ? "写日记" : ""}}</template>
+        </vc-calendar>
+    </div>
+</template>
+```
+:::
+
 ## Api
 
-### Props
+### Attributes
 
 日历类组件包含 `week` 、`month` 、`year` 三种形式，以下为共有属性。
 
 | 参数 | 说明 | 类型   | 可选值     | 默认值  |
 | :----: | :---- | :------: | :----------: | :-------: |
-| mode | 日历类型 | `Boolean` | `week` / `year`    | `month` |
-| currentText | 右上角当天按钮文案 | `String` | -     | `'本周' \| '本月' \| '本年'` |
-| prevText | 右上角上一页按钮文案 | `String` | -     | `<` |
-| nextText | 右上角下一页按钮文案 | `String` | -     | `>` |
-| contentStyle |日期单元格日程容器（不包含日期所在范围）自定义样式 | `Object` | -     | `{}` |
-| contentClass | 日期单元格日程容器（不包含日期所在范围）自定义类名 | `String` | -     | - |
-| columnsGap | 日历面板列间距（px） | `Number` \\| `String` | -     | 8 |
-| minHeight | 日历面板单元格日程容器最小高度（单位：px，height） | `Number` \\| `String` | -     | - |
-| maxHeight | 日历面板单元格间距（px） | `Number` \\| `String` | -     | - |
-| height | 日历面板单元格日程容器最小高度（px） | `Number` \\| `String` | `auto` \\| 具体数值    | `week` 时为 `300`，`month` 时为 `120`，`year` 时为 `150` |
+| mode | 日历类型 | `boolean` | `week` / `year`    | `month` |
+| currentText | 右上角当天按钮文案 | `string` | -     | `'本周' \| '本月' \| '本年'` |
+| prevText | 右上角上一页按钮文案 | `string` | -     | `<` |
+| nextText | 右上角下一页按钮文案 | `string` | -     | `>` |
+| contentStyle |日期单元格日程容器（不包含日期所在范围）自定义样式 | `object` | -     | `{}` |
+| contentClass | 日期单元格日程容器（不包含日期所在范围）自定义类名 | `string` | -     | - |
+| columnsGap | 日历面板列间距（px） | `number` \\| `string` | -     | 8 |
+| minHeight | 日历面板单元格日程容器最小高度（单位：px，height） | `number` \\| `string` | -     | - |
+| maxHeight | 日历面板单元格间距（px） | `number` \\| `string` | -     | - |
+| height | 日历面板单元格日程容器最小高度（px） | `number` \\| `string` | `auto` \\| 具体数值    | `week` 时为 `300`，`month` 时为 `120`，`year` 时为 `150` |
 | value(v-model) | 指定日期显示 | `Dayjs` | -     | - |
-| disabled | 禁选 | `Boolean` | `true`     | `false` |
-| multiple | 多选 | `Boolean` | `true`     | `false` |
-| dataSource | 数据源 | `Array` | -    | - |
+| disabled | 禁选 | `boolean` | `true`     | `false` |
+| multiple | 多选 | `boolean` | `true`     | `false` |
+| dataSource | 数据源 | `array` | -    | - |
 
 #### Calendar[mode=week]
 | 参数 | 说明 | 类型   | 可选值     | 默认值  |
 | :----: | :---- | :------: | :----------: | :-------: |
-| columns | 面板头部星期信息列表 | `Array` | -    | `['一', '二', '三', '四', '五', '六', '日']` |
+| columns | 面板头部星期信息列表 | `array` | -    | `['一', '二', '三', '四', '五', '六', '日']` |
 
 #### Calendar[mode=month]
 | 参数 | 说明 | 类型   | 可选值     | 默认值  |
 | :----: | :---- | :------: | :----------: | :-------: |
-| columns | 面板头部星期信息列表 | `Array` | -    | `['一', '二', '三', '四', '五', '六', '日']` |
+| columns | 面板头部星期信息列表 | `array` | -    | `['一', '二', '三', '四', '五', '六', '日']` |
 
 #### Calendar[mode=year]
 | 参数 | 说明 | 类型   | 可选值     | 默认值  |
 | :----: | :---- | :------: | :----------: | :-------: |
-| columns |年份显示列数 | `Number` | -    | 4 |
+| columns |年份显示列数 | `number` | -    | 4 |
 
 ###  Expose
 
@@ -172,7 +188,7 @@ const change = (val:SelectedCalendarItem) => {
 |setToday|面板显示当天所在周（月/年）|`() => void`|
 |setDate|面板显示指定日期所在周（月/年）|`(appointDate?: Dayjs) => void`|
 
-###  Function
+###  function
 
 | 事件名称 | 说明 | 回调参数     |
 |:--:|--|--|
@@ -181,3 +197,13 @@ const change = (val:SelectedCalendarItem) => {
 |setToday|指定显示当天日期回调|`(detail:CalendarDetail) => void`|
 |setDate|显示指定日期回调|`(detail:CalendarDetail) => void`|
 |change|选中日期回调|`(detail:CalendarDetail) => void`|
+
+###  Slots
+
+| 插槽名称 | 说明 |类型|
+|:--:|--|--|
+|cellRender|自定义单元格内容，会直接覆盖单元格默认内容|`{data:CalendarDetail,rowIndex:number,columnIndex:number}`|
+|columnsItem|自定义周历/月历面板列头部内容|`{data:string,index:number}`|
+|date|自定义单元格日期内容|<span style="color:red;">`{data:CalendarDetail,rowIndex:number,columnIndex:number}`</span>|
+|schedule|自定义单元格日程列表|`{data:CalendarDetail,rowIndex:number,columnIndex:number}`|
+|title|自定义日历面板标题内容|`string`|

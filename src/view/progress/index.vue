@@ -6,7 +6,7 @@
         </div>
         <div class="progress-item">
             <p>圆角进度条</p>
-            <vc-progress :value="30" :round="true" />
+            <vc-progress :value="30" round />
         </div>
         <div class="progress-item">
             <p>显示文字</p>
@@ -14,7 +14,7 @@
         </div>
         <div class="progress-item">
             <p>透明背景</p>
-            <vc-progress :value="70" :round="true" background="transparent" />
+            <vc-progress :value="70" round background="transparent" />
         </div>
         <div class="progress-item">
             <p>渐变背景</p>
@@ -22,7 +22,7 @@
         </div>
         <div class="progress-item">
             <p>替换颜色</p>
-            <vc-progress :round="true" :value="75" color="#3cc251" />
+            <vc-progress round :value="75" color="#3cc251" />
         </div>
         <div class="progress-item">
             <p>渐变颜色</p>
@@ -30,15 +30,15 @@
         </div>
         <div class="progress-item">
             <p>替换内容</p>
-            <vc-progress :value="75" :show-text="true" :round="true" color="#3cc251">
-                <template #text>
-                    完成
+            <vc-progress :value="75" :show-text="true" round color="#3cc251">
+                <template #text="{ percent }">
+                    完成进度{{ percent }}%
                 </template>
             </vc-progress>
         </div>
         <div class="progress-item">
             <p>自定义高</p>
-            <vc-progress :value="75" :height="20"> </vc-progress>
+            <vc-progress :value="75" :strokeWidth="20"> </vc-progress>
         </div>
         <div class="progress-item">
             <p>开启动画</p>

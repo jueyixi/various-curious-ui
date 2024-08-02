@@ -1,27 +1,16 @@
 import { PropType } from 'vue';
 import type { ExtractPropTypes } from 'vue';
+import type {Gradients} from "@various-curious-ui/typings"
 
 const lineCapType = ['butt', 'round'] as const;
 const fillType = ['freeze', 'remove'] as const;
-
-type ColorStop = {
-	offset: string;
-	color: string;
-}
-type Gradients = {
-	id: string;
-	x1: string;
-	y1: string;
-	x2: string;
-	y2: string;
-	colorStops: ColorStop[];
-};
 
 export const circleProps = {
 	// 值
 	value: {
 		type: [Number, String] as PropType<number | string>,
 		default: 0,
+		required:true
 	},
 	// 最大值
 	maxValue: {
@@ -29,12 +18,12 @@ export const circleProps = {
 		default: 100,
 	},
 	// 画布宽度
-	contentWidth: {
+	width: {
 		type: Number,
 		default: 100,
 	},
 	// 圆环宽度
-	width: {
+	strokeWidth: {
 		type: Number,
 		default: 6,
 	},
@@ -63,10 +52,7 @@ export const circleProps = {
 	// 颜色
 	color: [String, Array] as PropType<string | Array<string>>,
 	// 显示文字
-	showText: {
-		type: Boolean,
-		default: false,
-	},
+	showText: Boolean,
 	// 顺时针方向
 	clockWise: {
 		type: Boolean,
@@ -76,10 +62,7 @@ export const circleProps = {
 	gradient: Object as PropType<Gradients>,
 	// 自定义渐变色
 	gradients: Array as PropType<Gradients[]>,
-	animate: {
-		type: Boolean,
-		default: false,
-	},
+	animate: Boolean,
 	from: Number,
 	to: Number,
 	by: Number,

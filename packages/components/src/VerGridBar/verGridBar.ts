@@ -5,14 +5,16 @@ const fillType = ['freeze', 'remove'] as const;
 const position = ["bottom", "top"] as const;
 
 export const verGridBarProps = {
-	contentWidth: {
+	// 进度条宽度
+	strokeWidth: {
 		type: [Number, String] as PropType<number | string>,
 		default: 30,
 	},
-	contentHeight: [Number, String] as PropType<number | string>,
+	height: [Number, String] as PropType<number | string>,
 	value: {
 		type: [Number, String] as PropType<number | string>,
 		default: 0,
+		required:true
 	},
 	// 最大值
 	maxValue: {
@@ -21,10 +23,7 @@ export const verGridBarProps = {
 	},
 	background: [String, Array] as PropType<string | string[]>,
 	color: [String, Array] as PropType<string | string[]>,
-	showText: {
-		type: Boolean,
-		default: false,
-	},
+	showText: Boolean,
 	textPosition: {
 		type: String as PropType<(typeof position)[number]>,
 		default: position[0],
@@ -33,10 +32,7 @@ export const verGridBarProps = {
 		type: Number,
 		default: 5,
 	},
-	animate: {
-		type: Boolean,
-		default: false,
-	},
+	animate: Boolean,
 	from: String,
 	to: String,
 	by: String,

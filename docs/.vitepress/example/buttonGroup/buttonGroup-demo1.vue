@@ -1,19 +1,19 @@
 <template>
     <demo>
-        <div style="display:flex;justify-content:space-between;align-items:center;">
+        <div class="flex-item">
             <vc-button-group size="mini">
                 <vc-button>按钮1</vc-button>
                 <vc-button>按钮2</vc-button>
             </vc-button-group>
-            <vc-button-group size="small" style="margin-left: 16px;">
+            <vc-button-group size="small">
                 <vc-button>按钮1</vc-button>
                 <vc-button>按钮2</vc-button>
             </vc-button-group>
-            <vc-button-group style="margin-left: 16px;">
+            <vc-button-group>
                 <vc-button>按钮1</vc-button>
                 <vc-button>按钮2</vc-button>
             </vc-button-group>
-            <vc-button-group type="primary" style="margin-left: 16px;">
+            <vc-button-group type="primary">
                 <vc-button>按钮1</vc-button>
                 <vc-button>按钮2</vc-button>
             </vc-button-group>

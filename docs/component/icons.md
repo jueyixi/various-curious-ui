@@ -30,7 +30,7 @@ npm install @various-curious-ui/icons --save
 import * as Icons from '@various-curious-ui/icons';
 
 const app = createApp(App)
-for (const [key, component] of Object.entries(Icons)) {
+for (const [key, component] of object.entries(Icons)) {
   app.component(key, component)
 }
 ```
@@ -85,5 +85,5 @@ for (const [key, component] of Object.entries(Icons)) {
 
 | 属性名 | 说明 | 类型   | 可选值     | 默认值  |
 | :----: | :---- | :------: | :----------: | :-------: |
-| name | 图标名称 | `String` | -| - |
-| style | 图标样式 | `Object` | -| - |
+| name | 图标名称 | `string` | -| - |
+| style | 图标样式 | `object` | -| - |

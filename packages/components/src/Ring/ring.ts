@@ -1,5 +1,6 @@
 import { PropType } from 'vue';
 import type { ExtractPropTypes } from 'vue';
+import type {SubTextStyle,TextStyle} from "@various-curious-ui/typings"
 
 const lineCapType = ['square', 'round'] as const;
 
@@ -22,23 +23,23 @@ export const ringProps = {
 		default: 100,
 	},
 	// 进度条宽度
-	width: {
+	strokeWidth: {
 		type: [Number, String] as PropType<number | string>,
 		default: 10,
 	},
 	// 进度条颜色
 	color: {
 		type: [String, Array] as PropType<string | Array<string>>,
-		default: ['#fff', '#0dd7de'],
+		default: "#329cff",
 	},
 	// 背景色
 	background: {
 		type: String,
-		default: 'rgba(0,0,0,0.2)',
+		default: 'rgba(0,0,0,0.1)',
 	},
 	// 背景色
 	innerBackground: String,
-	innerWidth: {
+	innerRadius: {
 		type: [Number, String] as PropType<number | string>,
 		default: 0,
 	},
@@ -55,21 +56,18 @@ export const ringProps = {
 	},
 	// 主标题样式
 	titleStyle: {
-		type: Object,
+		type: Object as PropType<TextStyle>,
 		default: () => {},
 	},
 	// 副标题样式
 	subTitleStyle: {
-		type: Object,
+		type: Object as PropType<SubTextStyle>,
 		default: () => {},
 	},
 	// 保留小数点位数
 	percent: [Number, String] as PropType<number | string>,
 	// 数值格式化（percent存在时，数值的.00是否需要去除）
-	format: {
-		type: Boolean,
-		default: false,
-	},
+	format: Boolean,
 	// 初始步长
 	startStep: {
 		type: [Number, String] as PropType<number | string>,
@@ -80,10 +78,7 @@ export const ringProps = {
 		type: [Number, String] as PropType<number | string>,
 		default: 1,
 	},
-	animate: {
-		type: Boolean,
-		default: false,
-	},
+	animate: Boolean,
 } as const;
 
 export type RingProps = ExtractPropTypes<typeof ringProps>;

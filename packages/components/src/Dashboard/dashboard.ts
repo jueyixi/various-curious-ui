@@ -1,58 +1,38 @@
 import { PropType } from 'vue';
 import type { ExtractPropTypes } from 'vue';
-
-export type OffsetColor = {
-	offset: string | number;
-	color: string;
-	startStep?: number;
-	endStep?: number;
-};
+import type {OffsetColor,SubTextStyle,TextStyle,SplitStyle} from "@various-curious-ui/typings"
 
 export const dashboardProps = {
 	// id
-	id: {
-		type: String,
-		default: '',
-	},
-	// 画布宽
-	contentWidth: {
-		type: Number,
-		default: 300,
-	},
-	// 画布高
-	contentHeight: {
-		type: Number,
+	id: String,
+	radius: {
+		type: [Number, String] as PropType<number | string>,
 		default: 150,
 	},
 	// 主标题
-	title: {
-		type: String,
-		default: '',
-	},
+	title: String,
 	// 副标题
-	subTitle: {
-		type: String,
-		default: '',
-	},
+	subTitle: String,
 	// 主标题样式
 	titleStyle: {
-		type: Object,
+		type: Object as PropType<TextStyle>,
 		default: () => {},
 	},
+	middleTitle:Boolean,
 	// 副标题样式
 	subTitleStyle: {
-		type: Object,
+		type: Object as PropType<SubTextStyle>,
 		default: () => {},
 	},
 	// 进度线颜色
 	color: {
 		type: [String, Array] as PropType<string | Array<OffsetColor>>,
-		default: '#0dd7de',
+		default: '#329cff',
 	},
 	// 进度条颜色
 	background: {
 		type: [String, Array] as PropType<string | Array<OffsetColor>>,
-		default: 'rgba(75, 160, 174, 0.5)',
+		default: 'rgba(50, 156, 255, 0.5)',
 	},
 	// 数值
 	value: {
@@ -69,6 +49,10 @@ export const dashboardProps = {
 		type: Number,
 		default: 180,
 	},
+	semicircle: {
+		type:Boolean,
+		default:true
+	},
 	// 最大值
 	maxValue: {
 		type: [Number, String] as PropType<number | string>,
@@ -84,9 +68,14 @@ export const dashboardProps = {
 		type: [Number, String] as PropType<number | string>,
 		default: 2,
 	},
+	// 刻度线宽度
+	splitSpace: {
+		type: [Number, String] as PropType<number | string>,
+		default: 2,
+	},
 	// 刻度值样式
 	splitStyle: {
-		type: Object,
+		type: Object as PropType<SplitStyle>,
 		default: () => {},
 	},
 	// 刻度线颜色
@@ -102,7 +91,7 @@ export const dashboardProps = {
 	// 内圆背景色
 	interBackground: {
 		type: [String, Array] as PropType<string | Array<string>>,
-		default: 'rgba(0,0,0,0.7)',
+		default: 'rgba(0, 0, 0,0.7)',
 	},
 	// 外圆半径
 	outerRadius: {
@@ -117,17 +106,17 @@ export const dashboardProps = {
 	// 外圆环背景色
 	outerBackground: {
 		type: String,
-		default: 'rgba(75, 160, 174, 0.1)',
+		default: 'rgba(217, 217, 217,1)',
 	},
 	// 进度线宽度
-	width: {
+	strokeWidth: {
 		type: [Number, String] as PropType<number | string>,
 		default: 5,
 	},
 	// 初始步长
 	startStep: {
 		type: [Number, String] as PropType<number | string>,
-		default: 1,
+		default: 0,
 	},
 	// 数值跳动步长
 	step: {

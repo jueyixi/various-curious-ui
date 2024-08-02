@@ -1,8 +1,6 @@
 <template>
     <demo>
-        <div>
-            <vc-calendar disabled></vc-calendar>
-        </div>
+        <vc-calendar disabled></vc-calendar>
     </demo>
 </template>
 <script setup lang="ts">

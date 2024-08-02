@@ -1,9 +1,7 @@
 <template>
     <demo>
-        <div>
-            <div>已选择日期：{{ selectedList?.map(item => item.date).join('、') }}</div>
-            <vc-calendar multiple @change="change"></vc-calendar>
-        </div>
+        <div>已选择日期：{{ selectedList?.map(item => item.date).join('、') }}</div>
+        <vc-calendar multiple @change="change"></vc-calendar>
     </demo>
 </template>
 <script setup lang="ts">

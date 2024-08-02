@@ -5,10 +5,12 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from 'vue';
+import { ref, onMounted, computed } from 'vue';
 import { ringProps } from "./ring"
 import { useNS, useZIndex } from "vc-hooks"
 import { isArray, getColor } from 'vc-utils';
+import type { SubTextStyle, TextStyle } from "@various-curious-ui/typings"
+
 defineOptions({
     name: "VcRing",
     inheritAttrs: false
@@ -27,8 +29,8 @@ const { getIndex, setIndex } = useZIndex("ring")
 const MAX_VALUE = Number(props.maxValue);
 const VALUE = Number(props.value);
 const RADIUS = Number(props.radius);
-const WIDTH = Number(props.width)
-const INNER_WIDTH = Number(props.innerWidth)
+const SROKEWIDTH = Number(props.strokeWidth)
+const INNER_RADIUS = Number(props.innerRadius)
 const PERCENT = Number(props.percent || 0)
 let step = Number(props.step);
 
@@ -78,6 +80,16 @@ const drawCircle = (
 let num = Number(props.startStep);
 let colorArr = [];
 
+const setColor = computed(() => {
+    return (value: Array<string>) => {
+        if (isArray(props.color)) {
+            return value
+        } else {
+            return props.color
+        }
+    }
+})
+
 // 普通形式
 const init = (ctx) => {
     draw(ctx);
@@ -109,11 +121,11 @@ const draw = (ctx, num?: number) => {
         ctx,
         RADIUS,
         RADIUS,
-        RADIUS - WIDTH / 2,
+        RADIUS - SROKEWIDTH / 2,
         0,
         2 * Math.PI,
         false,
-        WIDTH,
+        SROKEWIDTH,
         true,
         props.background
     );
@@ -125,51 +137,51 @@ const draw = (ctx, num?: number) => {
                 ctx,
                 RADIUS,
                 RADIUS,
-                RADIUS - WIDTH / 2,
+                RADIUS - SROKEWIDTH / 2,
                 -Math.PI / 2,
                 -Math.PI / 2 + ((2 * currentValue) / 100) * Math.PI,
                 false,
-                WIDTH,
+                SROKEWIDTH,
                 false,
-                [props.color[0], colorArr[num ? MAX_VALUE / 2 : VALUE]]
+                setColor.value([props.color[0], colorArr[num ? MAX_VALUE / 2 : VALUE]])
             );
         } else {
             drawCircle(
                 ctx,
                 RADIUS,
                 RADIUS,
-                RADIUS - WIDTH / 2,
+                RADIUS - SROKEWIDTH / 2,
                 -Math.PI / 2,
                 value,
                 false,
-                WIDTH,
+                SROKEWIDTH,
                 false,
-                [props.color[0], colorArr[MAX_VALUE / 2]]
+                setColor.value([props.color[0], colorArr[MAX_VALUE / 2]])
             );
             drawCircle(
                 ctx,
                 RADIUS,
                 RADIUS,
-                RADIUS - WIDTH / 2,
+                RADIUS - SROKEWIDTH / 2,
                 -Math.PI / 2 + 1 * Math.PI,
                 -Math.PI / 2 + ((2 * currentValue) / 100) * Math.PI,
                 false,
-                WIDTH,
+                SROKEWIDTH,
                 false,
-                [props.color[1], colorArr[MAX_VALUE / 2]]
+                setColor.value([props.color[1], colorArr[MAX_VALUE / 2]])
             );
         }
     }
-    if (props.innerWidth) {
+    if (props.innerRadius) {
         drawCircle(
             ctx,
             RADIUS,
             RADIUS,
-            RADIUS - WIDTH - INNER_WIDTH / 2,
+            RADIUS - SROKEWIDTH - INNER_RADIUS / 2,
             0,
             Math.PI * 2,
             false,
-            INNER_WIDTH,
+            INNER_RADIUS,
             true,
             props.innerBackground
         );
@@ -182,7 +194,9 @@ canvasId.value = props.id || 'ring' + getIndex();
 onMounted(() => {
     let myCanvas = document.getElementById(canvasId.value) as HTMLCanvasElement; //获取画布节点
     let ctx = myCanvas.getContext('2d') as CanvasRenderingContext2D | null; //采用2d格式，并获取对象
-    colorArr = getColor(props.color[0], props.color[1], MAX_VALUE);
+    if (isArray(props.color)) {
+        colorArr = getColor(props.color[0], props.color[1], MAX_VALUE);
+    }
     props.animate ? animate(ctx) : init(ctx);
 });
 
@@ -191,7 +205,7 @@ let textWidth1 = 0;
 let textWidth2 = 0;
 let textWidth3 = 0;
 
-const fontStyle: any = {
+const fontStyle: TextStyle = {
     fontSize: 24,
     fontWeight: 500,
     textBaseline: 'Alphabetic',
@@ -202,7 +216,7 @@ const fontStyle: any = {
     left: 0,
     right: 0,
     unit: '',
-    ...props.titleStyle,
+    ...props.titleStyle as any,
 };
 
 // 绘制标题文字
@@ -247,7 +261,7 @@ const drawText = (ctx) => {
 };
 
 // 副标题样式表
-const subFontStyle: any = {
+const subFontStyle: SubTextStyle = {
     fontSize: 12,
     fontWeight: 'normal',
     textBaseline: 'Alphabetic',
@@ -257,7 +271,7 @@ const subFontStyle: any = {
     bottom: 0,
     left: 0,
     right: 0,
-    ...props.subTitleStyle,
+    ...props.subTitleStyle as any,
 };
 
 // 绘制副标题文字

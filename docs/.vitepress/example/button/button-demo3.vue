@@ -1,5 +1,5 @@
 <template>
-    <demo>
+    <demo class="flex-item-column">
         <div>
             <vc-button link>link</vc-button>
             <vc-button link type="primary">primary</vc-button>

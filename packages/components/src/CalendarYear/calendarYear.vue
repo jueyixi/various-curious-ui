@@ -7,21 +7,23 @@
                 </colgroup>
                 <tbody>
                     <tr v-for="(item, index) in formData.list" :key="index" :style="columnsStyle">
-                        <td :class="[calendarNS.setBlockModifier('year', 'cell')]" v-for="v in item" :key="v"
+                        <td :class="[calendarNS.setBlockModifier('year', 'cell')]" v-for="(v, i) in item" :key="v"
                             :title="v.date">
                             <div @click="!props.disabled && change(v)" class="vc-calendar-cell" :class="{
                                 'vc-pointer': !props.disabled,
     'is-active': v.checked,
                                 'is-current': handle.isCurrentMonth(v.value),
                             }">
-                                <div class="vc-calendar-cell--date">
-                                    <slot name="date" :data="v">
-                                        {{ v.month }}月
-                                    </slot>
-                                </div>
-                                <div :class="contentClass" :style="contentStyle">
-                                    <slot name="schedule" :data="v"></slot>
-                                </div>
+                                <slot name="cellRender" :data="v" :rowIndex="index" :columnIndex="i">
+                                    <div class="vc-calendar-cell--date">
+                                        <slot name="date" :data="v" :rowIndex="index" :columnIndex="i">
+                                            {{ v.month }}月
+                                        </slot>
+                                    </div>
+                                    <div :class="contentClass" :style="contentStyle">
+                                        <slot name="schedule" :data="v" :rowIndex="index" :columnIndex="i"></slot>
+                                    </div>
+                                </slot>
                             </div>
                         </td>
                     </tr>

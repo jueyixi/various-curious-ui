@@ -7,20 +7,20 @@
 :::demo
 ```vue
 <template>
-    <div style="display:flex;align-items:center;">
+    <div class="flex-item">
         <vc-button-group size="mini">
             <vc-button>按钮1</vc-button>
             <vc-button>按钮2</vc-button>
         </vc-button-group>
-        <vc-button-group size="small" style="margin-left: 16px;">
+        <vc-button-group size="small">
                 <vc-button>按钮1</vc-button>
                 <vc-button>按钮2</vc-button>
             </vc-button-group>
-        <vc-button-group style="margin-left: 16px;">
+        <vc-button-group>
             <vc-button>按钮1</vc-button>
             <vc-button>按钮2</vc-button>
         </vc-button-group>
-        <vc-button-group type="primary" style="margin-left: 16px;">
+        <vc-button-group type="primary">
             <vc-button>按钮1</vc-button>
             <vc-button>按钮2</vc-button>
         </vc-button-group>
@@ -34,13 +34,13 @@
 :::demo
 ```vue
 <template>
-    <div style="display:flex;">
+    <div class="flex-item">
         <vc-button-group danger>
             <vc-button>按钮1</vc-button>
             <vc-button>按钮2</vc-button>
             <vc-button>按钮3</vc-button>
         </vc-button-group>
-         <vc-button-group type="primary" danger style="margin-left: 16px;">
+         <vc-button-group type="primary" danger>
             <vc-button>按钮1</vc-button>
             <vc-button>按钮2</vc-button>
             <vc-button>按钮3</vc-button>
@@ -56,9 +56,9 @@
 
 | 属性名 | 说明 | 类型   | 可选值     | 默认值  |
 | :----: | :---- | :------: | :----------: | :-------: |
-| danger | 危险按钮 | `Boolean` |  `true`    | `false` |
-| size | 尺寸大小 | `String` | `large` / `small` / `mini`      | `middle` |
-| type | 按钮类型 | `String` | `primary` / `success` / `warinng` / `dashed` | `default` |
+| danger | 危险按钮 | `boolean` |  `true`    | `false` |
+| size | 尺寸大小 | `string` | `large` / `small` / `mini`      | `middle` |
+| type | 按钮类型 | `string` | `primary` / `success` / `warinng` / `dashed` | `default` |
 
 ###  Slots
 

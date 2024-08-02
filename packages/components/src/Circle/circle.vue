@@ -1,109 +1,51 @@
 <template>
-    <div :class="[circleNS.namespace]">
-        <svg
-          :style="{ transform: props.clockWise ? 'rotateY(0deg)' : 'rotateY(180deg)' }"
-          xmlns="http://www.w3.org/2000/svg"
-          width="100%"
-          height="100%"
-          :viewBox="`0 0 ${Number(props.contentWidth)} ${Number(props.contentWidth)}`"
-        >
-          <!-- 定义渐变色 -->
-          <defs v-if="props?.gradient?.id">
-            <linearGradient
-              :id="props?.gradient?.id"
-              :x1="props?.gradient?.x1"
-              :y1="props?.gradient?.y1"
-              :x2="props?.gradient?.x2"
-              :y2="props?.gradient?.y2"
-            >
-              <stop
-                v-for="(v, i) in props?.gradient?.colorStops"
-                :key="i"
-                :offset="v.offset"
-                :stop-color="v.color"
-              />
-            </linearGradient>
-          </defs>
-          <defs v-else-if="props?.gradients?.length">
-            <linearGradient
-              v-for="item in props.gradients"
-              :key="item.id"
-              :id="item.id"
-              :x1="item.x1"
-              :y1="item.y1"
-              :x2="item.x2"
-              :y2="item.y2"
-            >
-              <stop
-                v-for="(v, i) in item.colorStops"
-                :key="i"
-                :offset="v.offset"
-                :stop-color="v.color"
-              />
-            </linearGradient>
-          </defs>
-          <defs v-else-if="bgColorArray || colorArray">
-            <linearGradient v-if="bgColorArray" :id="getCircle()" x1="0" y1="0" x2="0" y2="100%">
-              <stop offset="0%" :stop-color="bgColor?.[0]" />
-              <stop offset="100%" :stop-color="bgColor?.[1]" />
-            </linearGradient>
-            <linearGradient v-if="colorArray" :id="getCircleItem()" x1="0" y1="0" x2="0" y2="100%">
-              <stop offset="0%" :stop-color="color?.[0]" />
-              <stop offset="100%" :stop-color="color?.[1]" />
-            </linearGradient>
-          </defs>
-          <!-- 底部背景圆环 -->
-          <circle
-            :cx="props.contentWidth / 2"
-            :cy="props.contentWidth / 2"
-            :r="radius"
-            :stroke="bgStroke"
-            :stroke-width="props.width"
-            fill="none"
-          />
-          <!-- 进度条圆环 -->
-          <circle
-            :cx="props.contentWidth / 2"
-            :cy="props.contentWidth / 2"
-            :r="radius"
-            :stroke-dasharray="strokeDasharray()"
-            :stroke-dashoffset="strokeDashoffset()"
-            :stroke="barStroke"
-            :stroke-width="props.width"
-            :stroke-linecap="props.lineCap"
-            fill="none"
-            :transform="`rotate(-90, ${props.contentWidth / 2}, ${props.contentWidth / 2})`"
-          >
-            <animate
-              v-if="animate"
-              attributeName="stroke-dashoffset"
-              attributeType="XML"
-              :from="setValue('form')"
-              :to="setValue('to')"
-              :by="setValue('to')"
-              :begin="props.begin"
-              :dur="props.dur"
-              :repeatCount="props.repeatCount"
-              :fill="props.fill"
-              v-bind="{ ...props.animation }"
-            ></animate>
-          </circle>
-          <!-- 环形分割细线 -->
-          <circle
-            :cx="props.contentWidth / 2"
-            :cy="props.contentWidth / 2"
-            :r="radius"
-            :stroke="separateColor"
-            fill="transparent"
-            :stroke-width="props.width + 2"
-            :stroke-dasharray="separateDasharray()"
-            :transform="`rotate(-90, ${props.contentWidth / 2}, ${props.contentWidth / 2})`"
-          ></circle>
-        </svg>
-        <div :class="[circleNS.setBlock('text')]" v-if="props.showText">
-          <slot name="text" :percent="percent"></slot>
-        </div>
-      </div>
+  <div :class="[circleNS.namespace]">
+    <svg :style="{ transform: props.clockWise ? 'rotateY(0deg)' : 'rotateY(180deg)' }"
+      xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"
+      :viewBox="`0 0 ${Number(props.width)} ${Number(props.width)}`">
+      <!-- 定义渐变色 -->
+      <defs v-if="props?.gradient?.id">
+        <linearGradient :id="props?.gradient?.id" :x1="props?.gradient?.x1" :y1="props?.gradient?.y1"
+          :x2="props?.gradient?.x2" :y2="props?.gradient?.y2">
+          <stop v-for="(v, i) in props?.gradient?.colorStops" :key="i" :offset="v.offset" :stop-color="v.color" />
+        </linearGradient>
+      </defs>
+      <defs v-else-if="props?.gradients?.length">
+        <linearGradient v-for="item in props.gradients" :key="item.id" :id="item.id" :x1="item.x1" :y1="item.y1"
+          :x2="item.x2" :y2="item.y2">
+          <stop v-for="(v, i) in item.colorStops" :key="i" :offset="v.offset" :stop-color="v.color" />
+        </linearGradient>
+      </defs>
+      <defs v-else-if="bgColorArray || colorArray">
+        <linearGradient v-if="bgColorArray" :id="getCircle()" x1="0" y1="0" x2="0" y2="100%">
+          <stop offset="0%" :stop-color="bgColor?.[0]" />
+          <stop offset="100%" :stop-color="bgColor?.[1]" />
+        </linearGradient>
+        <linearGradient v-if="colorArray" :id="getCircleItem()" x1="0" y1="0" x2="0" y2="100%">
+          <stop offset="0%" :stop-color="color?.[0]" />
+          <stop offset="100%" :stop-color="color?.[1]" />
+        </linearGradient>
+      </defs>
+      <!-- 底部背景圆环 -->
+      <circle :cx="props.width / 2" :cy="props.width / 2" :r="radius" :stroke="bgStroke"
+        :stroke-width="props.strokeWidth" fill="none" />
+      <!-- 进度条圆环 -->
+      <circle :cx="props.width / 2" :cy="props.width / 2" :r="radius" :stroke-dasharray="strokeDasharray()"
+        :stroke-dashoffset="strokeDashoffset()" :stroke="barStroke" :stroke-width="props.strokeWidth"
+        :stroke-linecap="props.lineCap" fill="none" :transform="`rotate(-90, ${props.width / 2}, ${props.width / 2})`">
+        <animate v-if="animate" attributeName="stroke-dashoffset" attributeType="XML" :from="setValue('form')"
+          :to="setValue('to')" :by="setValue('to')" :begin="props.begin" :dur="props.dur"
+          :repeatCount="props.repeatCount" :fill="props.fill" v-bind="{ ...props.animation }"></animate>
+      </circle>
+      <!-- 环形分割细线 -->
+      <circle :cx="props.width / 2" :cy="props.width / 2" :r="radius" :stroke="separateColor" fill="transparent"
+        :stroke-width="props.strokeWidth + 2" :stroke-dasharray="separateDasharray()"
+        :transform="`rotate(-90, ${props.width / 2}, ${props.width / 2})`"></circle>
+    </svg>
+    <div :class="[circleNS.setBlock('text')]" v-if="props.showText">
+      <slot name="text" :percent="percent">{{ percent }}%</slot>
+    </div>
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -130,7 +72,7 @@ const VALUE = Number(props.value)
 const MAX_VALUE = Number(props.maxValue)
 
 const radius = computed(() => {
-    return (props.contentWidth - props.width) / 2;
+  return (props.width - props.strokeWidth) / 2;
 });
 const percent = Number(((VALUE / MAX_VALUE) * 100).toFixed(2)) / 1;
 const setValue = computed(() => {
@@ -172,7 +114,7 @@ if (isArray(props.color)) {
 const strokeDasharray = () => {
     let value = 0;
     if (props.lineCap === 'round') {
-        value = 2 * Math.PI * radius.value + props.width;
+      value = 2 * Math.PI * radius.value + props.strokeWidth;
     } else {
         value = 2 * Math.PI * radius.value;
     }
@@ -191,7 +133,7 @@ const strokeDashoffset = () => {
         value = 0;
     }
     if (props.lineCap === 'round') {
-        val = 2 * Math.PI * radius.value * (1 - value) + props.width;
+      val = 2 * Math.PI * radius.value * (1 - value) + props.strokeWidth;
     } else {
         val = 2 * Math.PI * radius.value * (1 - value);
     }

@@ -1,11 +1,11 @@
 <template>
-  <div :class="[gridBarNS.namespace, gridBarNS.is('vertical')]">
+  <div :class="[gridBarNS.namespace, gridBarNS.is('vertical')]" :style="setGridStyle">
     <template v-if="props.textPosition === 'top'">
       <div :class="[gridBarNS.setBlock('text'),gridBarNS.setBlockModifier('text','top')]" v-if="props.showText">
         <slot name="text" :percent="percent">{{ percent }}% </slot>
       </div>
     </template>
-    <div :class="[gridBarNS.setBlock('bar')]" :style="setBgStyle()">
+    <div :class="[gridBarNS.setBlock('bar')]" :style="setBgStyle">
       <svg width="100%" height="100%">
         <defs>
           <linearGradient :id="getGrid()" x1="0%" x2="0%" y1="100%" y2="0%" gradientUnits="userSpaceOnUse">
@@ -58,26 +58,30 @@ const { getIndex, setIndex } = useZIndex("grid")
 const VALUE = Number(props.value)
 const MAX_VALUE = Number(props.maxValue)
 
-const setBgStyle = () => {
+const setGridStyle = computed(() => {
   let style: any = {};
-  if (isNumber(props.contentWidth)) {
-    style.width = props.contentWidth + 'px';
-  } else {
-    style.width = props.contentWidth;
-  }
-  if (props.contentHeight) {
-    if (isNumber(props.contentHeight)) {
-      style.height = props.contentHeight + 'px';
-      style.lineHeight = props.contentHeight + 'px';
+  if (props.height) {
+    if (isNumber(props.height)) {
+      style.height = props.height + 'px';
+      style.lineHeight = props.height + 'px';
     } else {
-      style.height = props.contentHeight;
-      style.lineHeight = props.contentHeight;
+      style.height = props.height;
+      style.lineHeight = props.height;
     }
-  } else if (!props.showText) {
-    style.height = "100%"
+    style.overflow = 'hidden'
+  }
+  return style
+})
+
+const setBgStyle = computed(() => {
+  let style: any = {};
+  if (isNumber(props.strokeWidth)) {
+    style.width = props.strokeWidth + 'px';
+  } else {
+    style.width = props.strokeWidth;
   }
   return style;
-};
+});
 const percent = Number(((VALUE / MAX_VALUE) * 100).toFixed(2)) / 1;
 const bgColor = ref<string[]>([]);
 const color = ref<string[]>([]);
@@ -85,13 +89,13 @@ if (props.background && isArray(props.background)) {
   bgColor.value = props.background as string[];
 } else {
   const background = props.background as string
-  bgColor.value = [background || 'rgba(0,0,0,0.3)', background || 'rgba(0,0,0,0.3)'];
+  bgColor.value = [background || '#d9d9d9', background || '#d9d9d9'];
 }
 if (props.color && isArray(props.color)) {
   color.value = props.color as string[];
 } else {
   const colorValue = props.color as string
-  color.value = [colorValue || '#1890ff', colorValue || '#1890ff'];
+  color.value = [colorValue || '#329cff', colorValue || '#329cff'];
 }
 setIndex();
 const getGrid = () => {

@@ -1,16 +1,16 @@
 <template>
     <div :class="[progressNS.namespace]" ref="progressRef">
         <div :class="[progressNS.setBlock('bg'),]" :style="setBgStyle()">
-          <div :class="[progressNS.setBlock('bar'),]" :style="setStyle()"></div>
+            <div :class="ProgressBarClass" :style="setStyle()"></div>
         </div>
         <div :class="[progressNS.setBlock('text'),]" v-if="props.showText">
-          <slot name="text" :percent="percent">{{ percent }}% </slot>
+            <slot name="text" :percent="percent">{{ percent }}% </slot>
         </div>
-      </div>
+    </div>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref, computed } from 'vue';
 import { progressProps } from "./progress"
 import { useNS, useZIndex } from "vc-hooks"
 import { isArray, isNumber } from 'vc-utils';
@@ -27,7 +27,14 @@ const props = defineProps({
 
 const progressNS = useNS('progress');
 
-const {getIndex,setIndex} = useZIndex("progress")
+const { getIndex, setIndex } = useZIndex("progress")
+
+const ProgressBarClass = computed(() => {
+    return [
+        progressNS.setBlock('bar'),
+        progressNS.is(props.status),
+    ]
+})
 
 setIndex();
 const percent = Number(((Number(props.value) / Number(props.maxValue)) * 100).toFixed(2)) / 1;
@@ -47,10 +54,10 @@ const setBgStyle = () => {
 const setStyle = () => {
     let style:any = {};
     style.width = percent + '%';
-    if (isNumber(props.height)) {
-        style.height = props.height + 'px';
+    if (isNumber(props.strokeWidth)) {
+        style.height = props.strokeWidth + 'px';
     } else {
-        style.height = props.height;
+        style.height = props.strokeWidth;
     }
     if (props.color && isArray(props.color)) {
         style.background = `linear-gradient(90deg,${props.color[0]} 0%,${props.color[1]} 100%)`;

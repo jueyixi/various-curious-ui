@@ -34,3 +34,12 @@ export const getType = (obj) => {
 	}
 	return map[toString.call(obj)];
 };
+
+
+export const isChinese = (text) => {
+    return /[\u4e00-\u9fa5]/.test(text);
+}
+ 
+export const isEnglish = (text) => {
+    return /^[a-zA-Z0-9 ]+$/.test(text);
+}

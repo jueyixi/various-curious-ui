@@ -1,7 +1,12 @@
 @import '../mixn/index.less';
 @plugin "../plugin/index";
 
+@statusList: primary,success, warning,danger;
+
 .@{componentPrefix}-progress {
+	&{
+		--vc-progress-bg:var(--vc-divider-color);
+	}
 	//base
 	& {
 		width: 100%;
@@ -9,15 +14,18 @@
 		justify-content: center;
 		align-items: center;
 		&-bg {
-			background:var(--vc-color-background-default);
+			background:var(--vc-progress-bg);
 			flex: 1;
 		}
-		&-bar {
-			background: var(--vc-color-primary);
-		}
+		each(@statusList, .(@status) {
+			.bIs(bar,@status,{
+				background-color: getClrVar(@status);
+			});
+		});
 		&-text {
 			margin-left: 10px;
 			font-size: 12px;
+			line-height: 1.2;
 		}
 	}
 }

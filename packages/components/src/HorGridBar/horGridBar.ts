@@ -1,10 +1,10 @@
-import { PropType } from 'vue';
-import type { ExtractPropTypes } from 'vue';
+import type { ExtractPropTypes,PropType } from 'vue';
 
 const fillType = ['freeze', 'remove'] as const;
 
 export const horGridBarProps = {
-	contentHeight: {
+	// 进度条宽度
+	strokeWidth: {
 		type: [Number, String] as PropType<number | string>,
 		default: 10,
 	},
@@ -19,18 +19,12 @@ export const horGridBarProps = {
 	},
 	background: [String, Array] as PropType<string | string[]>,
 	color: [String, Array] as PropType<string | string[]>,
-	showText: {
-		type: Boolean,
-		default: false,
-	},
+	showText: Boolean,
 	partGap: {
 		type: Number,
 		default: 5,
 	},
-	animate: {
-		type: Boolean,
-		default: false,
-	},
+	animate: Boolean,
 	from: String,
 	to: String,
 	by: String,

@@ -4,7 +4,7 @@
 
 ## 基础用法
 
-只需要传递一个 `Number` 类型的值即可。
+只需要传递一个 `number` 类型的值即可。
 
 :::demo
 ```vue
@@ -140,15 +140,15 @@ const play = ({ref,value}) => {
 
 | 属性名 | 说明 | 类型   | 可选值     | 默认值  |
 | :----: | :---- | :------: | :----------: | :-------: |
-| animate | 是否开启动画 | `Boolean` | `true`    | `true` |
-| delay | 上一次动画结束和下一次动画开始之间间隔时间（ms） | `Number` | -     | 1000 |
-| durTime | 动画持续时间（ms） | `Number` | -     | 3000 |
-| format | 文本格式化方法 | `Function` | -     | - |
-| initial | 初始值 | `Number` | -     | 0 |
-| value | 数值 | `Number` | -    | 0 |
-| loopAnimate | 是否为循环动画 | `Boolean` |  `true`    | `false` |
-| precision | 数值精度 | `String` / `Number` | -     | 0 |
-| step | 步长 | `Number` | -     | 0 |
+| animate | 是否开启动画 | `boolean` | `false`    | `true` |
+| delay | 上一次动画结束和下一次动画开始之间间隔时间（ms） | `number` | -     | 1000 |
+| durTime | 动画持续时间（ms） | `number` | -     | 3000 |
+| format | 文本格式化方法 | `function` | -     | - |
+| initial | 初始值 | `number` | -     | 0 |
+| value | 数值 | `number` | -    | 0 |
+| loopAnimate | 是否为循环动画 | `boolean` |  `true`    | `false` |
+| precision | 数值精度 | `string` / `number` | -     | 0 |
+| step | 步长 | `number` | -     | 0 |
 
 ###  Expose
 
@@ -162,4 +162,4 @@ const play = ({ref,value}) => {
 |:--:|--|--|
 |begin|开始动画|`(aniNumberRef) => void`|
 |finish|结束动画|`(aniNumberRef) => void`|
-|play|数值每次变动时触发|`({aniNumberRef:ref,value:Number}) => void`|
+|play|数值每次变动时触发|`({aniNumberRef:ref,value:number}) => void`|
