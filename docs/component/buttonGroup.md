@@ -57,8 +57,8 @@
 | 属性名 | 说明 | 类型   | 可选值     | 默认值  |
 | :----: | :---- | :------: | :----------: | :-------: |
 | danger | 危险按钮 | `boolean` |  `true`    | `false` |
-| size | 尺寸大小 | `string` | `large` / `small` / `mini`      | `middle` |
-| type | 按钮类型 | `string` | `primary` / `success` / `warinng` / `dashed` | `default` |
+| size | 尺寸大小 | `string` | `large` \\| `small` \\| `mini`      | `middle` |
+| type | 按钮类型 | `string` | `primary` \\| `success` \\| `warinng` \\| `dashed` | `default` |
 
 ###  Slots
 

@@ -16,7 +16,7 @@ export const FloatingProps = {
 	 */
 	trigger: {
 		type: String as PropType<FloatingTrigger>,
-		default: 'click',
+		default: 'hover',
 	},
 	/**
 	 * @description floating元素相对于reference元素的定位

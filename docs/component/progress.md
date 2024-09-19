@@ -97,7 +97,7 @@
 | round | 是否为圆角| `boolean` | `true`    | `false` |
 | showText | 是否显示文案| `boolean` | `true`    | `false` |
 | strokeWidth | 进度条宽度 | `string` / `number` | -     | 10 |
-| transitionName | 动画类型 | `string` | `linear` / `ease-in` / `ease-out`    | `ease` |
+| transitionName | 动画类型 | `string` | `linear` \\| `ease-in` \\| `ease-out`    | `ease` |
 | value | 进度条数值 | `string` / `number` | -     | 0 |
 
 ###  Slots

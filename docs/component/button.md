@@ -207,14 +207,14 @@
 | href | 点击跳转的地址，指定此属性`button`的行为和`a`链接一致 | `string` | -    | - |
 | link | 链接按钮 | `boolean` |  `true`    | `false` |
 | loading | 加载中 | `boolean` | `true` | `false` |
-| nativeType | 原生type | `string` | `submit` / `reset`  | `button` |
+| nativeType | 原生type | `string` | `submit` \\| `reset`  | `button` |
 | prefixIcon | 前置图标 | `string` | icon名称     | - |
-| shape | 按钮形状 | `string` |  `circle` / `round`  | `default` |
-| size | 尺寸大小 | `string` | `large` / `small` / `mini`      | `middle` |
+| shape | 按钮形状 | `string` |  `circle` \\| `round`  | `default` |
+| size | 尺寸大小 | `string` | `large` \\| `small` \\| `mini`      | `middle` |
 | suffixIcon | 后置图标 | `string` | icon名称   | - |
-| target | `link`类型时，原生`target`属性，`href`存在时生效 | `string` | `_blank` / `_parent` / `_top`     | `_self` |
+| target | `link`类型时，原生`target`属性，`href`存在时生效 | `string` | `_blank` \\| `_parent` \\| `_top`     | `_self` |
 | text | 文字按钮 | `boolean` |  `true`    | `false` |
-| type | 按钮类型 | `string` | `primary` / `success` / `warinng` / `dashed` | `default` |
+| type | 按钮类型 | `string` | `primary` \\| `success` \\| `warinng` \\| `dashed` | `default` |
 
 ###  Events
 

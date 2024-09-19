@@ -55,6 +55,11 @@ export const DataComponent = [
 		link: '/component/calendar',
 		activeMatch: '/component/calendar',
 	},
+	{
+		text: 'Floating 文字提示',
+		link: '/component/floating',
+		activeMatch: '/component/floating',
+	},
 ];
 
 export const hooksComponent = [

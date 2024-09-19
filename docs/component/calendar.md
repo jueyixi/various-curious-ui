@@ -148,16 +148,16 @@ const change = (val:SelectedCalendarItem) => {
 
 | 参数 | 说明 | 类型   | 可选值     | 默认值  |
 | :----: | :---- | :------: | :----------: | :-------: |
-| mode | 日历类型 | `boolean` | `week` / `year`    | `month` |
+| mode | 日历类型 | `boolean` | `week` \\| `year`    | `month` |
 | currentText | 右上角当天按钮文案 | `string` | -     | `'本周' \| '本月' \| '本年'` |
 | prevText | 右上角上一页按钮文案 | `string` | -     | `<` |
 | nextText | 右上角下一页按钮文案 | `string` | -     | `>` |
 | contentStyle |日期单元格日程容器（不包含日期所在范围）自定义样式 | `object` | -     | `{}` |
 | contentClass | 日期单元格日程容器（不包含日期所在范围）自定义类名 | `string` | -     | - |
-| columnsGap | 日历面板列间距（px） | `number` \\| `string` | -     | 8 |
-| minHeight | 日历面板单元格日程容器最小高度（单位：px，height） | `number` \\| `string` | -     | - |
-| maxHeight | 日历面板单元格间距（px） | `number` \\| `string` | -     | - |
-| height | 日历面板单元格日程容器最小高度（px） | `number` \\| `string` | `auto` \\| 具体数值    | `week` 时为 `300`，`month` 时为 `120`，`year` 时为 `150` |
+| columnsGap | 日历面板列间距（px） | `number` / `string` | -     | 8 |
+| minHeight | 日历面板单元格日程容器最小高度（单位：px，height） | `number` / `string` | -     | - |
+| maxHeight | 日历面板单元格间距（px） | `number` / `string` | -     | - |
+| height | 日历面板单元格日程容器最小高度（px） | `number` / `string` | `auto` \\| 具体数值    | `week` 时为 `300`，`month` 时为 `120`，`year` 时为 `150` |
 | value(v-model) | 指定日期显示 | `Dayjs` | -     | - |
 | disabled | 禁选 | `boolean` | `true`     | `false` |
 | multiple | 多选 | `boolean` | `true`     | `false` |
