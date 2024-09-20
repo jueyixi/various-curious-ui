@@ -58,6 +58,23 @@ app.use(vc).mount('#app')
 import { VcButton } from 'various-curious-ui'
 </script>
 ```
+
+## TS类型
+
+使用命令安装
+::: code-group
+
+```shell [pnpm]
+pnpm install @various-curious-ui/typings
+
+```
+
+```shell [npm]
+npm install @various-curious-ui/typings --save
+```
+
+:::
+
 ## 报错及解决方式
 ::: warning
 

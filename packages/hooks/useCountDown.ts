@@ -13,13 +13,15 @@ import { ref, onBeforeMount } from 'vue';
 export function useCountDown() {
 	const count = ref<number>(0);
 	const timer:any = ref<NodeJS.Timeout | null>(null);
-	const countDown = (second: number, ck: Function) => {
+	const countDown = (second: number, ck?: Function) => {
 		if (count.value === 0 && timer.value === null) {
-			ck();
 			count.value = second;
 			timer.value = setInterval(() => {
 				count.value--;
-				if (count.value === 0) clearInterval(timer.value);
+				if (count.value === 0) {
+					clearInterval(timer.value);
+					ck && ck();
+				}
 			}, 1000);
 		}
 	};

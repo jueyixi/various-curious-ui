@@ -1,11 +1,3 @@
-<!--
- * @Date: 2023-10-18 13:01:07
- * @Auth: 2659946805@qq.com
- * @LastEditors: 2659946805@qq.com
- * @LastEditTime: 2023-11-10 11:07:31
- * @FilePath: \various-curious-ui\docs\hooks\useLockDom.md
--->
-
 # useLockDom 关闭滚动条
 
 

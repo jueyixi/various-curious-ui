@@ -64,8 +64,18 @@ export const DataComponent = [
 
 export const hooksComponent = [
 	{
+		text: 'useCountDown',
+		link: '/hooks/useCountDown',
+		activeMatch: '/hooks/useCountDown',
+	},
+	{
 		text: 'useLockDom',
 		link: '/hooks/useLockDom',
 		activeMatch: '/hooks/useLockDom',
 	},
-]
+	{
+		text: 'useZIndex',
+		link: '/hooks/useZIndex',
+		activeMatch: '/hooks/useZIndex',
+	},
+];
