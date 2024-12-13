@@ -18,7 +18,7 @@ export const dashboardProps = {
 		type: Object as PropType<TextStyle>,
 		default: () => {},
 	},
-	middleTitle:Boolean,
+	middleTitle: Boolean,
 	// 副标题样式
 	subTitleStyle: {
 		type: Object as PropType<SubTextStyle>,
@@ -38,6 +38,7 @@ export const dashboardProps = {
 	value: {
 		type: [Number, String] as PropType<number | string>,
 		default: 0,
+		required: true,
 	},
 	// 开始角度--不支持修改
 	startAngle: {
@@ -50,8 +51,8 @@ export const dashboardProps = {
 		default: 180,
 	},
 	semicircle: {
-		type:Boolean,
-		default:true
+		type: Boolean,
+		default: true,
 	},
 	// 最大值
 	maxValue: {

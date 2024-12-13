@@ -152,8 +152,8 @@ const change = (val:SelectedCalendarItem) => {
 | currentText | 右上角当天按钮文案 | `string` | -     | `'本周' \| '本月' \| '本年'` |
 | prevText | 右上角上一页按钮文案 | `string` | -     | `<` |
 | nextText | 右上角下一页按钮文案 | `string` | -     | `>` |
-| contentStyle |日期单元格日程容器（不包含日期所在范围）自定义样式 | `object` | -     | `{}` |
-| contentClass | 日期单元格日程容器（不包含日期所在范围）自定义类名 | `string` | -     | - |
+| contentStyle |日期单元格日程容器（不包含日期所在范围）自定义样式 | `string` \\| `object` \\| `array` | -     | - |
+| contentClass | 日期单元格日程容器（不包含日期所在范围）自定义类名 | `string` \\| `array` | -     | - |
 | columnsGap | 日历面板列间距（px） | `number` / `string` | -     | 8 |
 | minHeight | 日历面板单元格日程容器最小高度（单位：px，height） | `number` / `string` | -     | - |
 | maxHeight | 日历面板单元格间距（px） | `number` / `string` | -     | - |

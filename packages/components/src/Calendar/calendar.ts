@@ -14,11 +14,12 @@ export const calendarProps = {
 	mode: {
 		type: String as PropType<(typeof mode)[number]>,
 		default: mode[1],
-    },
+		required: true,
+	},
 	currentText: String,
 	prevText: String,
 	nextText: String,
-	value: Dayjs
+	value: Dayjs,
 } as const;
 
 export const calendarEmits = ['update:value'];

@@ -6,6 +6,10 @@ export const isArray = (value) => {
 	return value && Object.prototype.toString.call(value) === '[object Array]';
 };
 
+export const isString = (value) => {
+	return value && Object.prototype.toString.call(value) === '[object String]';
+};
+
 export const isNumber = (value) => {
 	return typeof value === 'number' && !isNaN(value);
 };
@@ -42,4 +46,14 @@ export const isChinese = (text) => {
  
 export const isEnglish = (text) => {
     return /^[a-zA-Z0-9 ]+$/.test(text);
+}
+
+// 判断字符串单位是否为px
+export const isPxUnit = (text: any) => {
+	let isPx = false
+	if (getType(text) === 'string') {
+		const lastStr = text.substring(text.length() - 2)
+		isPx = lastStr == 'px';
+	}
+	return isPx;
 }

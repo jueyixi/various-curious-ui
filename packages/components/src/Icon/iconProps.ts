@@ -1,3 +1,5 @@
+import { PropType } from 'vue';
+import type { ExtractPropTypes, StyleValue } from 'vue';
 export const IconProps = {
 	/**
 	 * @description 图标的名称
@@ -6,8 +8,5 @@ export const IconProps = {
 	/**
 	 * @description 图标的样式
 	 */
-	style: {
-		type: Object,
-		default: () => {},
-	},
+	style: [String, Object, Array] as PropType<StyleValue>,
 };

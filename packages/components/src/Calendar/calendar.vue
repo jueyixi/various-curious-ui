@@ -20,7 +20,7 @@
                 </vc-button-group>
             </slot>
         </div>
-        <div :class="calendarNS.setBlock('wrapper')">
+        <div :class="calendarNS.setBlock('wrap')">
             <component :is="componentName" v-bind="$attrs" ref="componentRef">
                 <template #[item]="data" v-for="item in Object.keys($slots)" :key="item">
                     <slot :name="item" v-bind="data"></slot>

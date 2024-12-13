@@ -6,7 +6,7 @@
 	</VcPartial>
 
 
-	<div ref="floating" :style="_floatingStyles" :class="[props.floatingClass]" :tabindex="props.tabindex">
+	<div ref="floating" :style="_floatingStyles" :class="floatingClass" :tabindex="props.tabindex">
 
 		<transition :name="'vc-transition-' + props.transition" @afterEnter="emits('opened')"
 			@afterLeave="emits('closed')">
@@ -26,20 +26,20 @@
 
 
 <script setup lang="ts">
-import { FloatingProps, FloatingEmits } from "./floating";
-import { useFloating, offset, platform, flip, shift, autoUpdate, arrow, computePosition, VirtualElement, type ReferenceElement } from "@floating-ui/vue";
-import { computed, onMounted, watch, ref, useSlots, nextTick, onBeforeUnmount, Ref, watchEffect } from "vue";
+import { floatingProps, floatingEmits } from "./floating";
+import { useFloating, offset, platform, flip, shift, autoUpdate, arrow, computePosition, VirtualElement, type ReferenceElement, UseFloatingOptions } from "@floating-ui/vue";
+import { computed, onMounted, watch, ref, useSlots, nextTick, onBeforeUnmount, Ref, watchEffect, StyleValue } from "vue";
 import { unrefElement, useEventListener, useMutationObserver } from "@vueuse/core";
 import { useFlag, useNS } from "vc-hooks";
-import { IndexManager, getType } from "vc-utils";
+import { IndexManager, getType, setValueByPx, isString, isArray } from "vc-utils";
 
 defineOptions({
 	name: 'VcFloating',
 	inheritAttrs: false,
 })
 
-const props = defineProps({ ...FloatingProps });
-const emits = defineEmits([...FloatingEmits,]);
+const props = defineProps(floatingProps);
+const emits = defineEmits([...floatingEmits]);
 const slots = useSlots();
 
 // 设置popper的zIndex值
@@ -54,6 +54,18 @@ const visible = computed({
 	set(val) {
 		emits("update:visible", val)
 	}
+})
+
+const floatingClass = computed(() => {
+	const classList = []
+	if (props.floatingClass) {
+		if (isString(props.floatingClass)) {
+			classList.push(props.floatingClass as string)
+		} else if (isArray(props.floatingClass)) {
+			classList.push(...(props?.floatingClass as string[]))
+		}
+	}
+	return classList
 })
 
 
@@ -81,7 +93,7 @@ const defaultOptions: any = ref({
 // 初始化
 const { floatingStyles, placement, middlewareData, update } = useFloating(reference, floating, {
 	...defaultOptions.value,
-	...props.floatingOptions
+	...(props.floatingOptions as UseFloatingOptions)
 });
 
 placementRef.value = placement.value
@@ -210,7 +222,7 @@ if (props.trigger === "manual") {
 const updateFloating = (domRef) => {
 	flag.value && computePosition(domRef, floating.value, {
 		...defaultOptions.value,
-		...props.floatingOptions
+		...(props.floatingOptions as UseFloatingOptions)
 	}).then(
 		({ x, y, middlewareData, placement, strategy }) => {
 			positionStyle.value = { left: x + 'px', top: y + 'px', position: strategy };
@@ -242,7 +254,8 @@ watch(floatingStyles, (newVal) => {
 // 最终适用的样式
 const _floatingStyles = computed(() => {
 	if (flag.value) {
-		_ = { ...positionStyle.value, ...props.floatingStyle };
+		// _ = { ...positionStyle.value, ...props.floatingStyle };
+		_ = [positionStyle.value, props.floatingStyle]
 	}
 	return _
 })

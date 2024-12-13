@@ -1,5 +1,5 @@
 import { PropType } from 'vue';
-import type { ExtractPropTypes } from 'vue';
+import type { ExtractPropTypes, StyleValue } from 'vue';
 import {Dayjs} from 'dayjs';
 
 export const calendarMonthProps = {
@@ -12,23 +12,24 @@ export const calendarMonthProps = {
 	dataSource: {
 		type: Array<any>,
 		default: () => [],
+		required: true,
 	},
 	minHeight: [Number, String] as PropType<number | string>,
 	maxHeight: [Number, String] as PropType<number | string>,
 	height: {
 		type: [Number, String] as PropType<number | string>,
-		default:120,
+		default: 120,
 	},
 	columnsGap: {
 		type: [Number, String] as PropType<number | string>,
-		default:8,
+		default: 8,
 	},
 	contentStyle: {
-		type: Object,
-		default: () => {},
+		type: [String, Object, Array] as PropType<StyleValue>,
+		default: '',
 	},
-	contentClass: String,
-	value:Dayjs
+	contentClass: [String, Array] as PropType<string | string[]>,
+	value: Dayjs,
 } as const;
 
 export const calendarMonthEmits = ['prev', 'next', 'setToday', 'change','setDate','update:value'];

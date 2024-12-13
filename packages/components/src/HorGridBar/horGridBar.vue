@@ -30,9 +30,10 @@
 
 <script setup lang="ts">
 import { ref, onMounted, computed } from 'vue';
+import type { StyleValue } from 'vue'
 import { horGridBarProps } from "./horGridBar"
 import { useNS, useZIndex } from "vc-hooks"
-import { isArray, isNumber } from 'vc-utils';
+import { isArray, isNumber, setValueByPx } from 'vc-utils';
 defineOptions({
   name: "VcHorGridBar",
   inheritAttrs: false
@@ -52,14 +53,9 @@ const VALUE = Number(props.value)
 const MAX_VALUE = Number(props.maxValue)
 
 const setBgStyle = computed(() => {
-  let style: any = {};
-  if (isNumber(props.strokeWidth)) {
-    style.height = props.strokeWidth + 'px';
-    style.lineHeight = props.strokeWidth + 'px';
-  } else {
-    style.height = props.strokeWidth;
-    style.lineHeight = props.strokeWidth;
-  }
+  let style: StyleValue = {};
+  style.height = setValueByPx(props.strokeWidth);
+  style.lineHeight = setValueByPx(props.strokeWidth);
   return style;
 });
 const percent = Number(((VALUE / MAX_VALUE) * 100).toFixed(2)) / 1;

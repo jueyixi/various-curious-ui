@@ -20,3 +20,14 @@ export const filterArrayTwoDimensional = (dataArray:Array<any>, cols = 7) => {
     });
     return list;
 };
+
+import {isNumber} from "./is"
+// 根据类型判断是否需要加px
+export const setValueByPx = (value: any, unit = "px") => {
+    if (!value && value != 0) return '';
+    if (value !== '100%' && (isNumber(value) || isNumber(Number(value)))) {
+		return Number(value) + unit;
+	} else {
+		return value;
+	}
+}

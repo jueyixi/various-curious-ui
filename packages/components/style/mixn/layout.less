@@ -46,6 +46,17 @@
     gap: ~"@{gap}@{unit}";
 }
 
+.useFlexCenter(){
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.useFlexColCenter(){
+    .useFlexCenter();
+    flex-direction: column;
+}
+
 
 .useSizeLarge(@a:12, @b:19, @u:px) {
     height: var(--vc-component-height-large);

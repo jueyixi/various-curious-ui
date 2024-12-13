@@ -1,5 +1,5 @@
 import { PropType } from 'vue';
-import type { ExtractPropTypes } from 'vue';
+import type { ExtractPropTypes, StyleValue } from 'vue';
 import {Dayjs} from 'dayjs';
 
 export const calendarWeekProps = {
@@ -12,6 +12,7 @@ export const calendarWeekProps = {
 	dataSource: {
 		type: Array<any>,
 		default: () => [],
+		required: true,
 	},
 	minHeight: [Number, String] as PropType<number | string>,
 	maxHeight: [Number, String] as PropType<number | string>,
@@ -21,14 +22,14 @@ export const calendarWeekProps = {
 	},
 	columnsGap: {
 		type: [Number, String] as PropType<number | string>,
-		default:8,
+		default: 8,
 	},
 	contentStyle: {
-		type: Object,
-		default: () => {},
+		type: [String, Object, Array] as PropType<StyleValue>,
+		default: '',
 	},
-	contentClass: String,
-	value:Dayjs
+	contentClass: [String, Array] as PropType<string | string[]>,
+	value: Dayjs,
 } as const;
 
 export const calendarWeekEmits = ['prev', 'next', 'setToday', 'change','setDate','update:value'];

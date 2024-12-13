@@ -1,10 +1,10 @@
-import { PropType } from 'vue';
+import { PropType, ExtractPropTypes, StyleValue } from 'vue';
 import { FloatingTrigger, Transition } from '@various-curious-ui/typings';
-import { Placement, Strategy, type ReferenceElement, VirtualElement } from '@floating-ui/vue';
+import { Placement, Strategy, type ReferenceElement, VirtualElement, UseFloatingOptions } from '@floating-ui/vue';
 
 const Effect = ["light","dark"] as const;
 
-export const FloatingProps = {
+export const floatingProps = {
 	visible: Boolean,
 	content: String,
 	effect: {
@@ -91,8 +91,8 @@ export const FloatingProps = {
 	/**
 	 * @description floating元素容器的类
 	 */
-	floatingClass: String,
-	floatingStyle: Object as PropType<any>,
+	floatingClass: [String, Array] as PropType<string | string[]>,
+	floatingStyle: [String, Object, Array] as PropType<StyleValue>,
 	/**
 	 * @description 动态reference元素, 注意，此项优先级小于slot.reference
 	 */
@@ -105,7 +105,10 @@ export const FloatingProps = {
 	 */
 	quickTrack: Boolean,
 	// 配置项
-	floatingOptions: Object as PropType<any>,
+	floatingOptions: Object as PropType<UseFloatingOptions>,
 } as const;
 
-export const FloatingEmits = ['close', 'closed', 'open', 'opened', 'update:visible'] as const;
+export const floatingEmits = ['close', 'closed', 'open', 'opened', 'update:visible'] as const;
+
+export type FloatingProps = ExtractPropTypes<typeof floatingProps>;
+export type FloatingEmits = typeof floatingEmits;

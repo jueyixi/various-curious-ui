@@ -11,9 +11,10 @@
 
 <script setup lang="ts">
 import { ref, computed } from 'vue';
+import type { StyleValue } from "vue";
 import { progressProps } from "./progress"
 import { useNS, useZIndex } from "vc-hooks"
-import { isArray, isNumber } from 'vc-utils';
+import { isArray, isNumber, setValueByPx } from 'vc-utils';
 defineOptions({
     name: "VcProgress",
     inheritAttrs: false
@@ -40,11 +41,11 @@ setIndex();
 const percent = Number(((Number(props.value) / Number(props.maxValue)) * 100).toFixed(2)) / 1;
 const progressRef = ref();
 const setBgStyle = () => {
-    let style:any = {};
+    let style: StyleValue = {};
     if (props.background && isArray(props.background)) {
         style.background = `linear-gradient(90deg,${props.background[0]} 0%,${props.background[1]} 100%)`;
     } else {
-        style.background = props.background;
+        style.background = props.background as string;
     }
     if (props.round) {
         style.borderRadius = '10px';
@@ -52,17 +53,13 @@ const setBgStyle = () => {
     return style;
 };
 const setStyle = () => {
-    let style:any = {};
+    let style: StyleValue = {};
     style.width = percent + '%';
-    if (isNumber(props.strokeWidth)) {
-        style.height = props.strokeWidth + 'px';
-    } else {
-        style.height = props.strokeWidth;
-    }
+    style.height = setValueByPx(props.strokeWidth);
     if (props.color && isArray(props.color)) {
         style.background = `linear-gradient(90deg,${props.color[0]} 0%,${props.color[1]} 100%)`;
     } else {
-        style.background = props.color;
+        style.background = props.color as string;
     }
     if (props.round) {
         style.borderRadius = '10px';

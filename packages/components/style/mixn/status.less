@@ -18,7 +18,7 @@
 .is-disabled {
     cursor: not-allowed;
     user-select: none;
-    opacity: 0.6;
+    opacity: 0.8;
     animation: none;
     -webkit-animation: none;
     transition: none;
@@ -53,5 +53,12 @@
         height: 1px;
         transform: scaleX(1);
 
+    }
+}
+
+.not-scroll{
+    scrollbar-width: none;
+    &::-webkit-scrollbar{
+        display: none;
     }
 }

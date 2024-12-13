@@ -304,8 +304,8 @@ onMounted(() => {
 | disabled | 是否禁止floating元素弹出 | `boolean` / `null` |  `true` \\| `false`  | `null` |
 | effect | 内置主题 | `string` | `dark`    | `light` |
 | floatingClass | floating元素自定义类名 | `string` | -    | - |
-| floatingOptions | floating元素配置项| `object` | -    | - |
-| floatingStyle | floating元素行内样式 | `object` | -    | - |
+| floatingOptions | floating元素配置项| `string` \\| `array` | -    | - |
+| floatingStyle | floating元素行内样式 | `string` \\| `object` \\| `array` | -    | - |
 | offset | floating元素相对于reference元素的偏移 | `number` | -    | 8 |
 | openDelay | floating元素出现前的延迟时间 | `number` | -    | 0 |
 | placement | 弹出位置 | `string` | `top` \\| `top-start` \\| `top-end` \\| `right` \\| `right-start` \\| `right-end` \\| `bottom-start` \\| `bottom-end` \\| `left` \\| `left-start` \\| `left-end`    | `bottom` |

@@ -36,10 +36,10 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, computed } from 'vue';
+import { ref, onMounted, computed, StyleValue } from 'vue';
 import { verGridBarProps } from "./verGridBar"
 import { useNS, useZIndex } from "vc-hooks"
-import { isArray, isNumber } from 'vc-utils';
+import { isArray, isNumber, setValueByPx } from 'vc-utils';
 defineOptions({
   name: "VcVerGridBar",
   inheritAttrs: false
@@ -59,27 +59,18 @@ const VALUE = Number(props.value)
 const MAX_VALUE = Number(props.maxValue)
 
 const setGridStyle = computed(() => {
-  let style: any = {};
+  let style: StyleValue = {};
   if (props.height) {
-    if (isNumber(props.height)) {
-      style.height = props.height + 'px';
-      style.lineHeight = props.height + 'px';
-    } else {
-      style.height = props.height;
-      style.lineHeight = props.height;
-    }
+    style.height = setValueByPx(props.height);
+    style.lineHeight = setValueByPx(props.height);
     style.overflow = 'hidden'
   }
   return style
 })
 
 const setBgStyle = computed(() => {
-  let style: any = {};
-  if (isNumber(props.strokeWidth)) {
-    style.width = props.strokeWidth + 'px';
-  } else {
-    style.width = props.strokeWidth;
-  }
+  let style: StyleValue = {};
+  style.width = setValueByPx(props.strokeWidth);
   return style;
 });
 const percent = Number(((VALUE / MAX_VALUE) * 100).toFixed(2)) / 1;

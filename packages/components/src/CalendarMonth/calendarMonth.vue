@@ -45,10 +45,10 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, inject, watch, onMounted, watchEffect, toRaw } from 'vue';
+import { ref, computed, inject, watch, onMounted, watchEffect, toRaw, StyleValue, CSSProperties } from 'vue';
 import { calendarMonthProps, calendarMonthEmits } from "./calendarMonth"
 import { useNS, useCalendar } from "vc-hooks"
-import { filterArrayTwoDimensional } from "vc-utils"
+import { filterArrayTwoDimensional,setValueByPx,isString,isArray } from "vc-utils"
 import { CalendarItem, SelectedCalendarItem, HeaderContent, CalendarContext, calendarContextKey } from "@various-curious-ui/typings"
 import { Dayjs } from 'dayjs';
 defineOptions({
@@ -65,27 +65,31 @@ const emits = defineEmits(calendarMonthEmits)
 const contentClass = computed(() => {
     const classList = ['vc-calendar-cell--schedule']
     if (props.contentClass) {
-        classList.push(props.contentClass)
+        if (isString(props.contentClass)) {
+            classList.push(props.contentClass as string)
+        } else if (isArray(props.contentClass)) {
+            classList.push(...(props?.contentClass as string[]))
+        }
     }
     return classList
 })
 
 const contentStyle = computed(() => {
-    const style = props.contentStyle || {}
+    const style:StyleValue =  {}
     if (props.minHeight) {
-        style.minHeight = Number(props.minHeight) + "px"
+        style.minHeight = setValueByPx(props.minHeight)
     }
     if (props.maxHeight) {
-        style.maxHeight = Number(props.maxHeight) + "px"
+        style.maxHeight = setValueByPx(props.maxHeight)
     }
     if (props.height) {
-        style.height = props.height === 'auto' ? props.height : Number(props.height) + "px"
+        style.height = props.height === 'auto' ? props.height : setValueByPx(props.height)
     }
-    return style
+    return [style, props.contentStyle]
 })
 
 const columnsStyle = computed(() => {
-    return { columnGap: Number(props.columnsGap) + 'px' }
+    return { columnGap: setValueByPx(props.columnsGap) }
 })
 
 

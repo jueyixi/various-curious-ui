@@ -15,3 +15,5 @@ export { default as VcVerGridBar } from './VerGridBar';
 export { default as VcGridBar } from './GridBar';
 export { default as VcPartial } from './Partial';
 export { default as VcFloating } from './Floating';
+export { default as VcTimeLine } from './TimeLine';
+export { default as VcScrollBar } from './ScrollBar';

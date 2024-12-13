@@ -102,6 +102,7 @@ const goToPath = (item: any) => {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            white-space: nowrap;
             cursor: pointer;
 
             &:hover {

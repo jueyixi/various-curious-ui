@@ -13,3 +13,6 @@ export * from './install';
 export * from './is';
 export * from './transformColor';
 export * from './config';
+
+// ts
+export * from './typescript'

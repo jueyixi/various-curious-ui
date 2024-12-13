@@ -86,4 +86,4 @@ for (const [key, component] of object.entries(Icons)) {
 | 属性名 | 说明 | 类型   | 可选值     | 默认值  |
 | :----: | :---- | :------: | :----------: | :-------: |
 | name | 图标名称 | `string` | -| - |
-| style | 图标样式 | `object` | -| - |
+| style | 图标样式 | `string` \\| `object` \\| `array` | -| - |

@@ -1,0 +1,95 @@
+@import '../mixn/index.less';
+@plugin "../plugin/index";
+
+.@{componentPrefix}-timeline-wrap {
+	&{
+		--vc-timeline-height: 120px;
+	}
+	&{
+		width: 100%;
+		height: var(--vc-timeline-height);
+		display: flex;
+		align-items: center;
+	}
+}
+
+.@{componentPrefix}-timeline {
+	&{
+		--vc-timeline-width:2px;
+		--vc-timeline-color:var(--vc-divider-color);
+		--vc-timeline-divider-gap:0;
+		--vc-timeline-divider-name-fs:24px;
+		--vc-timeline-divider-name-lh:28px;
+		--vc-timeline-divider-name-color:#00A5A5;
+		--vc-timeline-divider-line-width:1px;
+		--vc-timeline-divider-line-height:12px;
+		--vc-timeline-divider-line-color:var(--vc-divider-color);
+		--vc-timeline-point-color:getClrVar(primary);
+		--vc-timeline-point-width:8px;
+		--vc-timeline-point-height:8px;
+	}
+	& {
+		display: flex;
+		align-items: center;
+		.useBorderBox();
+	}
+	.b(item,{
+		position:relative;
+		&{
+			.e(line,{
+				background-color: var(--vc-timeline-color);
+				height:var(--vc-timeline-width);
+			});
+			.e(point,{
+				position: absolute;
+				left: 0;
+				top:50%;
+				transform:translateY(-50%);
+			});
+		}
+	});
+	.b(divider,{
+		position:absolute;
+		bottom:0;
+		.useFlexColCenter();
+		gap:var(--vc-timeline-divider-gap);
+		&{
+			.m(name,{
+				font-weight: bold;
+				font-size: var(--vc-timeline-divider-name-fs);
+				color: var(--vc-timeline-divider-name-color);
+				line-height: var(--vc-timeline-divider-name-lh);
+			});
+			.m(line,{
+				width: var(--vc-timeline-divider-line-width);
+				height: var(--vc-timeline-divider-line-height);
+				background-color: var(--vc-timeline-divider-line-color);
+			});
+		}
+	});
+	.b(point,{
+		width: var(--vc-timeline-point-width);
+		height: var(--vc-timeline-point-height);
+		.useFlexCenter();
+		&{
+			.is(disabled__point,{
+				cursor: not-allowed;
+				.vc-timeline-point__inner:not(.vc-timeline-point--active):hover{
+					box-shadow: none;
+				}
+			});
+			.e(inner,{
+				width: 100%;
+				height: 100%;
+				background: var(--vc-timeline-point-color);
+				border-radius: 50%;
+				&:hover{
+					box-shadow: 0 0 var(--vc-timeline-point-width) var(--vc-timeline-point-color);
+				}
+			});
+			.m(active,{
+				box-shadow: 0 0 var(--vc-timeline-point-width) var(--vc-timeline-point-color);
+			});
+		}
+	})
+}

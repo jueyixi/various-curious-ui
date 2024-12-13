@@ -16,6 +16,7 @@ export const ringProps = {
 	value: {
 		type: [Number, String] as PropType<number | string>,
 		default: 0,
+		required: true,
 	},
 	// 最大值
 	maxValue: {
@@ -30,7 +31,7 @@ export const ringProps = {
 	// 进度条颜色
 	color: {
 		type: [String, Array] as PropType<string | Array<string>>,
-		default: "#329cff",
+		default: '#329cff',
 	},
 	// 背景色
 	background: {

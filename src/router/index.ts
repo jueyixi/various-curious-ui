@@ -110,6 +110,18 @@ export const routes: Array<RouteRecordRaw> = [
 				meta: { title: '气泡' },
 				component: () => import('../view/popover/index.vue'),
 			},
+			{
+				path: 'timeLine',
+				name: 'timeLine',
+				meta: { title: '时间轴' },
+				component: () => import('../view/timeLine/index.vue'),
+			},
+			{
+				path: 'scrollBar',
+				name: 'scrollBar',
+				meta: { title: '滚动条' },
+				component: () => import('../view/scrollBar/index.vue'),
+			},
 		],
 	},
 ];

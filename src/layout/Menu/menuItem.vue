@@ -49,6 +49,7 @@ const selectMenuItem = (item: any) => {
             padding-right: 24px;
             margin: 5px;
             border-radius: 8px;
+            white-space: nowrap;
 
             &:hover {
                 background-color: rgba(0, 0, 0, 0.1);

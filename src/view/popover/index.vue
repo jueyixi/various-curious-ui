@@ -9,7 +9,7 @@
                 <span>1111</span>
             </template>
         </vc-floating>
-        <vc-floating content="1111" placement="right-start">
+        <vc-floating content="1111" trigger="clickToOpen" placement="right-start">
             <template #reference>
                 <vc-button>default-click</vc-button>
             </template>

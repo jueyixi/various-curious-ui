@@ -11,6 +11,7 @@ export const horGridBarProps = {
 	value: {
 		type: [Number, String] as PropType<number | string>,
 		default: 0,
+		required: true,
 	},
 	// 最大值
 	maxValue: {
