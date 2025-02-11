@@ -10,9 +10,14 @@ export const commonComponent = [
 		activeMatch: '/component/buttonGroup',
 	},
 	{
-		text: 'icon 图标',
+		text: 'Icon 图标',
 		link: '/component/icons',
 		activeMatch: '/component/icons',
+	},
+	{
+		text: 'ScrollBar 滚动条',
+		link: '/component/scrollBar',
+		activeMatch: '/component/scrollBar',
 	},
 ];
 

@@ -14,6 +14,7 @@ export const scrollbarProps = {
 	},
 	// 是否显示原生滚动条
 	native: Boolean,
+	// 滚动条轨道宽度
 	barWidth: [String, Number] as PropType<string | number>,
 	// 滚动条尺寸
 	size: Number,
