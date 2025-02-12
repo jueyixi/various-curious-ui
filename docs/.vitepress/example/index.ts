@@ -9,4 +9,18 @@ import GridBar from './gridBar';
 import Icons from './iocns';
 import Ring from './ring';
 import Progress from './progress';
-export default [AniNumber, Button, ButtonGroup, Calendar, Circle, Dashboard,Floating, GridBar, Icons, Progress, Ring];
+import TimeLine from './timeLine';
+export default [
+	AniNumber,
+	Button,
+	ButtonGroup,
+	Calendar,
+	Circle,
+	Dashboard,
+	Floating,
+	GridBar,
+	Icons,
+	Progress,
+	Ring,
+	TimeLine,
+];

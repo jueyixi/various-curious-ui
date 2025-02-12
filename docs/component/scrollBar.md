@@ -361,3 +361,9 @@ const otherConfig = {
 | 事件名称 | 说明 | 回调参数     |
 |:--:|--|--|
 |scroll|当触发滚动事件时，返回滚动的距离|`({scrollTop: number; scrollLeft: number}) => void`|
+
+###  Slots
+
+| 插槽名称 | 说明 |
+|:--:|--|
+|default|自定义默认内容|

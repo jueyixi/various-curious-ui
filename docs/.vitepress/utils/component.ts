@@ -65,6 +65,11 @@ export const DataComponent = [
 		link: '/component/floating',
 		activeMatch: '/component/floating',
 	},
+	{
+		text: 'TimeLine 时间轴',
+		link: '/component/timeLine',
+		activeMatch: '/component/timeLine',
+	},
 ];
 
 export const hooksComponent = [

@@ -329,7 +329,7 @@ onMounted(() => {
 |toggle|控制floating元素显隐|`() => void`|
 |resolveVirtualDom|处理动态虚拟元素触发点位|`({clientX,clientY}) => void`|
 
-###  function
+###  Events
 
 | 事件名称 | 说明 | 回调参数     |
 |:--:|--|--|

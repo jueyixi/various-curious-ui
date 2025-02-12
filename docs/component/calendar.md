@@ -188,7 +188,7 @@ const change = (val:SelectedCalendarItem) => {
 |setToday|面板显示当天所在周（月/年）|`() => void`|
 |setDate|面板显示指定日期所在周（月/年）|`(appointDate?: Dayjs) => void`|
 
-###  function
+###  Events
 
 | 事件名称 | 说明 | 回调参数     |
 |:--:|--|--|
