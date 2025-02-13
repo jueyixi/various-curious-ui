@@ -76,7 +76,7 @@
 | 属性名 | 说明 | 类型   | 可选值     | 默认值  |
 | :----: | :---- | :------: | :----------: | :-------: |
 | animate | 是否开启动画 | `boolean` | `true`    | `false` |
-| background | 进度条背景色 | `string` | -    | `rgba(0,0,0,0.1)` |
+| background | 进度条背景色 | `string` | -    | `#d9d9d9` |
 | color | 进度线颜色 | `string` / `array<string>` | -    | `#329cff` |
 | format | 数值格式化（`percent`存在时，数值的`.00`是否需要去除） | `boolean` | `true`    | `false` |
 | id | 唯一标识 | `string` | -    | 自动生成 |

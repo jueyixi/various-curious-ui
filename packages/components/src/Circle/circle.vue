@@ -52,7 +52,7 @@
 import { ref, onMounted, computed } from 'vue';
 import { circleProps } from "./circle"
 import { useNS, useZIndex } from "vc-hooks"
-import { isArray} from 'vc-utils';
+import { isArray, getSkin } from 'vc-utils';
 defineOptions({
     name: "VcCircle",
     inheritAttrs: false
@@ -95,22 +95,26 @@ const getCircle = () => {
 const getCircleItem = () => {
     return 'circleItem' + getIndex();
 };
+
 const bgColorArray = ref(false);
 const colorArray = ref(false);
 const bgColor = ref<string | string[] | undefined>("");
 const color = ref<string | string[] | undefined>("");
+
 if (isArray(props.background)) {
-    bgColor.value = props.background;
-    bgColorArray.value = true;
+  bgColor.value = props.background;
+  bgColorArray.value = true;
 } else {
-    bgColor.value = props.background || 'rgba(0,0,0,0.1)';
+  bgColor.value = props.background || "#d9d9d9";
 }
+
 if (isArray(props.color)) {
     color.value = props.color;
     colorArray.value = true;
 } else {
     color.value = props.color || '#1890ff';
 }
+
 const strokeDasharray = () => {
     let value = 0;
     if (props.lineCap === 'round') {
@@ -120,10 +124,12 @@ const strokeDasharray = () => {
     }
     return value;
 };
+
 const separateDasharray = () => {
     let partLength = (2 * Math.PI * radius.value) / props.part;
     return `${props.partGap} ${partLength - props.partGap}`;
 };
+
 const strokeDashoffset = () => {
     let val = 0;
     let value = VALUE / MAX_VALUE;
@@ -139,6 +145,7 @@ const strokeDashoffset = () => {
     }
     return val;
 };
+
 const bgStroke = computed(() => {
     let value: string | undefined = ""
     if (props?.gradients?.length) {
@@ -150,6 +157,7 @@ const bgStroke = computed(() => {
     }
     return value
 })
+
 const barStroke = computed(() => {
     let value: string | undefined = ""
     if (props?.gradient?.id) {

@@ -367,3 +367,22 @@ const otherConfig = {
 | 插槽名称 | 说明 |
 |:--:|--|
 |default|自定义默认内容|
+
+### PropsType
+
+```ts:no-line-numbers
+// import { ThumbType, TrackType } from '@various-curious-ui/typings';
+type ThumbType = {
+	color?: string;
+	opacity?: number;
+	hoverColor?: string;
+	hoverOpacity?: number;
+	right: number | string;
+	bottom: number | string;
+}
+
+type TrackType = {
+	color?: string;
+	borderRadius?:number | string;
+}
+```

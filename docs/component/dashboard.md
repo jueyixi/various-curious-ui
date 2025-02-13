@@ -201,3 +201,35 @@ const backgroundColor = [
 | title | 主标题 | `string` | -    | - |
 | titleStyle | 主标题样式 | `TextStyle` | -    | - |
 | value | 数值 | `string` / `number` | -     | 0 |
+
+### PropsType
+
+```ts:no-line-numbers
+// import type {OffsetColor,SubTextStyle,TextStyle,SplitStyle} from "@various-curious-ui/typings"
+type OffsetColor = {
+	offset: string | number;
+	color: string;
+	startStep?: number;
+	endStep?: number;
+}
+
+type SplitStyle = {
+	fontSize?:number,
+	fontWeight?:number | string,
+	fontFamily?:string,
+	textBaseline?:string,
+	color?:string,
+	textAlign?:string,
+}
+
+type SubTextStyle = SplitStyle & {
+	top?:number,
+	bottom?:number,
+	left?:number,
+	right?:number,
+}
+
+type TextStyle = SubTextStyle & {
+	unit?:string,
+}
+```

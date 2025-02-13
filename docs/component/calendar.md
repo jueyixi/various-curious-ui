@@ -207,3 +207,45 @@ const change = (val:SelectedCalendarItem) => {
 |date|自定义单元格日期内容|<span style="color:red;">`{data:CalendarDetail,rowIndex:number,columnIndex:number}`</span>|
 |schedule|自定义单元格日程列表|`{data:CalendarDetail,rowIndex:number,columnIndex:number}`|
 |title|自定义日历面板标题内容|`string`|
+
+### PropsType
+
+```ts:no-line-numbers
+// import { SelectedCalendarItem, HeaderContent, CalendarContext, calendarContextKey } from '@various-curious-ui/typings';
+type CalendarItem = {
+	year: number,
+	month: number,
+	day: number,
+	week: number,
+	value: number,
+	date?: String,
+} | undefined
+
+type SelectedCalendarItem = CalendarItem & {
+	checked?:boolean
+}
+
+type CalendarDetail = {
+    activedDate?:SelectedCalendarItem,
+    currentDate:CalendarItem,
+    startDate:CalendarItem,
+    endDate: CalendarItem,
+    list:Array<CalendarItem>
+}
+
+type HeaderContent = {
+	title:string,
+	currentText:string,
+	prevText:string,
+	nextText:string,
+}
+
+interface CalendarContext {
+    headerContent: HeaderContent
+    value: Dayjs,
+}
+
+const calendarContextKey: InjectionKey<CalendarContext> = Symbol(
+    'calendarContextKey'
+)
+```

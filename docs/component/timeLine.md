@@ -584,41 +584,55 @@ const list = [
 |year|自定义年份内容|`{year:string\|number,format:function}`|
 |popper|弹窗内容|`LineItem`|
 
-## DefaultConfig
+### PropsType
 
-| 属性名 | 说明 | 类型   | 可选值     | 默认值  |
-| :----: | :---- | :------: | :----------: | :-------: |
-| beforeWidth | 起始年宽度 | `number` | -     | 60 |
-| lineColor | 时间轴颜色 | `string` | -     | - |
-| lineHeight | 时间轴高度 | `number` | -     | - |
-| lineWidth | 时间轴宽度 | `number` / `auto` | `auto`     | 344 |
-| pointColor | 时间点颜色 | `string` | -     | - |
-| pointHeight | 时间点高度 | `number` | -     | - |
-| pointWidth | 时间点宽度 | `number` | -     | - |
-| selected | 可选中 | `boolean` | `false`     | `true` |
-| showPopper | 显示弹窗 | `boolean` | `false`     | `true` |
+```ts:no-line-numbers
+// import type { TimeLineItem, DefaultConfig, SplitType } from '@various-curious-ui/typings';
+type DefaultConfig = {
+	pointColor?: string;
+	pointWidth?: number;
+	pointHeight?: number;
+	lineHeight?: number;
+	lineWidth?: number | 'auto';
+	lineColor?: number;
+	showPopper?: Boolean;
+	selected?: Boolean;
+	beforeWidth?: number;
+}
 
-## SplitType
+type LineItem = {
+	date?: Dayjs | string;
+	desc?: string;
+	showPopper?: boolean;
+	selected?: boolean;
+	pointStyle?: any;
+	disabled?: boolean;
+}
 
-| 属性名 | 说明 | 类型   | 可选值     | 默认值  |
-| :----: | :---- | :------: | :----------: | :-------: |
-| gap | 分割线距离时间轴间距 | `string` / `number` | -     | - |
-| line | 分割线配置项 | `SplitLine` | -     | - |
-| title | 分割标题配置项 | `SplitTitle` | -     | - |
+type TimeLineItem = {
+	year: string | number;
+	list: Array<LineItem>;
+	format?: (val?: TimeLineItem) => any;
+}
 
-### SplitTitle
+type TimeLine = Array<TimeLineItem>
 
-| 属性名 | 说明 | 类型   | 可选值     | 默认值  |
-| :----: | :---- | :------: | :----------: | :-------: |
-| color | 标题颜色 | `string` | -     | - |
-| fontSize | 标题文字尺寸 | `string` / `number` | -     | - |
-| format | 格式化 | `function` | -     | - |
-| lineHight | 标题文字尺寸 | `string` / `number` | -     | - |
+type SplitTitle = {
+	color?: string;
+	fontSize?: number | string;
+	lineHight?: number | string;
+	format?: (val?: TimeLineItem) => any;
+}
 
-### SplitLine
+type SplitLine = {
+	color?: string;
+	width?: number | string;
+	height?: number | string;
+}
 
-| 属性名 | 说明 | 类型   | 可选值     | 默认值  |
-| :----: | :---- | :------: | :----------: | :-------: |
-| color | 分割线颜色 | `string` | -     | - |
-| height | 分割线高度 | `string` / `number` | -     | - |
-| width | 分割线宽度 | `string` / `number` | -     | - |
+type SplitType = {
+	title?: SplitTitle;
+	line?: SplitLine;
+	gap?: string | number;
+}
+```

@@ -1,5 +1,7 @@
 @import url(./var.less);
 @import url(./table.less);
+@import url(./code.less);
+
 .flex-item {
     display: flex;
     align-items: center;
@@ -13,4 +15,9 @@
     justify-content: center;
     flex-wrap: wrap;
     gap: 12px;
+}
+
+.dark{
+    --vc-color-danger-fade:var(--vc-color-danger-deep-dark);
+    --vc-color-primary-fade:var(--vc-color-primary-deep-dark);
 }

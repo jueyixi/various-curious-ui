@@ -8,7 +8,7 @@
 import { ref, onMounted, computed } from 'vue';
 import { ringProps } from "./ring"
 import { useNS, useZIndex } from "vc-hooks"
-import { isArray, getColor } from 'vc-utils';
+import { isArray, getColor, getSkin } from 'vc-utils';
 import type { SubTextStyle, TextStyle } from "@various-curious-ui/typings"
 
 defineOptions({
@@ -223,7 +223,7 @@ const fontStyle: TextStyle = {
 const drawText = (ctx) => {
     ctx.save();
     ctx.font = `${fontStyle.fontWeight} ${fontStyle.fontSize}px ${fontStyle.fontFamily}`;
-    ctx.fillStyle = fontStyle.color || '#000';
+    ctx.fillStyle = fontStyle.color || getSkin('--vc-ring-text-color');
     ctx.textAlign = fontStyle.textAlign;
     ctx.textBaseline = fontStyle.textBaseline;
     let value: any = props.animate
@@ -278,7 +278,7 @@ const subFontStyle: SubTextStyle = {
 const drawSubText = (ctx) => {
     if (props.subTitle) {
         ctx.font = `${subFontStyle.fontWeight} ${subFontStyle.fontSize}px ${subFontStyle.fontFamily}`;
-        ctx.fillStyle = subFontStyle.color || '#000';
+        ctx.fillStyle = subFontStyle.color || getSkin('--vc-ring-text-color');
         ctx.textAlign = subFontStyle.textAlign;
         ctx.textBaseline = subFontStyle.textBaseline;
         textWidth3 = ctx.measureText(props.subTitle)?.width || 0;

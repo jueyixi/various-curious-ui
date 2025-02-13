@@ -226,3 +226,22 @@ from、to、by相互之间有制约关系：
 | 插槽名称 | 说明 |类型|
 |:--:|--|--|
 |text|自定义文案|`number`|
+
+### PropsType
+
+```ts:no-line-numbers
+// import {Gradients} from "@various-curious-ui/typings"
+type ColorStop = {
+	offset: string;
+	color: string;
+}
+
+type Gradients = {
+	id: string;
+	x1: string;
+	y1: string;
+	x2: string;
+	y2: string;
+	colorStops: ColorStop[];
+}
+```

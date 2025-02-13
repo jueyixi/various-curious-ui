@@ -221,7 +221,7 @@ const boundariesRef = ref<HTMLElement>()
 .virtual-doms{
     width: 200px;
     height: 200px;
-    border: 1px solid rgba(0,0,0,0.5);
+    border: 1px solid var(--vc-divider-color);
     padding:10px;
 }
 </style>
@@ -282,7 +282,7 @@ onMounted(() => {
 .virtual-doms{
     width: 200px;
     height: 200px;
-    border: 1px solid rgba(0,0,0,0.5);
+    border: 1px solid var(--vc-divider-color);
     padding:10px;
 }
 </style>
@@ -304,7 +304,7 @@ onMounted(() => {
 | disabled | 是否禁止floating元素弹出 | `boolean` / `null` |  `true` \\| `false`  | `null` |
 | effect | 内置主题 | `string` | `dark`    | `light` |
 | floatingClass | floating元素自定义类名 | `string` | -    | - |
-| floatingOptions | floating元素配置项| `string` \\| `array` | -    | - |
+| floatingOptions | floating元素配置项，详情请参照 [floating-ui](#https://floating-ui.com/docs/getting-started)| `object` | -    | - |
 | floatingStyle | floating元素行内样式 | `string` \\| `object` \\| `array` | -    | - |
 | offset | floating元素相对于reference元素的偏移 | `number` | -    | 8 |
 | openDelay | floating元素出现前的延迟时间 | `number` | -    | 0 |
@@ -344,3 +344,10 @@ onMounted(() => {
 |:--:|--|--|
 |reference|自定义reference元素|-|
 |default|floating组件内容元素|-|
+
+### PropsType
+
+```ts:no-line-numbers
+// import { FloatingTrigger } from "@various-curious-ui/typings"
+type FloatingTrigger = 'hover' | 'click' | 'focus' | 'clickToOpen' | 'unset' | 'manual'
+```

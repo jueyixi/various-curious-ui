@@ -36,7 +36,7 @@ export const ringProps = {
 	// 背景色
 	background: {
 		type: String,
-		default: 'rgba(0,0,0,0.1)',
+		default: '#d9d9d9',
 	},
 	// 背景色
 	innerBackground: String,

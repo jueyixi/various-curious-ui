@@ -1,6 +1,6 @@
 import { PropType } from 'vue';
 import type { ExtractPropTypes } from 'vue';
-import type {Gradients} from "@various-curious-ui/typings"
+import {Gradients} from "@various-curious-ui/typings"
 
 const lineCapType = ['butt', 'round'] as const;
 const fillType = ['freeze', 'remove'] as const;
