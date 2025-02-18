@@ -1,6 +1,6 @@
 import { PropType } from 'vue';
 import type { ExtractPropTypes } from 'vue';
-import {Dayjs} from 'dayjs';
+import dayjs from 'dayjs';
 
 const mode = ['week', 'month', 'year'] as const;
 
@@ -19,7 +19,7 @@ export const calendarProps = {
 	currentText: String,
 	prevText: String,
 	nextText: String,
-	value: Dayjs,
+	value: dayjs.Dayjs,
 } as const;
 
 export const calendarEmits = ['update:value'];

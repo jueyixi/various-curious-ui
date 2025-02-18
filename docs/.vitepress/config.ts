@@ -4,7 +4,7 @@ import { demoBlockPlugin, demoblockVitePlugin } from 'vitepress-theme-demoblock'
 
 export default {
 	base: '/various-curious-ui',
-	 lang: 'en-ZH',
+	lang: 'en-ZH',
 	title: "Various Curious Ui",
 	titleTemplate: "使用文档",
 	description: "vue3,vite,ui,svg,canvas",

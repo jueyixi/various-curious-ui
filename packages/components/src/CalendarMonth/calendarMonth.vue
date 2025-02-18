@@ -50,7 +50,7 @@ import { calendarMonthProps, calendarMonthEmits } from "./calendarMonth"
 import { useNS, useCalendar } from "vc-hooks"
 import { filterArrayTwoDimensional,setValueByPx,isString,isArray } from "vc-utils"
 import { CalendarItem, SelectedCalendarItem, HeaderContent, CalendarContext, calendarContextKey } from "@various-curious-ui/typings"
-import { Dayjs } from 'dayjs';
+import dayjs from 'dayjs';
 defineOptions({
     name: "VcCalendarMonth",
     inheritAttrs: false
@@ -132,7 +132,7 @@ const setToday = () => {
     emits(emitName, detail);
 };
 // 指定日期
-const setDate = (appointDate?: Dayjs) => {
+const setDate = (appointDate?: dayjs.Dayjs) => {
     const { detail, emitName } = handle.setDate(appointDate || calendarValue.value);
     formData.value = detail;
     emits(emitName, detail);

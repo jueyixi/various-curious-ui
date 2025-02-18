@@ -1,4 +1,4 @@
-import { Dayjs } from 'dayjs';
+import dayjs from 'dayjs';
 import { InjectionKey } from 'vue';
 
 export type DefaultConfig = {
@@ -14,7 +14,7 @@ export type DefaultConfig = {
 };
 
 export type LineItem = {
-	date?: Dayjs | string;
+	date?: dayjs.Dayjs | string;
 	desc?: string;
 	showPopper?: boolean;
 	selected?: boolean;

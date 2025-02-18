@@ -1,7 +1,7 @@
 import { toRaw, } from 'vue';
 import { useDayjs } from './useDayjs.js';
 import type { CalendarItem, SelectedCalendarItem,CalendarDetail } from "@various-curious-ui/typings"
-import { Dayjs } from 'dayjs';
+import dayjs from 'dayjs';
 
 const { getDateData, setDateData, addDate,subtractDate, getYearMonth, getValue } = useDayjs();
 const Day = 24 * 60 * 60 * 1000
@@ -72,8 +72,8 @@ export const useCalendar = (type = 'week', multiple?: boolean) => {
 		return getDetail(start, 'setToday');
 	};
 	// 指定某天所在的日历面板
-	const setDate = (value:Dayjs) => {
-		time = getDateData(value)
+	const setDate = (value: dayjs.Dayjs) => {
+		time = getDateData(value);
 		if (type === 'week') {
 			start = getDateData(time.value - (time.week - 1) * Day);
 		}

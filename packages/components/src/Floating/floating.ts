@@ -98,7 +98,7 @@ export const floatingProps = {
 	 */
 	reference: Object as PropType<any>,
 	// 虚拟元素--支持dom选择器名称，ref，自定义
-	virtualRef: [String, Object, Element] as PropType<string | VirtualElement | Element>,
+	virtualRef: [String, Object, Object] as PropType<string | VirtualElement | Element>,
 	boundariesRef: Object as PropType<any>,
 	/**
 	 * @description 是否开启快速跟踪, 当reference元素是可以移动的且floating元素更不上移动时开启此项

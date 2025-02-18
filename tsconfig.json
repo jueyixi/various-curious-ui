@@ -12,6 +12,7 @@
 	"compilerOptions": {
 		"ignoreDeprecations": "5.0",
 		"isolatedModules": true,
+		"allowSyntheticDefaultImports": true,
 		"lib": ["es6"],
 		"module": "ESNext",
 		"moduleResolution": "Node",

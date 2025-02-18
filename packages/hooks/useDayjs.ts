@@ -1,4 +1,4 @@
-import dayjs,{Dayjs,UnitType,ManipulateType,OpUnitType} from 'dayjs';
+import dayjs from 'dayjs';
 import 'dayjs/locale/zh-cn';
 dayjs.locale('zh-cn');
 export const useDayjs = () => {
@@ -22,9 +22,9 @@ export const useDayjs = () => {
     return date < 10 ? `0${date}` : date;
   };
   // 格式化
-  const format = (value:Dayjs | string, format = 'YYYY-MM-DD') => dayjs(value).format(format);
+  const format = (value: dayjs.Dayjs | string, format = 'YYYY-MM-DD') => dayjs(value).format(format);
   // 时间戳
-  const getValue = (value:Dayjs | Date) => dayjs(value).valueOf();
+  const getValue = (value: dayjs.Dayjs | Date) => dayjs(value).valueOf();
   const getYearMonth = (year:number, month:number) => new Date(year, month, 0).getDate();
   // 获取/设置年份
   const handleYear = (value:number) => dayjs().year(value);
@@ -35,15 +35,17 @@ export const useDayjs = () => {
   // 获取/设置星期
   const handleDay = (value:number) => dayjs().day(value);
   // 设置时间
-  const setDate = (value:number, unit:UnitType) => dayjs().set(unit, value);
+  const setDate = (value: number, unit: dayjs.UnitType) => dayjs().set(unit, value);
   // 增加日期
-  const addDate = (start:Dayjs | Date | number, value:number, unit:ManipulateType) => getDateData(dayjs(start).add(value, unit));
+  const addDate = (start: dayjs.Dayjs | Date | number, value: number, unit: dayjs.ManipulateType) =>
+		getDateData(dayjs(start).add(value, unit));
   // 减少日期
-  const subtractDate = (start:Dayjs | Date | number, value:number, unit:ManipulateType) => getDateData(dayjs(start).subtract(value, unit));
+  const subtractDate = (start: dayjs.Dayjs | Date | number, value: number, unit: dayjs.ManipulateType) =>
+		getDateData(dayjs(start).subtract(value, unit));
   // 开头时间
-  const startDate = (value = '', unit:OpUnitType) => dayjs(value).startOf(unit);
+  const startDate = (value = '', unit: dayjs.OpUnitType) => dayjs(value).startOf(unit);
   // 结束时间
-  const endDate = (value = '', unit:OpUnitType) => dayjs(value).endOf(unit);
+  const endDate = (value = '', unit: dayjs.OpUnitType) => dayjs(value).endOf(unit);
   const englishMonthList = [
     'Jan',
     'Feb',

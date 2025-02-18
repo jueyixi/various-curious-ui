@@ -1,6 +1,6 @@
 import { PropType } from 'vue';
 import type { ExtractPropTypes, StyleValue } from 'vue';
-import {Dayjs} from 'dayjs';
+import dayjs from 'dayjs';
 
 export const calendarWeekProps = {
 	columns: {
@@ -29,7 +29,7 @@ export const calendarWeekProps = {
 		default: '',
 	},
 	contentClass: [String, Array] as PropType<string | string[]>,
-	value: Dayjs,
+	value: dayjs.Dayjs,
 } as const;
 
 export const calendarWeekEmits = ['prev', 'next', 'setToday', 'change','setDate','update:value'];

@@ -33,7 +33,7 @@ export const getType = (obj) => {
 		'[object Null]': 'null', // null
 		'[object Object]': 'object', // 对象
 	};
-	if (obj instanceof Element) {
+	if (obj instanceof HTMLElement) {
 		return 'element'; // dom
 	}
 	return map[toString.call(obj)];

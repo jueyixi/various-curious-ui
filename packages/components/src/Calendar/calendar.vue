@@ -37,7 +37,7 @@ import VcCalendarWeek from '../CalendarWeek/calendarWeek.vue';
 import VcCalendarMonth from '../CalendarMonth/calendarMonth.vue';
 import VcCalendarYear from '../CalendarYear/calendarYear.vue';
 import { useNS } from "vc-hooks"
-import dayjs, { Dayjs } from "dayjs"
+import dayjs from "dayjs"
 import { SelectedCalendarItem, HeaderContent, CalendarContext, calendarContextKey } from '@various-curious-ui/typings';
 defineOptions({
     name: "VcCalendar",
@@ -117,7 +117,7 @@ const change = (appointDate: SelectedCalendarItem) => {
     return componentRef.value?.change(appointDate)
 }
 
-const setDate = (appointDate?: Dayjs) => {
+const setDate = (appointDate?: dayjs.Dayjs) => {
     return componentRef.value?.setDate(appointDate)
 }
 

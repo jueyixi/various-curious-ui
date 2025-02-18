@@ -47,7 +47,7 @@ import type { StyleValue } from "vue"
 import { timeLineProps, timeLineEmits } from "./timeLine";
 import { useNS } from "vc-hooks"
 import { setValueByPx, isArray, isString, toFixed } from "vc-utils"
-import dayjs, { Dayjs } from 'dayjs';
+import dayjs from 'dayjs';
 import isLeapYear from 'dayjs/plugin/isLeapYear'
 import VcFloating from '../Floating/floating.vue';
 import type { TimeLine, LineItem, TimeLineItem, DefaultConfig, SplitType } from "@various-curious-ui/typings"
@@ -277,7 +277,7 @@ const getPonitStyle = (year:string | number, item: LineItem) => {
     const february = year ? dayjs(year + "-02-10") : "";
 
     // 判断当前年份是否为闰年
-    const isLeapYear = year ? (february as Dayjs).isLeapYear() : false;
+    const isLeapYear = year ? (february as dayjs.Dayjs).isLeapYear() : false;
 
     // 获取当年天数
     let daysInYear = 365;

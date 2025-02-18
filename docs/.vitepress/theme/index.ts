@@ -4,9 +4,8 @@ import 'various-curious-ui/style/index.less';
 import * as Icons from '@various-curious-ui/icons';
 import * as examples from '../example';
 import { createRouter, createWebHistory } from 'vue-router';
+import { useComponents } from './useComponents';
 
-import Demo from 'vitepress-theme-demoblock/dist/client/components/Demo.vue';
-import DemoBlock from 'vitepress-theme-demoblock/dist/client/components/DemoBlock.vue';
 import 'vitepress-theme-demoblock/dist/theme/styles/index.css';
 
 import "../styles/index.less";
@@ -14,9 +13,10 @@ import "../styles/index.less";
 //全局注册组件
 export default {
 	...DefaultTheme,
-	enhanceApp: async ({ app }) => {
-		app.component('Demo', Demo);
-		app.component('DemoBlock', DemoBlock);
+	enhanceApp: async (ctx) => {
+		const { app } = ctx;
+		DefaultTheme.enhanceApp(ctx);
+		useComponents(app);
 		app.use(vc);
 		for (const [key, component] of Object.entries(Icons)) {
 			app.component(key, component)

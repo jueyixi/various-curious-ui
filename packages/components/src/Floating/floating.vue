@@ -167,7 +167,7 @@ if (props.quickTrack) {
 
 // 可以通过点击body关闭floating
 if (props.closeOnClickBody) {
-	let trigger: Element | null;
+	let trigger: Element | null = null;
 	useEventListener(document.body, 'mousedown', (evt: Event) => {
 		if (!flag.value) return;
 		evt.stopPropagation();
@@ -323,7 +323,7 @@ const openVirtualFloating = (mouseWays: string) => {
 
 // 关闭弹窗
 const closeVirtualFloating = (mouseWays: string) => {
-	let trigger: Element | null;
+	let trigger: Element | null = null;
 	useEventListener(document.body, mouseWays, (evt: Event) => {
 		evt.stopPropagation();
 		trigger = evt.target as Element;
