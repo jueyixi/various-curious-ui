@@ -1,0 +1,9 @@
+打包文档：
+目前项目使用的是ts，但是vitepress-theme-demoblock插件是js模式，打包文档时会失败，需要手动更新依赖包文件：
+在node_modules下找到vitepress-theme-demoblock文件夹，找到dist/client/components文件夹，将message.mjs改为message.ts即可
+
+打包组件库：
+需要使用package_build文件
+
+本地调试：
+需要使用package文件

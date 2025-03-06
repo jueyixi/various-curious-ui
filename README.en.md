@@ -1,7 +1,7 @@
 # various-curious-ui
 
 #### Description
-一个vue3+vite组件库，源码地址：https://gitee.com/jueyixi/various-curious-ui
+一个vue3+vite组件库，源码地址：https://github.com/jueyixi/various-curious-ui
 
 #### Software Architecture
 Software architecture description
@@ -26,11 +26,11 @@ Software architecture description
 4.  Create Pull Request
 
 
-#### Gitee Feature
+#### Github Feature
 
 1.  You can use Readme\_XXX.md to support different languages, such as Readme\_en.md, Readme\_zh.md
-2.  Gitee blog [blog.gitee.com](https://blog.gitee.com)
-3.  Explore open source project [https://gitee.com/explore](https://gitee.com/explore)
-4.  The most valuable open source project [GVP](https://gitee.com/gvp)
-5.  The manual of Gitee [https://gitee.com/help](https://gitee.com/help)
-6.  The most popular members  [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)
+2.  Github blog [blog.github.com](https://blog.github.com)
+3.  Explore open source project [https://github.com/explore](https://github.com/explore)
+4.  The most valuable open source project [GVP](https://github.com/gvp)
+5.  The manual of Github [https://github.com/help](https://github.com/help)
+6.  The most popular members  [https://github.com/github-stars/](https://github.com/github-stars/)

@@ -6,7 +6,7 @@
 
 ## 相关链接
 
-- gitee：[various-curios-ui](https://gitee.com/jueyixi/various-curious-ui)
+- github：[various-curios-ui](https://github.com/jueyixi/various-curious-ui)
 
 ## 安装
 
@@ -46,7 +46,7 @@ import { VcButton } from 'various-curios-ui'
 - 获取项目代码
 
 ```sh
-git clone https://gitee.com/jueyixi/various-curious-ui.git
+git clone https://github.com/jueyixi/various-curious-ui.git
 ```
 
 - 安装依赖包

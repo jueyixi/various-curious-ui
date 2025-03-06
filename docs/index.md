@@ -15,7 +15,7 @@ hero:
     - theme: alt
 
       text: 访问仓库
-      link: https://gitee.com/jueyixi/various-curious-ui
+      link: https://github.com/jueyixi/various-curious-ui
 
 features:
   - icon: 🛠️

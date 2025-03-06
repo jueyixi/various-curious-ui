@@ -14,7 +14,7 @@ git init  #执行这些git命令
 git add -A
 git commit -m '[类型]: 备注'
  
-git push -f https://gitee.com/jueyixi/various-curious-ui.git master  #提交到这个分支
+git push -f https://github.com/jueyixi/various-curious-ui.git master  #提交到这个分支
  
 cd -
  

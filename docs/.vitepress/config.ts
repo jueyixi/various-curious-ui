@@ -72,7 +72,7 @@ export default {
 			{ text: '组件', link: '/component/button' },
 			{ text: 'Hooks', link: '/hooks/useLockDom' },
 			{ text: '技术分享', link: '/shareSkill/index' },
-			{ text: 'gitee', link: 'https://gitee.com/jueyixi/various-curious-ui' },
+			{ text: 'github', link: 'https://github.com/jueyixi/various-curious-ui' },
 		],
 		sidebar: {
 			'/component/': [
@@ -113,7 +113,7 @@ export default {
 		},
 		// editLink: {
 		// 	pattern: ({ filePath }) => {
-		// 		return `https://gitee.com/jueyixi/various-curious-ui/docs/${filePath}`;
+		// 		return `https://github.com/jueyixi/various-curious-ui/docs/${filePath}`;
 		// 	},
 		// },
 		demoblock: {
