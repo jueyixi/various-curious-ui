@@ -8,7 +8,7 @@ export default {
 	title: "Various Curious Ui",
 	titleTemplate: "使用文档",
 	description: "vue3,vite,ui,svg,canvas",
-	outDir:"dist",
+	outDir:"../dist",
 	vite: {
 		plugins: [demoblockVitePlugin()],
 		server: {
