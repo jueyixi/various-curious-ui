@@ -3,12 +3,12 @@ import path from 'path'
 import { demoBlockPlugin, demoblockVitePlugin } from 'vitepress-theme-demoblock';
 
 export default {
-	base: '/',
+	base: '/various-curious-ui/',
 	lang: 'en-ZH',
-	title: "Various Curious Ui",
-	titleTemplate: "使用文档",
-	description: "vue3,vite,ui,svg,canvas",
-	outDir:"../docs/",
+	title: 'Various Curious Ui',
+	titleTemplate: '使用文档',
+	description: 'vue3,vite,ui,svg,canvas',
+	outDir: '../docs/',
 	vite: {
 		plugins: [demoblockVitePlugin()],
 		server: {
@@ -43,7 +43,7 @@ export default {
 		siteTitle: 'Various Curious Ui',
 		logo: '/logo.svg',
 		outlineTitle: 'CONTENTS',
-		darkMode:true,
+		darkMode: true,
 		search: {
 			provider: 'local',
 			options: {
@@ -52,7 +52,7 @@ export default {
 						translations: {
 							button: {
 								buttonText: '搜索文档',
-								buttonAriaLabel: '搜索文档'
+								buttonAriaLabel: '搜索文档',
 							},
 							modal: {
 								noResultsText: '无法找到相关结果',
@@ -60,13 +60,13 @@ export default {
 								footer: {
 									selectText: '选择',
 									navigateText: '切换',
-									closeText: '关闭'
-								}
-							}
-						}
-					}
-				}
-			}
+									closeText: '关闭',
+								},
+							},
+						},
+					},
+				},
+			},
 		},
 		nav: [
 			{ text: '指南', link: '/guide/method' },
@@ -78,17 +78,17 @@ export default {
 		sidebar: {
 			'/component/': [
 				{
-					text: "通用组件",
-					items:commonComponent
+					text: '通用组件',
+					items: commonComponent,
 				},
 				{
-					text: "数据展示",
-					items:DataComponent
+					text: '数据展示',
+					items: DataComponent,
 				},
 				{
-					text: "动画组件",
-					items:animateComponent
-				}
+					text: '动画组件',
+					items: animateComponent,
+				},
 			],
 			'/guide/': [
 				{
@@ -102,7 +102,7 @@ export default {
 					],
 				},
 			],
-			'/hooks/': hooksComponent
+			'/hooks/': hooksComponent,
 		},
 		footer: {
 			message: 'Released under the MIT License.',
@@ -110,7 +110,7 @@ export default {
 		},
 		docFooter: {
 			prev: '上一页',
-			next: '下一页'
+			next: '下一页',
 		},
 		// editLink: {
 		// 	pattern: ({ filePath }) => {
@@ -118,7 +118,7 @@ export default {
 		// 	},
 		// },
 		demoblock: {
-			'root': {
+			root: {
 				'view-source': '查看源代码',
 				'hide-source': '隐藏源代码',
 				'edit-in-editor': '在 Playground 中编辑',
@@ -126,14 +126,14 @@ export default {
 				'copy-code': '复制代码',
 				'copy-success': '复制成功',
 				'copy-error': '复制失败',
-			}
-		}
+			},
+		},
 	},
 	markdown: {
 		lineNumbers: true,
 		theme: {
-			light: "vitesse-light",
-			dark: "vitesse-dark",
+			light: 'vitesse-light',
+			dark: 'vitesse-dark',
 		},
 		config(md) {
 			md.use(demoBlockPlugin);

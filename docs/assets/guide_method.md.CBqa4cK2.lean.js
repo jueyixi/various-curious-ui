@@ -1,1 +1,0 @@
-import{a0 as s,c as i,a,as as n}from"./chunks/framework.Dm6OwOQh.js";const y=JSON.parse('{"title":"快速上手","description":"","frontmatter":{},"headers":[],"relativePath":"guide/method.md","filePath":"guide/method.md"}'),l={name:"guide/method.md"},e=n("",17),p=[e];function t(h,k,r,d,c,g){return a(),i("div",null,p)}const u=s(l,[["render",t]]);export{y as __pageData,u as default};
