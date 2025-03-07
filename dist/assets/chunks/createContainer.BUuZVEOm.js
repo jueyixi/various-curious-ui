@@ -1,1 +1,0 @@
-import{I as o}from"./theme.CU95Ohz0.js";import"./framework.Dm6OwOQh.js";const a=function(){const n=document.createElement("div"),t=document.body,e=new o;return n.classList.add("vc-floating-container"),n.style.zIndex=e.nextIndex().toString(),t.appendChild(n),"＞﹏＜"},c=a();export{c as default};
