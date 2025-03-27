@@ -1,7 +1,7 @@
 {
 	"name": "@various-curious-ui/icons",
-	"version": "0.0.0",
-	"description": "",
+	"version": "1.0.0",
+	"description": "various-curious-ui 已用图标集合",
 	"main": "src/index.ts",
 	"files": [
 		"es",
@@ -11,6 +11,13 @@
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"build": "vite build"
 	},
+	"keywords": [
+		"vue",
+		"vue3",
+		"various-curious-ui",
+		"ui",
+		"vc-ui"
+	],
 	"author": "jueyixi",
 	"license": "MIT"
 }

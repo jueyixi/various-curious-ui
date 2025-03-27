@@ -12,6 +12,18 @@ dist-ssr
 *.local
 .vite
 
+packages/hooks/es
+packages/hooks/lib
+
+packages/utils/es
+packages/utils/lib
+
+packages/icons/es
+packages/icons/lib
+
+packages/typings/es
+packages/typings/lib
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

@@ -1,13 +1,19 @@
 {
 	"name": "vc-hooks",
-	"version": "0.0.0",
-	"description": "",
-	"main": "index.ts",
+	"version": "1.0.0",
+	"description": "various-curious-ui 内置hooks",
+	"main": "./src/index.ts",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"build": "vite build"
 	},
-	"keywords": [],
-	"author": "",
-	"license": "ISC"
+	"keywords": [
+		"vue",
+		"vue3",
+		"various-curious-ui",
+		"vc-ui",
+		"hooks"
+	],
+	"author": "jueyixi",
+	"license": "MIT"
 }

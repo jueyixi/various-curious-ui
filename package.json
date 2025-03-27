@@ -27,10 +27,11 @@
 		"ui"
 	],
 	"author": "jueyixi",
-	"license": "ISC",
+	"license": "MIT",
 	"workspaces": [
 		"packages/*",
-		"docs"
+		"docs",
+		"vitepress"
 	],
 	"devDependencies": {
 		"@commitlint/cli": "^17.8.0",

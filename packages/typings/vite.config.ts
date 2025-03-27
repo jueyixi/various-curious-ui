@@ -10,7 +10,7 @@ export default defineConfig({
 		minify: false,
 		rollupOptions: {
 			external: ['vue'],
-			input: ['src/index.ts'],
+			input: ['./src/index.ts'],
 			output: [
 				{
 					format: 'es',
@@ -30,7 +30,7 @@ export default defineConfig({
 		},
 		lib: {
 			entry: './src/index.js',
-			name: '@various-curious-ui/icons',
+			name: '@various-curious-ui/typings',
 			formats: ['es', 'cjs'],
 		},
 	},

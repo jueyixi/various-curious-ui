@@ -1,25 +1,16 @@
 {
 	"name": "various-curious-ui",
-	"version": "1.0.0-beta",
+	"version": "1.0.0",
 	"description": "一个适用于vue3项目的组件库。",
-	"main": "lib/index.ts",
-	"module": "es/index.ts",
-	"files": [
-		"es",
-		"lib",
-		"README.md"
-	],
+	"main": "lib/index.js",
+	"module": "es/index.js",
+	"homepage": "https://jueyixi.github.io/various-curious-ui/",
+	"files": ["es", "lib", "README.md"],
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"build": "vite build"
 	},
-	"keywords": [
-		"vue",
-		"vue3",
-		"vite",
-		"ui",
-		"vc-ui"
-	],
+	"keywords": ["vue", "vue3", "vite", "ui", "vc-ui"],
 	"author": "jueyixi",
 	"license": "MIT",
 	"dependencies": {

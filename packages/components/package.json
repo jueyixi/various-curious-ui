@@ -1,6 +1,6 @@
 {
 	"name": "various-curious-ui",
-	"version": "1.0.0-beta",
+	"version": "1.0.0",
 	"description": "一个适用于vue3项目的组件库。",
 	"main": "src/index.ts",
 	"files": [

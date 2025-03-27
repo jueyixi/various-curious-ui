@@ -4,7 +4,7 @@ const getColor = (startColor, endColor, step) => {
 	const stepR = (endColor[0] - startColor[0]) / step; // 总差值
 	const stepG = (endColor[1] - startColor[1]) / step;
 	const stepB = (endColor[2] - startColor[2]) / step;
-	const colorArr = [];
+	const colorArr:any = [];
 	for (let i = 0; i < step; i++) {
 		const color = `rgb(${stepR * i + startColor[0]},${stepG * i + startColor[1]},${stepB * i + startColor[2]})`;
 		colorArr.push(color);
@@ -39,7 +39,7 @@ const hexToRgb = (hex) => {
 			'0x' + hex.slice(5, 7),
 		)})`;
 		return color;
-	} else alert('颜色错误');
+	}
 };
 
 const changeHex = (hex) => {
@@ -51,7 +51,6 @@ const changeHex = (hex) => {
 		];
 	else if (hex.length == 7)
 		return [parseInt('0x' + hex.slice(1, 3)), parseInt('0x' + hex.slice(3, 5)), parseInt('0x' + hex.slice(5, 7))];
-	else alert('颜色错误');
 };
 
 const changeRgba = (color) => {

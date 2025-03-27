@@ -1,8 +1,17 @@
 {
 	"name": "@various-curious-ui/typings",
-	"version": "0.0.0",
-	"private": true,
+	"version": "1.0.0",
+	"description": "various-curious-ui 类型集合",
+	"author": "jueyixi",
 	"license": "MIT",
-	"main": "index.ts",
-	"sideEffects": false
+	"main": "./src/index.ts",
+	"sideEffects": false,
+	"files": [
+		"es",
+		"lib"
+	],
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"build": "vite build"
+	}
 }

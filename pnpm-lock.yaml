@@ -125,7 +125,17 @@ importers:
 
   packages/icons: {}
 
-  packages/typings: {}
+  packages/typings:
+    dependencies:
+      '@vueuse/core':
+        specifier: ^10.9.0
+        version: 10.11.0(vue@3.4.29)
+      dayjs:
+        specifier: ^1.11.10
+        version: 1.11.11
+      vue:
+        specifier: ^3.3.4
+        version: 3.4.29(typescript@5.4.5)
 
   packages/utils: {}
 

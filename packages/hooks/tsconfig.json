@@ -1,11 +1,14 @@
 {
-  "include": ["env.d.ts","./*.ts"],
+  "include": ["env.d.ts","./src/*.ts"],
   "compilerOptions": {
-    "ignoreDeprecations": "5.0",
-    "isolatedModules": true,
-    "baseUrl": "./",
-    "forceConsistentCasingInFileNames": false,
-    "noUnusedLocals": false,
-    "esModuleInterop":true
+		"ignoreDeprecations": "5.0",
+		"isolatedModules": true,
+		"baseUrl": "./",
+		"forceConsistentCasingInFileNames": false,
+		"noUnusedLocals": false,
+		"esModuleInterop": true,
+		"paths": {
+			"@/*": ["./src/*"]
+		}
   }
 }

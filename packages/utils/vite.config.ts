@@ -30,7 +30,7 @@ export default defineConfig({
 		},
 		lib: {
 			entry: './src/index.js',
-			name: '@various-curious-ui/icons',
+			name: 'vc-utils',
 			formats: ['es', 'cjs'],
 		},
 	},
